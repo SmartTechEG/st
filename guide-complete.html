@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Tech — الدليل الشامل v4.0 | GitHub · الاستضافة · إدارة العملاء</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --g:#D4AF37;--g2:#FFD700;--g3:#B8860B;--m:#0a0a0a;--m2:#111;--m3:#181818;
+  --rim:rgba(212,175,55,.18);--rim2:rgba(212,175,55,.32);
+  --t1:#f0e6c8;--t2:#c9a96e;--t3:#7a6840;--t4:#3d3420;
+  --ok:#2ecc71;--info:#3498db;--warn:#f39c12;--danger:#e74c3c;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--m);color:var(--t1);font-family:'Cairo',sans-serif;font-size:15px;line-height:1.75}
+a{color:var(--g);text-decoration:none}
+a:hover{text-decoration:underline}
+code{background:rgba(212,175,55,.1);border:1px solid var(--rim);border-radius:5px;padding:2px 7px;font-family:monospace;font-size:.88em;color:var(--g2)}
+pre{background:rgba(0,0,0,.5);border:1px solid var(--rim2);border-radius:12px;padding:20px;overflow-x:auto;margin:16px 0}
+pre code{background:none;border:none;padding:0;color:#e0d5a0;font-size:.85rem;line-height:1.7}
+
+/* ── Header ── */
+.site-header{
+  background:linear-gradient(135deg,#0a0800,#14100a);
+  border-bottom:1px solid var(--rim2);
+  padding:32px 24px;text-align:center;
+}
+.logo{font-family:'Cinzel',serif;font-size:2rem;font-weight:900;
+  background:linear-gradient(135deg,var(--g3),var(--g),var(--g2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.logo-sub{color:var(--t3);font-size:.75rem;letter-spacing:.2em;margin-top:6px;font-family:'Cinzel',serif}
+.header-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 16px;
+  background:rgba(212,175,55,.1);border:1px solid var(--rim2);border-radius:100px;
+  font-size:.78rem;color:var(--g);margin-top:14px;font-family:'Cinzel',serif}
+
+/* ── TOC ── */
+.toc{background:rgba(14,12,6,.9);border:1px solid var(--rim2);border-radius:16px;
+  padding:28px 32px;max-width:860px;margin:32px auto;position:sticky;top:0;z-index:100}
+.toc h3{font-family:'Cinzel',serif;color:var(--g);font-size:1rem;margin-bottom:16px;
+  border-bottom:1px solid var(--rim);padding-bottom:10px}
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:8px}
+.toc-item{display:flex;align-items:center;gap:8px;padding:8px 12px;
+  background:rgba(255,255,255,.03);border:1px solid var(--rim);border-radius:8px;
+  font-size:.83rem;color:var(--t2);cursor:pointer;transition:all .2s}
+.toc-item:hover{border-color:var(--g);color:var(--g);background:rgba(212,175,55,.06)}
+.toc-num{width:22px;height:22px;border-radius:50%;background:rgba(212,175,55,.15);
+  border:1px solid var(--rim2);display:flex;align-items:center;justify-content:center;
+  font-size:.7rem;font-weight:700;color:var(--g);flex-shrink:0}
+
+/* ── Main Container ── */
+.main{max-width:860px;margin:0 auto;padding:24px}
+
+/* ── Section ── */
+.section{margin-bottom:48px}
+.section-header{display:flex;align-items:center;gap:14px;margin-bottom:24px;
+  padding:18px 24px;background:linear-gradient(135deg,rgba(212,175,55,.08),rgba(212,175,55,.03));
+  border:1px solid var(--rim2);border-radius:14px}
+.section-num{width:40px;height:40px;border-radius:50%;
+  background:linear-gradient(135deg,var(--g3),var(--g));
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cinzel',serif;font-weight:900;font-size:1rem;color:var(--m);flex-shrink:0}
+.section-title{font-family:'Cinzel',serif;font-size:1.15rem;font-weight:900;color:var(--t1)}
+
+/* ── Card ── */
+.card{background:rgba(14,12,6,.9);border:1px solid var(--rim);border-radius:14px;
+  padding:24px;margin-bottom:16px}
+.card h4{font-family:'Cinzel',serif;font-size:.95rem;color:var(--g);margin-bottom:14px;
+  padding-bottom:10px;border-bottom:1px solid var(--rim)}
+.card p,.card li{font-size:.87rem;color:var(--t2);line-height:1.8}
+.card ul,.card ol{padding-right:20px;display:flex;flex-direction:column;gap:6px}
+.card li::marker{color:var(--g)}
+.card table{width:100%;border-collapse:collapse;font-size:.84rem}
+.card th{background:rgba(212,175,55,.12);color:var(--g);font-family:'Cinzel',serif;
+  padding:10px 14px;text-align:right;border:1px solid var(--rim)}
+.card td{padding:9px 14px;border:1px solid var(--rim);color:var(--t2)}
+.card tr:hover td{background:rgba(212,175,55,.04)}
+
+/* ── Alert boxes ── */
+.tip,.warn,.danger,.info,.success{border-radius:10px;padding:14px 18px;margin:14px 0;font-size:.85rem;line-height:1.8;display:flex;gap:12px}
+.tip{background:rgba(212,175,55,.08);border-right:3px solid var(--g);color:var(--t2)}
+.warn{background:rgba(243,156,18,.08);border-right:3px solid var(--warn);color:#d4a520}
+.danger{background:rgba(231,76,60,.08);border-right:3px solid var(--danger);color:#e74c3c}
+.info{background:rgba(52,152,219,.08);border-right:3px solid var(--info);color:#5dade2}
+.success{background:rgba(46,204,113,.08);border-right:3px solid var(--ok);color:var(--ok)}
+.tip strong,.warn strong,.info strong,.success strong,.danger strong{display:block;margin-bottom:4px;font-size:.9rem}
+
+/* ── Steps ── */
+.steps{display:flex;flex-direction:column;gap:12px}
+.step{display:flex;gap:16px;align-items:flex-start}
+.step-num{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--g3),var(--g));
+  display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;
+  font-weight:900;font-size:.85rem;color:var(--m);flex-shrink:0;margin-top:2px}
+.step-body strong{color:var(--t1);display:block;margin-bottom:4px;font-size:.9rem}
+.step-body p{font-size:.84rem;color:var(--t2)}
+
+/* ── Feature Grid ── */
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;margin-top:14px}
+.feat{background:rgba(255,255,255,.03);border:1px solid var(--rim);border-radius:10px;
+  padding:14px 16px;font-size:.83rem;color:var(--t2);line-height:1.65}
+.feat strong{display:block;color:var(--t1);margin-bottom:4px;font-size:.88rem}
+
+/* ── Company Cards ── */
+.host-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-top:14px}
+.host-card{background:rgba(14,12,6,.95);border:1px solid var(--rim);border-radius:12px;
+  padding:20px;transition:all .25s}
+.host-card:hover{border-color:var(--rim2);transform:translateY(-3px)}
+.host-name{font-family:'Cinzel',serif;font-size:.95rem;font-weight:900;color:var(--t1);margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.host-badge{padding:2px 8px;border-radius:100px;font-size:.65rem;font-weight:700;font-family:'Cinzel',serif}
+.hb-free{background:rgba(46,204,113,.15);border:1px solid rgba(46,204,113,.3);color:var(--ok)}
+.hb-paid{background:rgba(243,156,18,.15);border:1px solid rgba(243,156,18,.3);color:var(--warn)}
+.host-limit{font-size:.78rem;color:var(--g);margin-bottom:8px;font-weight:700}
+.host-desc{font-size:.8rem;color:var(--t3);line-height:1.65}
+.host-pros{margin-top:8px;display:flex;flex-wrap:wrap;gap:5px}
+.host-pro{padding:3px 9px;background:rgba(212,175,55,.08);border:1px solid var(--rim);
+  border-radius:100px;font-size:.68rem;color:var(--t3)}
+.host-url{margin-top:10px;font-size:.78rem}
+
+/* ── Kbd Shortcut ── */
+.kbd{display:inline-flex;align-items:center;padding:3px 8px;background:rgba(212,175,55,.12);
+  border:1px solid var(--rim2);border-radius:5px;font-family:monospace;font-size:.8rem;
+  color:var(--g);margin:0 2px}
+
+/* ── CTA Box ── */
+.cta-box{background:linear-gradient(135deg,rgba(212,175,55,.1),rgba(212,175,55,.04));
+  border:1px solid var(--rim2);border-radius:18px;padding:36px;text-align:center;margin:32px 0}
+.cta-box h3{font-family:'Cinzel',serif;font-size:1.2rem;color:var(--t1);margin-bottom:10px}
+.cta-box p{font-size:.88rem;color:var(--t2);max-width:500px;margin:0 auto 20px}
+.wa-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;
+  background:linear-gradient(135deg,#1a7a35,#25D366);color:white;border-radius:100px;
+  font-weight:700;font-size:.95rem;cursor:pointer;transition:all .25s;border:none;
+  font-family:'Cairo',sans-serif}
+.wa-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(37,211,102,.4)}
+
+/* ── File Tree ── */
+.file-tree{background:rgba(0,0,0,.4);border:1px solid var(--rim);border-radius:10px;
+  padding:16px 20px;font-family:monospace;font-size:.83rem;line-height:2;color:var(--t2)}
+.dir{color:var(--g2);font-weight:700}
+.file{color:var(--t2)}
+.comment{color:var(--t4);font-size:.78rem}
+
+/* Footer */
+.footer{text-align:center;padding:32px;border-top:1px solid var(--rim);
+  color:var(--t4);font-size:.76rem;margin-top:40px}
+
+/* Responsive */
+@media(max-width:600px){
+  .toc{position:static}
+  .toc-grid{grid-template-columns:1fr}
+  .host-grid,.feat-grid{grid-template-columns:1fr}
+  .main{padding:16px}
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="site-header">
+  <div class="logo">Smart Tech</div>
+  <div class="logo-sub">EST. 2020 — EGYPT 🇪🇬</div>
+  <div class="header-badge">📚 الدليل الشامل v4.0 — كل ما تحتاجه لإدارة مشروعك</div>
+</div>
+
+<!-- TOC -->
+<div class="toc">
+  <h3>📋 فهرس الدليل</h3>
+  <div class="toc-grid">
+    <div class="toc-item" onclick="document.getElementById('s1').scrollIntoView({behavior:'smooth'})"><span class="toc-num">1</span> ربط الموقع بـ GitHub</div>
+    <div class="toc-item" onclick="document.getElementById('s2').scrollIntoView({behavior:'smooth'})"><span class="toc-num">2</span> شركات الاستضافة المجانية</div>
+    <div class="toc-item" onclick="document.getElementById('s3').scrollIntoView({behavior:'smooth'})"><span class="toc-num">3</span> إضافة عميل جديد</div>
+    <div class="toc-item" onclick="document.getElementById('s4').scrollIntoView({behavior:'smooth'})"><span class="toc-num">4</span> حذف / تعطيل عميل</div>
+    <div class="toc-item" onclick="document.getElementById('s5').scrollIntoView({behavior:'smooth'})"><span class="toc-num">5</span> التحكم في الموقع (لوحة الإدارة)</div>
+    <div class="toc-item" onclick="document.getElementById('s6').scrollIntoView({behavior:'smooth'})"><span class="toc-num">6</span> إدارة عملاء متعددين</div>
+    <div class="toc-item" onclick="document.getElementById('s7').scrollIntoView({behavior:'smooth'})"><span class="toc-num">7</span> الدومين — مسؤولية العميل</div>
+    <div class="toc-item" onclick="document.getElementById('s8').scrollIntoView({behavior:'smooth'})"><span class="toc-num">8</span> اختصارات لوحة المفاتيح</div>
+    <div class="toc-item" onclick="document.getElementById('s9').scrollIntoView({behavior:'smooth'})"><span class="toc-num">9</span> تحسين SEO للظهور في Google</div>
+    <div class="toc-item" onclick="document.getElementById('s10').scrollIntoView({behavior:'smooth'})"><span class="toc-num">10</span> الأدوات المجانية للموقع</div>
+    <div class="toc-item" onclick="document.getElementById('s11').scrollIntoView({behavior:'smooth'})"><span class="toc-num">11</span> وسائل الدفع والتحصيل</div>
+    <div class="toc-item" onclick="document.getElementById('s12').scrollIntoView({behavior:'smooth'})"><span class="toc-num">12</span> أسئلة شائعة</div>
+  </div>
+</div>
+
+<div class="main">
+
+<!-- ═══ SECTION 1: GitHub ═══ -->
+<div class="section" id="s1">
+  <div class="section-header">
+    <div class="section-num">1</div>
+    <div class="section-title">🔗 ربط الموقع بـ GitHub وتفعيل الاستضافة المجانية</div>
+  </div>
+
+  <div class="card">
+    <h4>📦 ما هو GitHub Pages وكيف يعمل؟</h4>
+    <p>GitHub Pages هي خدمة استضافة مجانية من GitHub تتيح لك رفع موقع HTML/CSS/JS وجعله متاحاً للعالم على رابط مثل:</p>
+    <div style="text-align:center;padding:14px;margin:12px 0;background:rgba(212,175,55,.06);border-radius:10px;font-family:monospace;color:var(--g2);font-size:1rem;direction:ltr">
+      yourusername.github.io/your-repo-name
+    </div>
+    <div class="success"><strong>✅ مجاني تماماً</strong> لا حدود للزيارات، SSL مجاناً، CDN عالمي سريع، يدعم الدومين المخصص.</div>
+  </div>
+
+  <div class="card">
+    <h4>🚀 خطوات الربط — من الصفر للنشر (أول مرة)</h4>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <strong>إنشاء حساب GitHub</strong>
+          <p>اذهب إلى <a href="https://github.com" target="_blank">github.com</a> وأنشئ حساباً مجانياً. استخدم اسم بسيط مثل <code>SmartTechEG</code> — سيكون جزءاً من روابط مواقعك.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <strong>إنشاء Repository جديد</strong>
+          <p>اضغط <strong style="color:var(--g)">+ → New Repository</strong>. سمّه باسم موقعك مثل <code>smart-tech-website</code>. اختر <strong>Public</strong>. لا تضيف README.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <strong>رفع ملفات الموقع</strong>
+          <p>اضغط <strong style="color:var(--g)">Add file → Upload files</strong> ثم اسحب الملفات: <code>index.html</code>, <code>guide-complete.html</code>, <code>manifest.json</code>, <code>sw.js</code>. اضغط <strong>Commit changes</strong>.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <strong>تفعيل GitHub Pages</strong>
+          <p>في Repository اضغط <strong>Settings → Pages</strong>. في "Source" اختر <strong>Deploy from a branch</strong>. في Branch اختر <code>main</code> ثم <code>/(root)</code>. اضغط <strong>Save</strong>.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <strong>موقعك الآن حي! 🎉</strong>
+          <p>انتظر 1-3 دقائق ثم اذهب إلى: <code>yourusername.github.io/repo-name</code> — ستجد موقعك يعمل!</p>
+        </div>
+      </div>
+    </div>
+    <div class="tip"><strong>💡 نصيحة:</strong> ستجد الرابط الكامل في Settings → Pages تلقائياً بعد التفعيل.</div>
+  </div>
+
+  <div class="card">
+    <h4>🔄 تحديث الموقع بعد التعديل</h4>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <strong>الطريقة السهلة (مباشرة من GitHub)</strong>
+          <p>افتح الملف في GitHub → اضغط أيقونة القلم ✏️ → عدّل → اضغط <strong>Commit changes</strong>. سيتحدث الموقع خلال دقيقة واحدة.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <strong>الطريقة الاحترافية (Git من الكمبيوتر)</strong>
+          <p>حمّل <a href="https://git-scm.com" target="_blank">Git</a> ثم نفّذ:</p>
+          <pre><code>git clone https://github.com/yourusername/repo-name
+# عدّل الملفات على جهازك
+git add .
+git commit -m "تحديث الأسعار والعروض"
+git push origin main</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h4>🌐 ربط دومين مخصص (اختياري)</h4>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <strong>من مزود الدومين: أضف DNS Record</strong>
+          <p>أضف <strong>CNAME Record</strong>: Name = <code>www</code>, Value = <code>yourusername.github.io</code></p>
+          <p>أضف <strong>A Records</strong> أربعة لـ GitHub:</p>
+          <pre><code>185.199.108.153
+185.199.109.153
+185.199.110.153
+185.199.111.153</code></pre>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <strong>من GitHub Pages Settings</strong>
+          <p>في Custom domain أدخل دومينك مثل <code>www.smarttech.com</code> ثم اضغط <strong>Save</strong>. فعّل <strong>Enforce HTTPS</strong>.</p>
+        </div>
+      </div>
+    </div>
+    <div class="warn"><strong>⏱️ الانتظار:</strong> تحديث DNS يأخذ من 24 إلى 48 ساعة. هذا طبيعي!</div>
+  </div>
+</div>
+
+<!-- ═══ SECTION 2: Hosting Companies ═══ -->
+<div class="section" id="s2">
+  <div class="section-header">
+    <div class="section-num">2</div>
+    <div class="section-title">☁️ شركات الاستضافة المجانية الموصى بها</div>
+  </div>
+
+  <div class="card">
+    <h4>🏆 المقارنة الكاملة — أفضل استضافات مجانية لمواقع العملاء</h4>
+    <div class="host-grid">
+
+      <div class="host-card">
+        <div class="host-name">🐙 GitHub Pages <span class="host-badge hb-free">مجاني 100%</span></div>
+        <div class="host-limit">✅ مواقع غير محدودة | 1GB مساحة | SSL مجاني</div>
+        <div class="host-desc">الخيار الأول لمواقع HTML. موثوق، سريع، ودعم CDN عالمي. مثالي لمواقع Smart Tech.</div>
+        <div class="host-pros">
+          <span class="host-pro">⚡ سريع جداً</span>
+          <span class="host-pro">🔒 SSL مجاني</span>
+          <span class="host-pro">🌍 CDN عالمي</span>
+          <span class="host-pro">♾️ بدون حد زيارات</span>
+        </div>
+        <div class="host-url">🔗 <a href="https://pages.github.com" target="_blank">pages.github.com</a></div>
+      </div>
+
+      <div class="host-card">
+        <div class="host-name">▲ Vercel <span class="host-badge hb-free">مجاني</span></div>
+        <div class="host-limit">✅ مواقع غير محدودة | Bandwidth غير محدود</div>
+        <div class="host-desc">منصة نشر احترافية للمطورين. تنشر من GitHub مباشرة بضغطة واحدة. تحديث تلقائي عند كل commit.</div>
+        <div class="host-pros">
+          <span class="host-pro">🚀 نشر تلقائي</span>
+          <span class="host-pro">🌐 دومين مجاني .vercel.app</span>
+          <span class="host-pro">📊 تحليلات</span>
+        </div>
+        <div class="host-url">🔗 <a href="https://vercel.com" target="_blank">vercel.com</a></div>
+      </div>
+
+      <div class="host-card">
+        <div class="host-name">🌊 Netlify <span class="host-badge hb-free">مجاني</span></div>
+        <div class="host-limit">✅ 100GB Bandwidth/شهر | Forms مجانية</div>
+        <div class="host-desc">الأسهل للمبتدئين — اسحب وأفلت الملفات مباشرة! يعطيك رابط فوري. يدعم نماذج الاتصال مجاناً.</div>
+        <div class="host-pros">
+          <span class="host-pro">🖱️ Drag & Drop</span>
+          <span class="host-pro">📝 Forms مجانية</span>
+          <span class="host-pro">🔀 A/B Testing</span>
+        </div>
+        <div class="host-url">🔗 <a href="https://netlify.com" target="_blank">netlify.com</a></div>
+      </div>
+
+      <div class="host-card">
+        <div class="host-name">🔥 Cloudflare Pages <span class="host-badge hb-free">مجاني</span></div>
+        <div class="host-limit">✅ مواقع غير محدودة | Bandwidth غير محدود</div>
+        <div class="host-desc">الأسرع في العالم بفضل شبكة Cloudflare. مثالي للعملاء الذين يريدون أقصى سرعة تحميل.</div>
+        <div class="host-pros">
+          <span class="host-pro">⚡ الأسرع عالمياً</span>
+          <span class="host-pro">🛡️ حماية DDoS</span>
+          <span class="host-pro">🌏 200+ موقع CDN</span>
+        </div>
+        <div class="host-url">🔗 <a href="https://pages.cloudflare.com" target="_blank">pages.cloudflare.com</a></div>
+      </div>
+
+      <div class="host-card">
+        <div class="host-name">🟦 InfinityFree <span class="host-badge hb-free">مجاني</span></div>
+        <div class="host-limit">✅ Bandwidth غير محدود | PHP + MySQL</div>
+        <div class="host-desc">استضافة مجانية مع cPanel وقاعدة بيانات MySQL وPHP. لو العميل يحتاج WordPress أو PHP.</div>
+        <div class="host-pros">
+          <span class="host-pro">🗄️ MySQL</span>
+          <span class="host-pro">🐘 PHP</span>
+          <span class="host-pro">📁 cPanel</span>
+        </div>
+        <div class="host-url">🔗 <a href="https://infinityfree.net" target="_blank">infinityfree.net</a></div>
+      </div>
+
+      <div class="host-card">
+        <div class="host-name">🟩 Render <span class="host-badge hb-free">مجاني جزئياً</span></div>
+        <div class="host-limit">✅ Static Sites مجاناً | Services بحد</div>
+        <div class="host-desc">منصة سحابية ممتازة. مجاني للمواقع الثابتة، ومناسب إذا احتجت Backend أو قاعدة بيانات لاحقاً.</div>
+        <div class="host-pros">
+          <span class="host-pro">🔧 Backend مجاني</span>
+          <span class="host-pro">🗄️ PostgreSQL</span>
+          <span class="host-pro">🐳 Docker</span>
+        </div>
+        <div class="host-url">🔗 <a href="https://render.com" target="_blank">render.com</a></div>
+      </div>
+
+    </div>
+
+    <div class="tip" style="margin-top:20px"><strong>🏆 توصية Smart Tech:</strong> للمواقع البسيطة — <strong>GitHub Pages</strong> هو الأفضل. للمواقع التي تحتاج نشر سريع — <strong>Netlify</strong>. للسرعة القصوى — <strong>Cloudflare Pages</strong>.</div>
+  </div>
+
+  <div class="card">
+    <h4>💡 كيف أستضيف عملاء متعددين مجاناً؟</h4>
+    <p style="margin-bottom:12px">لديك خيارات:</p>
+    <div class="feat-grid">
+      <div class="feat">
+        <strong>🥇 خيار 1: GitHub Organization</strong>
+        أنشئ Organization مجانية (مثل SmartTechClients) — كل عميل له Repository منفصل. روابط مثل: <code>SmartTechClients.github.io/client-ahmed</code>
+      </div>
+      <div class="feat">
+        <strong>🥈 خيار 2: حسابات Netlify منفصلة</strong>
+        كل عميل يحصل على حساب Netlify مجاني باسمه. يمكنك ربط حسابهم بـ GitHub الخاص بك لتتحكم من مكان واحد.
+      </div>
+      <div class="feat">
+        <strong>🥉 خيار 3: Subdomain واحد</strong>
+        إذا كان لديك دومين مدفوع — ضع جميع العملاء كـ subdomains: <code>ahmed.smarttech.com</code>, <code>sara.smarttech.com</code>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SECTION 3: Add Client ═══ -->
+<div class="section" id="s3">
+  <div class="section-header">
+    <div class="section-num">3</div>
+    <div class="section-title">➕ كيف تضيف عميلاً جديداً — خطوة بخطوة</div>
+  </div>
+
+  <div class="card">
+    <h4>📋 الخطوات الكاملة لإنشاء موقع لعميل جديد</h4>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <strong>جمع معلومات العميل</strong>
+          <p>الاسم، نوع العمل، الشعار، الألوان المفضلة، أرقام التواصل، صور المنتجات/الخدمات، أي نصوص يريدها.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <strong>إنشاء Repository جديد في GitHub</strong>
+          <p>الاسم: <code>client-ahmed-supermarket</code> (بدون مسافات، أحرف إنجليزية صغيرة). اجعله Public.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <strong>تخصيص ملفات الموقع للعميل</strong>
+          <p>خذ نسخة من الـ template، عدّل: الاسم، الألوان، رقم الواتساب، الخدمات، الأسعار، الصور. احفظ الملفات محلياً أولاً.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <strong>رفع الملفات</strong>
+          <p>اذهب للـ Repository → <strong>Add file → Upload files</strong> → اسحب جميع ملفات الموقع → <strong>Commit changes</strong>.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <strong>تفعيل GitHub Pages</strong>
+          <p><strong>Settings → Pages → Source: Deploy from a branch → main → Save</strong></p>
+          <p>الرابط سيكون: <code>yourusername.github.io/client-ahmed-supermarket</code></p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">6</div>
+        <div class="step-body">
+          <strong>اختبار الموقع وتسليمه</strong>
+          <p>افتح الرابط، اختبر جميع الأزرار والروابط. ثم أرسل الرابط للعميل مع دليل الاستخدام.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h4>📝 قالب بيانات العميل — احفظه في Excel</h4>
+    <table>
+      <tr><th>البيان</th><th>المثال</th></tr>
+      <tr><td>اسم العميل</td><td>أحمد محمد حسن</td></tr>
+      <tr><td>نوع العمل</td><td>سوبر ماركت</td></tr>
+      <tr><td>رقم الهاتف</td><td>01XXXXXXXXX</td></tr>
+      <tr><td>البريد الإلكتروني</td><td>ahmed@gmail.com</td></tr>
+      <tr><td>رابط الموقع</td><td>yourusername.github.io/client-ahmed</td></tr>
+      <tr><td>الباقة المشتراة</td><td>احترافية</td></tr>
+      <tr><td>تاريخ التسليم</td><td>2025/01/15</td></tr>
+      <tr><td>انتهاء الدعم الفني</td><td>2025/04/15</td></tr>
+      <tr><td>المبلغ المدفوع</td><td>1500 جنيه</td></tr>
+      <tr><td>دفعة مقدمة</td><td>750 جنيه</td></tr>
+      <tr><td>المتبقي</td><td>750 جنيه</td></tr>
+      <tr><td>GitHub Repository</td><td>client-ahmed-supermarket</td></tr>
+      <tr><td>ملاحظات</td><td>يريد إضافة قسم التوصيل لاحقاً</td></tr>
+    </table>
+    <div class="tip" style="margin-top:12px"><strong>💡 نصيحة:</strong> استخدم Google Sheets أو Notion لحفظ بيانات العملاء — سهل الوصول من أي جهاز.</div>
+  </div>
+</div>
+
+<!-- ═══ SECTION 4: Delete Client ═══ -->
+<div class="section" id="s4">
+  <div class="section-header">
+    <div class="section-num">4</div>
+    <div class="section-title">🗑️ كيف تحذف أو تعطّل موقع عميل</div>
+  </div>
+
+  <div class="card">
+    <h4>⚠️ سيناريوهات الإيقاف وكيفية التعامل معها</h4>
+    <div class="feat-grid">
+      <div class="feat">
+        <strong>🔴 إيقاف مؤقت (بدون حذف)</strong>
+        اذهب إلى Settings → Pages → Source: اختر "None" → Save. الموقع سيتوقف لكن الملفات محفوظة. لإعادة التشغيل: اختر main من جديد.
+      </div>
+      <div class="feat">
+        <strong>🟡 تعديل الموقع (بيانات انتهاء الدعم)</strong>
+        عدّل الـ index.html وأضف رسالة مثل "انتهت خدمة الدعم الفني، تواصل لتجديد العقد" واحفظها في GitHub.
+      </div>
+      <div class="feat">
+        <strong>🔴 حذف نهائي للـ Repository</strong>
+        Settings → Danger Zone → Delete this repository. اكتب اسم الـ Repository للتأكيد. لا يمكن التراجع!
+      </div>
+    </div>
+    <div class="warn"><strong>⚠️ تنبيه مهم:</strong> قبل الحذف النهائي — احتفظ بنسخة من ملفات الموقع على جهازك في حال رجع العميل لاحقاً.</div>
+  </div>
+
+  <div class="card">
+    <h4>✅ الإجراء الموصى به عند انتهاء العقد</h4>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body"><strong>أرسل تذكيراً قبل 30 يوم</strong><p>أرسل واتساب: "موقعك ينتهي دعمه الفني بتاريخ [X] — هل تريد التجديد؟"</p></div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body"><strong>أرسل تذكيراً قبل 7 أيام</strong><p>"آخر تذكير — الموقع سيتوقف يوم [X] إذا لم يتم التجديد"</p></div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body"><strong>عند الانتهاء — أوقف مؤقتاً لا تحذف</strong><p>عطّل GitHub Pages فقط. انتظر أسبوعاً إضافياً قبل الحذف النهائي.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SECTION 5: Control Panel ═══ -->
+<div class="section" id="s5">
+  <div class="section-header">
+    <div class="section-num">5</div>
+    <div class="section-title">🎛️ كيف تتحكم في الموقع — لوحة الإدارة السرية</div>
+  </div>
+
+  <div class="card">
+    <h4>🔐 الدخول للوحة الإدارة</h4>
+    <p style="margin-bottom:14px">لوحة الإدارة مخفية ومحمية بكلمة مرور. للوصول إليها:</p>
+    <div class="feat-grid">
+      <div class="feat">
+        <strong>🖱️ الطريقة 1: النقر على الشعار</strong>
+        انقر على شعار <strong>ST</strong> في أعلى الصفحة <strong>5 مرات متتالية</strong> بسرعة. ستظهر نافذة إدخال كلمة المرور.
+      </div>
+      <div class="feat">
+        <strong>⌨️ الطريقة 2: رابط مباشر</strong>
+        أضف <code>#admin</code> في نهاية رابط الموقع: <code>yoursite.com#admin</code> ثم اضغط Enter.
+      </div>
+    </div>
+    <div class="info" style="margin-top:14px"><strong>🔑 كلمة المرور الافتراضية:</strong> <code>smart2025</code> — يمكنك تغييرها من داخل لوحة الإدارة.</div>
+  </div>
+
+  <div class="card">
+    <h4>⚙️ ما يمكنك التحكم فيه من لوحة الإدارة</h4>
+    <div class="feat-grid">
+      <div class="feat"><strong>📢 شريط الإعلانات</strong>كتابة نص إعلان أو عرض مؤقت وإظهاره أو إخفاؤه بزر واحد. مثال: "عرض خاص — خصم 20% لفترة محدودة"</div>
+      <div class="feat"><strong>💰 تعديل الأسعار</strong>تغيير سعر الباقة الأساسية وأسعار الباقات الأخرى مباشرة دون تعديل الكود.</div>
+      <div class="feat"><strong>🏷️ شارة العرض</strong>تفعيل/إيقاف الشارة العائمة "عرض محدود" وتحديد نصها ونسبة الخصم.</div>
+      <div class="feat"><strong>📱 رقم الواتساب</strong>تغيير رقم الواتساب الظاهر في كل أزرار الموقع دفعة واحدة.</div>
+      <div class="feat"><strong>⏱️ مؤقت العد التنازلي</strong>إضافة عداد تنازلي للعروض المحدودة لزيادة الإلحاح وتحفيز العملاء.</div>
+      <div class="feat"><strong>🎨 لون الشريط</strong>تغيير لون شريط الإعلانات بين الذهبي، الأخضر، والأحمر حسب نوع الإعلان.</div>
+    </div>
+    <div class="tip" style="margin-top:14px"><strong>💾 الحفظ التلقائي:</strong> جميع الإعدادات تُحفظ في localStorage المتصفح — تبقى حتى بعد إغلاق المتصفح.</div>
+  </div>
+
+  <div class="card">
+    <h4>🔄 كيف تغير شيئاً في كود الموقع مباشرة</h4>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body"><strong>افتح GitHub وانتقل للـ Repository</strong><p>github.com/yourusername/repo-name</p></div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body"><strong>افتح index.html</strong><p>اضغط على الملف ثم على أيقونة القلم ✏️ لتحرير مباشر في المتصفح.</p></div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body"><strong>استخدم Ctrl+F للبحث</strong><p>ابحث عن النص الذي تريد تغييره — مثلاً ابحث عن "500" لتغيير السعر.</p></div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body"><strong>احفظ التغييرات</strong><p>اضغط <strong>Commit changes</strong> → أضف وصفاً مثل "تحديث الأسعار" → <strong>Commit directly to main</strong>.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SECTION 6: Multiple Clients ═══ -->
+<div class="section" id="s6">
+  <div class="section-header">
+    <div class="section-num">6</div>
+    <div class="section-title">👥 إدارة عملاء متعددين — النظام الاحترافي</div>
+  </div>
+
+  <div class="card">
+    <h4>🗂️ هيكل التنظيم الموصى به</h4>
+    <div class="file-tree">
+      <span class="dir">📁 GitHub Account: SmartTechEG</span><br>
+      <span style="margin-right:16px" class="dir">📦 smart-tech-website</span> <span class="comment">← موقعك الرئيسي (هذا الموقع)</span><br>
+      <span style="margin-right:16px" class="dir">📦 client-ahmed-supermarket</span> <span class="comment">← أحمد — سوبر ماركت</span><br>
+      <span style="margin-right:16px" class="dir">📦 client-sara-clinic</span> <span class="comment">← سارة — عيادة أسنان</span><br>
+      <span style="margin-right:16px" class="dir">📦 client-mahmoud-law</span> <span class="comment">← محمود — مكتب محاماة</span><br>
+      <span style="margin-right:16px" class="dir">📦 client-template</span> <span class="comment">← قالب فارغ للعملاء الجدد</span><br>
+    </div>
+    <div class="tip" style="margin-top:14px"><strong>💡 Repository "client-template":</strong> احتفظ بـ repository قالب نظيف — عند إضافة عميل جديد، انسخه وعدّل فيه. يوفر وقتاً كبيراً!</div>
+  </div>
+
+  <div class="card">
+    <h4>📋 نموذج اتفاقية العميل (ابعثها قبل البدء)</h4>
+    <pre><code>اتفاقية تصميم موقع إلكتروني
+العميل: _____________________
+تاريخ: _____________________
+
+الخدمة المطلوبة: _______________
+السعر المتفق عليه: _____________
+دفعة مقدمة (50%): _____________
+المتبقي عند التسليم: ___________
+موعد التسليم المتوقع: __________
+
+مدة الدعم الفني: _____ شهر/أشهر
+سعر تجديد الدعم: _____________
+
+توقيع العميل: _________________
+توقيع Smart Tech: _____________</code></pre>
+    <div class="tip"><strong>📱 نصيحة:</strong> أرسل الاتفاقية عبر واتساب كصورة PDF — توثيق رسمي بسيط وسريع.</div>
+  </div>
+
+  <div class="card">
+    <h4>💰 نظام التسعير الموصى به لعملاء متعددين</h4>
+    <table>
+      <tr><th>الباقة</th><th>السعر</th><th>الدعم</th><th>التجديد السنوي</th></tr>
+      <tr><td>⚡ أساسية</td><td>500 ج</td><td>شهر</td><td>200 ج/سنة</td></tr>
+      <tr><td>👑 احترافية</td><td>حسب المواصفات</td><td>3 أشهر</td><td>500 ج/سنة</td></tr>
+      <tr><td>💎 VIP</td><td>حسب المواصفات</td><td>سنة كاملة</td><td>مجاناً السنة الأولى</td></tr>
+      <tr><td>🔧 صيانة شهرية</td><td>150 ج/شهر</td><td>مستمر</td><td>—</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ═══ SECTION 7: Domain Responsibility ═══ -->
+<div class="section" id="s7">
+  <div class="section-header">
+    <div class="section-num">7</div>
+    <div class="section-title">🌐 الدومين — مسؤولية العميل الكاملة</div>
+  </div>
+
+  <div class="card">
+    <h4>⚠️ سياسة الدومين الرسمية لـ Smart Tech</h4>
+    <div class="danger"><strong>⚠️ هام جداً: إخلاء مسؤولية الدومين</strong><br>
+    Smart Tech تقوم بتصميم وتطوير الموقع فقط. شراء ومتابعة الدومين (اسم الموقع مثل: <code>yourname.com</code>) هو مسؤولية العميل الكاملة. لا تتحمل Smart Tech أي مسؤولية عن انتهاء صلاحية الدومين أو فقدانه.
+    </div>
+
+    <p style="margin:14px 0">يشمل ذلك:</p>
+    <ul style="margin-bottom:14px">
+      <li>شراء الدومين من مزود موثوق (Namecheap، GoDaddy، Name.com، إلخ)</li>
+      <li>تجديد الدومين سنوياً (يبدأ من 10-15 دولار/سنة)</li>
+      <li>ربط الدومين بالاستضافة (DNS Settings) — Smart Tech تساعد في هذه الخطوة بمقابل رمزي</li>
+      <li>حفظ بيانات الدخول لحساب الدومين</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h4>🛒 أفضل مزودي الدومين للعملاء المصريين</h4>
+    <div class="host-grid">
+      <div class="host-card">
+        <div class="host-name">🟩 Namecheap <span class="host-badge hb-free">الأرخص</span></div>
+        <div class="host-limit">من $8.88/سنة للـ .com</div>
+        <div class="host-desc">الأرخص والأموثوق. يقبل بطاقات مصرية وPayPal. واجهة سهلة جداً.</div>
+        <div class="host-url">🔗 <a href="https://namecheap.com" target="_blank">namecheap.com</a></div>
+      </div>
+      <div class="host-card">
+        <div class="host-name">🔵 GoDaddy <span class="host-badge hb-paid">شائع</span></div>
+        <div class="host-limit">من $10/سنة</div>
+        <div class="host-desc">الأكثر شهرة. دعم عربي. يقبل جميع وسائل الدفع. سهل للمبتدئين.</div>
+        <div class="host-url">🔗 <a href="https://godaddy.com" target="_blank">godaddy.com</a></div>
+      </div>
+      <div class="host-card">
+        <div class="host-name">🟠 Cloudflare Registrar <span class="host-badge hb-free">بسعر التكلفة</span></div>
+        <div class="host-limit">$8.57/سنة (بسعر التكلفة بدون ربح)</div>
+        <div class="host-desc">Cloudflare يبيع الدومينات بسعر التكلفة الحقيقي بدون هامش ربح. الأرخص على الإطلاق!</div>
+        <div class="host-url">🔗 <a href="https://cloudflare.com/products/registrar" target="_blank">cloudflare.com/registrar</a></div>
+      </div>
+    </div>
+    <div class="tip" style="margin-top:14px"><strong>💡 نصيحة:</strong> الدومين <code>.com.eg</code> المصري متاح من NTRA بسعر رمزي — مناسب للشركات المصرية.</div>
+  </div>
+
+  <div class="card">
+    <h4>📜 ما يجب توضيحه للعميل قبل البدء</h4>
+    <pre><code>📌 ما تشمله الخدمة:
+✅ تصميم وتطوير الموقع كاملاً
+✅ رفع الموقع على استضافة GitHub Pages المجانية  
+✅ رابط مجاني: username.github.io/yoursite
+✅ SSL (HTTPS) مجاني
+✅ دعم فني لمدة [X] أشهر
+
+📌 ما لا تشمله الخدمة:
+❌ شراء الدومين (.com, .net, .eg) — على حساب العميل
+❌ تجديد الدومين سنوياً — مسؤولية العميل
+❌ استضافة مدفوعة (إذا طُلبت ميزات متقدمة)
+❌ محتوى الموقع (الصور، النصوص) — يقدمها العميل</code></pre>
+  </div>
+</div>
+
+<!-- ═══ SECTION 8: Keyboard ═══ -->
+<div class="section" id="s8">
+  <div class="section-header">
+    <div class="section-num">8</div>
+    <div class="section-title">⌨️ اختصارات لوحة المفاتيح في الموقع</div>
+  </div>
+  <div class="card">
+    <h4>🎹 جميع الاختصارات المتاحة</h4>
+    <div class="feat-grid">
+      <div class="feat"><strong><span class="kbd">H</span> الصفحة الرئيسية</strong>يعود لأعلى الصفحة فوراً</div>
+      <div class="feat"><strong><span class="kbd">S</span> الخدمات</strong>ينتقل لقسم خدماتنا</div>
+      <div class="feat"><strong><span class="kbd">P</span> الباقات</strong>ينتقل للباقات والأسعار</div>
+      <div class="feat"><strong><span class="kbd">O</span> التوافق التقني</strong>يفتح قسم أوراكل ومايكروسوفت</div>
+      <div class="feat"><strong><span class="kbd">W</span> لماذا نحن</strong>ينتقل لمميزاتنا</div>
+      <div class="feat"><strong><span class="kbd">R</span> آراء العملاء</strong>ينتقل للتقييمات</div>
+      <div class="feat"><strong><span class="kbd">T</span> الأدوات</strong>يفتح قسم الأدوات</div>
+      <div class="feat"><strong><span class="kbd">C</span> تواصل</strong>ينتقل لنموذج التواصل</div>
+      <div class="feat"><strong><span class="kbd">D</span> تحميل</strong>يحمّل البروشور</div>
+      <div class="feat"><strong><span class="kbd">L</span> اللغة</strong>يبدّل بين العربية والإنجليزية</div>
+      <div class="feat"><strong><span class="kbd">?</span> أو <span class="kbd">/</span></strong>يفتح قائمة الاختصارات</div>
+      <div class="feat"><strong><span class="kbd">ESC</span> إغلاق</strong>يغلق أي نافذة مفتوحة</div>
+    </div>
+    <div class="tip" style="margin-top:14px"><strong>ملاحظة:</strong> الاختصارات تعمل فقط عندما لا يكون المؤشر داخل حقل نص. يوجد أيضاً زر <span class="kbd">?</span> عائم في أسفل يمين الشاشة.</div>
+  </div>
+</div>
+
+<!-- ═══ SECTION 9: SEO ═══ -->
+<div class="section" id="s9">
+  <div class="section-header">
+    <div class="section-num">9</div>
+    <div class="section-title">🔍 تحسين SEO للظهور في Google</div>
+  </div>
+  <div class="card">
+    <h4>✅ ما تم تطبيقه بالفعل في الموقع</h4>
+    <ul>
+      <li>✅ <strong>Meta Tags كاملة</strong> — عنوان، وصف، keywords، author</li>
+      <li>✅ <strong>Open Graph</strong> — مشاركة جميلة على Facebook وWhatsApp</li>
+      <li>✅ <strong>Schema.org JSON-LD</strong> — بيانات منظمة لـ Google</li>
+      <li>✅ <strong>Canonical URL</strong> — تجنب المحتوى المكرر</li>
+      <li>✅ <strong>Semantic HTML</strong> — section، nav، footer، h1-h3 مرتبة</li>
+      <li>✅ <strong>Mobile Responsive</strong> — يعمل على جميع الشاشات</li>
+      <li>✅ <strong>PWA</strong> — يمكن تثبيته كتطبيق</li>
+      <li>✅ <strong>سرعة تحميل عالية</strong> — HTML/CSS/JS خالص</li>
+      <li>✅ <strong>Arabic RTL</strong> — دعم كامل للعربية</li>
+      <li>✅ <strong>Geo Tags</strong> — يستهدف مصر جغرافياً</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h4>🚀 خطوات إضافية لتحسين SEO بعد النشر</h4>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-body"><strong>Google Search Console</strong><p>أضف موقعك على <a href="https://search.google.com/search-console" target="_blank">Search Console</a> وأرسل Sitemap للفهرسة السريعة.</p></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-body"><strong>Google Business Profile</strong><p>أنشئ ملف تعريف على <a href="https://business.google.com" target="_blank">Google Business</a> للظهور في الخرائط عند البحث عن "تصميم مواقع مصر".</p></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-body"><strong>PageSpeed Insights</strong><p>افحص موقعك على <a href="https://pagespeed.web.dev" target="_blank">pagespeed.web.dev</a> — استهدف نتيجة 90+ على الموبايل.</p></div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-body"><strong>اجمع تقييمات Google</strong><p>اطلب من كل عميل راضٍ أن يكتب تقييماً على Google — أهم عامل SEO محلي.</p></div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-body"><strong>اربط بصفحاتك الاجتماعية</strong><p>Facebook، Instagram، LinkedIn، YouTube — كل رابط خارجي يقوي موقعك.</p></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SECTION 10: Tools ═══ -->
+<div class="section" id="s10">
+  <div class="section-header">
+    <div class="section-num">10</div>
+    <div class="section-title">🛠️ الأدوات المجانية في الموقع</div>
+  </div>
+  <div class="card">
+    <h4>💬 مولّد رابط واتساب</h4>
+    <p>تحوّل أي رقم هاتف إلى رابط واتساب جاهز. أدخل الرقم + رسالة ترحيبية → انسخ الرابط → انشره في موقعك أو بيو الإنستجرام.</p>
+  </div>
+  <div class="card">
+    <h4>🎬 مضمّن الفيديو</h4>
+    <p>الصق رابط يوتيوب أو فيسبوك أو تيك توك → يظهر الفيديو مباشرة + تحصل على كود التضمين لموقعك.</p>
+    <div class="tip"><strong>لتحميل الفيديو:</strong> استخدم <a href="https://y2mate.com" target="_blank">y2mate.com</a> أو <a href="https://savefrom.net" target="_blank">savefrom.net</a> مع الرابط الأصلي.</div>
+  </div>
+  <div class="card">
+    <h4>📱 مولّد QR Code</h4>
+    <p>QR Code ذهبي لأي رابط أو رقم هاتف. مثالي للكروت الشخصية والمطاعم واللوحات الإعلانية.</p>
+  </div>
+</div>
+
+<!-- ═══ SECTION 11: Payment ═══ -->
+<div class="section" id="s11">
+  <div class="section-header">
+    <div class="section-num">11</div>
+    <div class="section-title">💳 وسائل الدفع والتحصيل</div>
+  </div>
+  <div class="card">
+    <h4>💳 وسائل الدفع المتاحة</h4>
+    <table>
+      <tr><th>وسيلة الدفع</th><th>الرقم/الرابط</th><th>ملاحظات</th></tr>
+      <tr><td>🟠 Orange Money</td><td>+201229317313</td><td>تحويل فوري داخل مصر</td></tr>
+      <tr><td>🔴 Vodafone Cash</td><td>+201229317313</td><td>تحويل فوري داخل مصر</td></tr>
+      <tr><td>🔵 PayPal</td><td>paypal.me/SMARTAI761</td><td>دفع دولي آمن</td></tr>
+    </table>
+    <div class="tip" style="margin-top:12px"><strong>الأمان:</strong> وسائل الدفع مخفية في الموقع خلف زر "عرض" لحمايتها من روبوتات الإنترنت.</div>
+  </div>
+  <div class="card">
+    <h4>💡 نصائح التحصيل الاحترافية</h4>
+    <ul>
+      <li>اطلب <strong>50% دفعة مقدمة</strong> قبل بدء أي مشروع</li>
+      <li>للمشاريع الكبيرة: <strong>30% بداية + 40% منتصف + 30% تسليم</strong></li>
+      <li>أرسل <strong>إيصال واتساب</strong> لكل مدفوعة</li>
+      <li>احفظ <strong>سجل Excel</strong> بجميع المعاملات المالية</li>
+      <li>للعملاء الدوليين: <strong>PayPal</strong> هو الأسهل والأأمن</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ═══ SECTION 12: FAQ ═══ -->
+<div class="section" id="s12">
+  <div class="section-header">
+    <div class="section-num">12</div>
+    <div class="section-title">❓ أسئلة شائعة</div>
+  </div>
+  <div class="card"><h4>كم عدد العملاء الذين يمكنني استضافتهم مجاناً؟</h4><p>GitHub يتيح <strong>مواقع غير محدودة</strong> مجاناً ما دامت المشاريع Public. يمكنك إنشاء مئات الـ repositories.</p></div>
+  <div class="card"><h4>هل يمكن للعميل تعديل موقعه بنفسه؟</h4><p>نعم، إذا أعطيته صلاحية Collaborator على الـ Repository. أو يطلب منك التعديل وتفرض رسوم خدمة.</p></div>
+  <div class="card"><h4>ماذا لو أراد العميل موقعاً بدومين .com؟</h4><p>يشتري الدومين (مسؤوليته) ثم تربطه أنت بـ GitHub Pages عبر DNS Settings — خطوة بسيطة تأخذ 5 دقائق.</p></div>
+  <div class="card"><h4>هل الموقع يعمل بدون إنترنت؟</h4><p>نعم! بفضل Service Worker المدمج، بعد أول زيارة يُخزَّن الموقع ويعمل جزئياً offline.</p></div>
+  <div class="card"><h4>كيف أضيف قاعدة بيانات للموقع مجاناً؟</h4><p><strong>Firebase Firestore</strong> (مجاني حتى 1GB) أو <strong>Supabase</strong> (PostgreSQL مجاني) أو <strong>MongoDB Atlas</strong> (512MB مجاناً).</p></div>
+</div>
+
+<div class="cta-box">
+  <h3>هل تحتاج مساعدة في إدارة موقعك أو عملائك؟</h3>
+  <p>فريق Smart Tech جاهز لمساعدتك في أي وقت — استضافة، تعديلات، إضافة عملاء، أو مشاريع جديدة</p>
+  <button class="wa-btn" onclick="window.open('https://wa.me/201229317313?text=مرحباً، قرأت الدليل وأحتاج مساعدة في موقعي')">
+    💬 تواصل معنا على واتساب
+  </button>
+</div>
+
+</div>
+
+<div class="footer">
+  © 2025 Smart Tech — الدليل الشامل v4.0 | جميع الحقوق محفوظة 🇪🇬<br>
+  <span style="color:var(--g);font-family:'Cinzel',serif;font-size:.7rem">صُنع بـ ❤️ في مصر</span>
+</div>
+
+</body>
+</html>
