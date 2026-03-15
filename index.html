@@ -2288,8 +2288,8 @@ body.ann-on #install-banner { top: 108px; }
         <div class="contact-item">
           <div class="ci-icon">📱</div>
           <div style="flex:1">
-            <span class="ci-label ar-only">واتساب وأورانج موني</span>
-            <span class="ci-label en-only">WhatsApp & Orange Money</span>
+            <span class="ci-label ar-only">واتساب — أورانج موني — فودافون كاش</span>
+            <span class="ci-label en-only">WhatsApp — Orange Money — Vodafone Cash</span>
             <span class="ci-val" id="phoneEl" onclick="revealPhone()">
               <span class="ar-only">اضغط للعرض</span>
               <span class="en-only">Click to reveal</span>
@@ -2370,11 +2370,11 @@ body.ann-on #install-banner { top: 108px; }
             </div>
             <!-- Vodafone Cash -->
             <div class="payment-method">
-              <div class="payment-method-icon" style="background:linear-gradient(135deg,rgba(220,20,60,.15),rgba(220,20,60,.1));border:1px solid rgba(220,20,60,.3)">🔴</div>
+              <div class="payment-method-icon" style="background:linear-gradient(135deg,rgba(220,20,60,.2),rgba(200,0,0,.15));border:1px solid rgba(220,20,60,.45)">🔴</div>
               <div class="payment-method-info">
-                <div class="pm-name">Vodafone Cash</div>
-                <div class="pm-detail ar-only">تحويل عبر فودافون كاش</div>
-                <div class="pm-detail en-only">Vodafone Cash transfer</div>
+                <div class="pm-name" style="color:#ff6b6b">Vodafone Cash</div>
+                <div class="pm-detail ar-only">تحويل مباشر عبر فودافون كاش</div>
+                <div class="pm-detail en-only">Direct Vodafone Cash transfer</div>
               </div>
               <button class="pm-reveal-btn" id="vfBtn" onclick="revealVF()">
                 <span class="ar-only">عرض الرقم</span>
@@ -2523,10 +2523,11 @@ body.ann-on #install-banner { top: 108px; }
 
 /* ── Secure contact data ── */
 const _c = {
-  p: atob('MjAxMjI5MzE3MzEz'),
-  e: atob('c21hcnRhaS53b3JrQGdtYWlsLmNvbQ=='),
-  wa: atob('MjAxMjI5MzE3MzEz'),
-  om: atob('MjAxMjI5MzE3MzEz'),
+  p:  atob('MjAxMjI5MzE3MzEz'),   /* phone / vodafone cash */
+  e:  atob('c21hcnRhaS53b3JrQGdtYWlsLmNvbQ=='),
+  wa: atob('MjAxMjI5MzE3MzEz'),   /* whatsapp */
+  om: atob('MjAxMjI5MzE3MzEz'),   /* orange money */
+  vf: atob('MjAxMjI5MzE3MzEz'),   /* vodafone cash */
   pp: 'https://paypal.me/SMARTAI761'
 };
 
@@ -2679,8 +2680,8 @@ function revealOM() {
 }
 function revealVF() {
   const btn = document.getElementById('vfBtn');
-  btn.innerHTML = `<span class="pm-number-shown">+${_c.p}</span>`;
-  btn.onclick = () => { navigator.clipboard?.writeText('+' + _c.p); showToast('✅ تم نسخ رقم فودافون كاش'); };
+  btn.innerHTML = `<span class="pm-number-shown">+${_c.vf}</span>`;
+  btn.onclick = () => { navigator.clipboard?.writeText('+' + _c.vf); showToast('✅ تم نسخ رقم فودافون كاش'); };
 }
 function openPayPal() {
   window.open(_c.pp, '_blank', 'noopener,noreferrer');
