@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Smart Tech — Sitemap XML
+  يساعد Google على اكتشاف جميع صفحاتك وفهرستها بسرعة
+  ⚠️ غيّر "smarttech.pages.dev" برابط موقعك الفعلي
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- الصفحة الرئيسية -->
+  <url>
+    <loc>https://smarttech.pages.dev/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://smarttech.pages.dev/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://smarttech.pages.dev/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://smarttech.pages.dev/?lang=fr"/>
+  </url>
+
+  <!-- المتجر -->
+  <url>
+    <loc>https://smarttech.pages.dev/store.html</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- المدونة -->
+  <url>
+    <loc>https://smarttech.pages.dev/blog.html</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- شركاؤنا -->
+  <url>
+    <loc>https://smarttech.pages.dev/affiliates.html</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>

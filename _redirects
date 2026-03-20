@@ -1,0 +1,29 @@
+# ════════════════════════════════════════════════
+#   Smart Tech — Cloudflare Pages Redirects
+#   ضع هذا الملف في نفس مجلد index.html
+# ════════════════════════════════════════════════
+
+# ── الصفحة الرئيسية
+/home                    /index.html              301
+/ar                      /index.html              301
+/en                      /index.html              301
+
+# ── صفحات الموقع
+/متجر                    /store.html              301
+/مدونة                   /blog.html               301
+/شركاء                   /affiliates.html         301
+/shop                    /store.html              301
+/articles                /blog.html               301
+/partners                /affiliates.html         301
+
+# ── روابط واتساب المباشرة
+/whatsapp                https://wa.me/201229317313    302
+/wa                      https://wa.me/201229317313    302
+/contact                 /index.html#contact           302
+
+# ── حماية: منع الوصول لملفات الإعداد
+/manifest.json           /manifest.json           200
+/sw.js                   /sw.js                   200
+
+# ── Fallback: كل شيء غير موجود يروح للرئيسية
+/*                       /index.html              200

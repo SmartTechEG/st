@@ -1,0 +1,24 @@
+# ════════════════════════════════════════════════
+#   Smart Tech — robots.txt
+#   يساعد Google على فهرسة موقعك بشكل صحيح
+# ════════════════════════════════════════════════
+
+User-agent: *
+Allow: /
+
+# صفحات مسموح بها
+Allow: /index.html
+Allow: /store.html
+Allow: /blog.html
+Allow: /affiliates.html
+
+# ملفات النظام — لا داعي لفهرستها
+Disallow: /sw.js
+Disallow: /_redirects
+Disallow: /_headers
+
+# خريطة الموقع — ضع رابط موقعك الحقيقي هنا
+Sitemap: https://smarttech.pages.dev/sitemap.xml
+
+# مهل التوقف بين الطلبات
+Crawl-delay: 1

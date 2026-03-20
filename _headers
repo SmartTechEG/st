@@ -1,0 +1,63 @@
+# ════════════════════════════════════════════════
+#   Smart Tech — Cloudflare Pages Security Headers
+#   حماية احترافية بمعايير عالمية
+# ════════════════════════════════════════════════
+
+# ── تطبيق على كل الصفحات
+/*
+  # ── حماية من Clickjacking
+  X-Frame-Options: SAMEORIGIN
+
+  # ── منع تخمين نوع المحتوى
+  X-Content-Type-Options: nosniff
+
+  # ── حماية XSS للمتصفحات القديمة
+  X-XSS-Protection: 1; mode=block
+
+  # ── إخفاء رابط المصدر عند الخروج
+  Referrer-Policy: strict-origin-when-cross-origin
+
+  # ── HTTPS إجباري لمدة سنة كاملة
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+  # ── تحكم في صلاحيات المتصفح
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+
+  # ── Content Security Policy — حماية من XSS والحقن
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self' https://api.qrserver.com https://www.google-analytics.com; frame-src https://www.youtube.com https://player.vimeo.com; object-src 'none'; base-uri 'self'
+
+  # ── Cross-Origin Policies
+  Cross-Origin-Opener-Policy: same-origin-allow-popups
+  Cross-Origin-Resource-Policy: cross-origin
+
+  # ── Cache للأداء
+  Cache-Control: public, max-age=3600
+
+# ── ملفات JS/CSS: cache أطول
+/*.js
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/*.css
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+# ── الصور: cache أسبوع
+/*.png
+  Cache-Control: public, max-age=604800
+
+/*.jpg
+  Cache-Control: public, max-age=604800
+
+/*.webp
+  Cache-Control: public, max-age=604800
+
+/*.svg
+  Cache-Control: public, max-age=604800
+
+# ── Service Worker: لا cache (يجب أن يتحدث دائماً)
+/sw.js
+  Cache-Control: no-cache, no-store, must-revalidate
+
+# ── Manifest: cache قصير
+/manifest.json
+  Cache-Control: public, max-age=3600
+  Content-Type: application/manifest+json
