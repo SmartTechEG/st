@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>محرك التجارة الذكي — Smart Shop Engine | Smart Tech</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700;900&family=Cairo:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════════════════
+   SMART SHOP ENGINE — محرك التجارة الذكي
+   Black × Gold Luxury — Smart Tech Egypt
+══════════════════════════════════════════════════════ */
+:root {
+  --gold:#D4AF37; --gold-l:#FFD700; --gold-b:#FFEC80;
+  --gold-d:#B8860B; --gold-dim:#8B6914;
+  --gg:rgba(212,175,55,.10); --gg2:rgba(212,175,55,.20); --gg3:rgba(212,175,55,.35);
+  --m:#080808; --m2:#111; --m3:#181818; --m4:#1e1e1e; --m5:#252525;
+  --rim:rgba(212,175,55,.16); --rim2:rgba(212,175,55,.34); --rim3:rgba(212,175,55,.60);
+  --t1:#f0e6c8; --t2:#c9a96e; --t3:#7a6840; --t4:#3d3420;
+  --ok:#2ecc71; --fh:'Cinzel',serif; --ft:'Cinzel Decorative',serif; --fb:'Cairo',sans-serif;
+  --r:12px; --r2:20px; --r3:32px; --sp:.4s cubic-bezier(.34,1.56,.64,1); --tr:.25s ease;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{background:var(--m);color:var(--t1);font-family:var(--fb);line-height:1.7;overflow-x:hidden;min-height:100dvh}
+::selection{background:var(--gold);color:var(--m)}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--m2)}
+::-webkit-scrollbar-thumb{background:var(--gold-d);border-radius:3px}
+
+/* ── Background ── */
+.bg{position:fixed;inset:0;z-index:-2;background:radial-gradient(ellipse at 20% 20%,rgba(212,175,55,.06),transparent 55%),radial-gradient(ellipse at 80% 80%,rgba(212,175,55,.05),transparent 55%),linear-gradient(145deg,#060606,#0e0e0e 40%,#080808 70%,#111)}
+.bg-v{position:fixed;inset:0;z-index:-1;opacity:.05;background-image:repeating-linear-gradient(30deg,transparent,transparent 100px,rgba(212,175,55,.6) 100px,rgba(212,175,55,.6) 101px),repeating-linear-gradient(150deg,transparent,transparent 80px,rgba(212,175,55,.3) 80px,rgba(212,175,55,.3) 81px)}
+
+/* ── HERO / INTRO ── */
+.hero{text-align:center;padding:clamp(40px,8vw,80px) clamp(16px,5vw,60px) 0;position:relative;overflow:hidden}
+.hero-glow{position:absolute;top:40%;left:50%;transform:translate(-50%,-50%);width:600px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(212,175,55,.08),transparent 65%);pointer-events:none}
+.hero-label{display:inline-flex;align-items:center;gap:8px;padding:6px 20px;border-radius:100px;background:var(--gg);border:1px solid var(--rim2);font-family:var(--fh);font-size:.72rem;font-weight:700;color:var(--gold);letter-spacing:.11em;text-transform:uppercase;margin-bottom:20px;animation:fadeUp .6s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.hero-title{font-family:var(--ft);font-size:clamp(1.6rem,5vw,3.2rem);font-weight:900;line-height:1.15;margin-bottom:14px;background:linear-gradient(135deg,var(--gold-d),var(--gold),var(--gold-b),var(--gold));background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:fadeUp .7s ease both,shimmer 4s linear infinite}
+@keyframes shimmer{to{background-position:200% center}}
+.hero-sub{font-size:clamp(.88rem,2vw,1.05rem);color:var(--t2);max-width:580px;margin:0 auto 12px;line-height:1.85;animation:fadeUp .8s ease both}
+.hero-note{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;color:var(--t3);animation:fadeUp .9s ease both;margin-bottom:40px}
+.hero-note .dot{width:7px;height:7px;border-radius:50%;background:var(--ok);animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(46,204,113,.5)}50%{box-shadow:0 0 0 6px rgba(46,204,113,0)}}
+
+/* ── MAIN DEMO WRAPPER ── */
+.demo-section{padding:0 clamp(12px,4vw,40px) clamp(40px,8vw,80px)}
+.demo-wrap{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,3vw,40px);align-items:start}
+@media(max-width:780px){.demo-wrap{grid-template-columns:1fr}}
+
+/* ── PANEL: Admin Side ── */
+.panel{background:linear-gradient(160deg,var(--m3),var(--m2));border:1px solid var(--rim);border-radius:var(--r3);overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.7),0 0 0 1px var(--rim)}
+.panel-header{padding:18px 24px;border-bottom:1px solid var(--rim);background:linear-gradient(90deg,rgba(212,175,55,.07),transparent);display:flex;align-items:center;gap:12px}
+.panel-header-icon{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--gold-d),var(--gold));display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.panel-header-title{font-family:var(--fh);font-size:.88rem;font-weight:900;color:var(--t1)}
+.panel-header-sub{font-size:.68rem;color:var(--t3);margin-top:1px}
+.panel-status{display:flex;align-items:center;gap:5px;font-size:.64rem;color:var(--ok);margin-right:auto;font-weight:700;letter-spacing:.06em;background:rgba(46,204,113,.08);border:1px solid rgba(46,204,113,.2);padding:3px 10px;border-radius:100px}
+.panel-body{padding:22px 20px;display:flex;flex-direction:column;gap:16px}
+
+/* ── Form Elements in Panel ── */
+.f-group{display:flex;flex-direction:column;gap:7px}
+.f-label{font-size:.72rem;font-weight:700;color:var(--gold-d);letter-spacing:.08em;text-transform:uppercase;font-family:var(--fh)}
+.f-inp{width:100%;padding:11px 14px;background:rgba(255,255,255,.04);border:1.5px solid var(--rim);border-radius:var(--r);color:var(--t1);font-family:var(--fb);font-size:.88rem;outline:none;transition:all var(--tr);direction:rtl}
+.f-inp:focus{border-color:var(--gold-d);box-shadow:0 0 0 3px rgba(212,175,55,.08);background:rgba(255,255,255,.06)}
+.f-inp::placeholder{color:var(--t4)}
+
+/* ── Image Upload ── */
+.img-upload{border:2px dashed var(--rim);border-radius:var(--r);padding:20px;text-align:center;cursor:pointer;transition:all var(--tr);background:rgba(255,255,255,.02);position:relative;overflow:hidden}
+.img-upload:hover{border-color:var(--gold-d);background:var(--gg)}
+.img-upload input{position:absolute;inset:0;opacity:0;cursor:pointer;font-size:0}
+.img-upload-icon{font-size:1.8rem;margin-bottom:7px;display:block}
+.img-upload-txt{font-size:.78rem;color:var(--t3);line-height:1.6}
+.img-upload-txt b{color:var(--gold);font-family:var(--fh);font-size:.72rem}
+.img-thumb{width:100%;height:110px;object-fit:cover;border-radius:var(--r);display:none;border:1px solid var(--rim2)}
+
+/* Category selector */
+.cat-pills{display:flex;gap:7px;flex-wrap:wrap}
+.cat-pill{padding:6px 13px;border-radius:100px;font-size:.72rem;font-weight:700;border:1.5px solid var(--rim);color:var(--t3);cursor:pointer;transition:all var(--tr);background:transparent}
+.cat-pill:hover{border-color:var(--rim2);color:var(--t2)}
+.cat-pill.on{border-color:var(--gold);color:var(--gold);background:var(--gg)}
+
+/* ── UPDATE BUTTON ── */
+.update-btn{width:100%;padding:15px;border-radius:var(--r2);font-family:var(--fh);font-size:.92rem;font-weight:900;letter-spacing:.06em;color:var(--m);background:linear-gradient(135deg,var(--gold-d),var(--gold),var(--gold-l));background-size:200% auto;border:none;cursor:pointer;transition:all var(--sp);box-shadow:0 6px 24px rgba(212,175,55,.35),0 2px 8px rgba(0,0,0,.5);position:relative;overflow:hidden}
+.update-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.15),transparent);opacity:0;transition:opacity .2s}
+.update-btn:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 14px 40px rgba(212,175,55,.5);background-position:right center}
+.update-btn:hover::before{opacity:1}
+.update-btn:active{transform:translateY(0) scale(.98)}
+.update-btn.loading{pointer-events:none;opacity:.8}
+
+/* Discount / offer toggle */
+.offer-row{display:flex;align-items:center;gap:10px;padding:10px 12px;background:rgba(212,175,55,.05);border:1px solid var(--rim);border-radius:var(--r);cursor:pointer;transition:all var(--tr)}
+.offer-row:hover{border-color:var(--rim2)}
+.offer-toggle{width:34px;height:20px;border-radius:10px;background:var(--m5);border:1px solid var(--rim2);position:relative;transition:all .3s;flex-shrink:0}
+.offer-toggle::after{content:'';position:absolute;top:3px;right:3px;width:12px;height:12px;border-radius:50%;background:var(--t3);transition:all .3s}
+.offer-row.on .offer-toggle{background:linear-gradient(135deg,var(--gold-d),var(--gold));border-color:var(--gold)}
+.offer-row.on .offer-toggle::after{right:auto;left:3px;background:#fff}
+.offer-lbl{font-size:.78rem;color:var(--t2);flex:1}
+.offer-badge-inp{width:70px;padding:5px 8px;background:rgba(255,255,255,.04);border:1px solid var(--rim);border-radius:var(--r);color:var(--gold);font-family:var(--fb);font-size:.78rem;outline:none;text-align:center;display:none}
+.offer-row.on .offer-badge-inp{display:block}
+
+/* ── PHONE PREVIEW (Right Side) ── */
+.preview-col{display:flex;flex-direction:column;align-items:center;gap:16px;position:sticky;top:20px}
+.phone-frame{width:260px;border-radius:36px;background:#0a0a0a;box-shadow:0 0 0 2px #2a2a2a,0 0 0 5px #1a1a1a,0 0 0 7px #2a2a2a,0 40px 80px rgba(0,0,0,.8),0 0 60px rgba(212,175,55,.08);overflow:hidden;position:relative;flex-shrink:0;transition:transform var(--sp)}
+.phone-frame:hover{transform:scale(1.02)}
+/* Notch */
+.phone-notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:100px;height:28px;background:#0a0a0a;border-radius:0 0 18px 18px;z-index:10;display:flex;align-items:center;justify-content:center;gap:6px}
+.notch-cam{width:8px;height:8px;border-radius:50%;background:#1a1a1a;border:1px solid #2a2a2a}
+.notch-sensor{width:4px;height:4px;border-radius:50%;background:#1a1a1a}
+/* Status Bar */
+.phone-status{padding:32px 14px 6px;display:flex;justify-content:space-between;align-items:center;font-size:.58rem;color:rgba(255,255,255,.4);background:#0a0a0a;font-family:monospace}
+.phone-screen{height:520px;overflow-y:auto;background:#f5f5f5;overscroll-behavior:contain}
+.phone-screen::-webkit-scrollbar{width:0}
+/* Side Buttons */
+.phone-frame::before{content:'';position:absolute;top:80px;left:-5px;width:4px;height:32px;background:#1a1a1a;border-radius:2px 0 0 2px;box-shadow:0 40px 0 #1a1a1a}
+.phone-frame::after{content:'';position:absolute;top:90px;right:-5px;width:4px;height:50px;background:#1a1a1a;border-radius:0 2px 2px 0}
+/* Home indicator */
+.phone-home{height:24px;background:#0a0a0a;display:flex;align-items:center;justify-content:center}
+.phone-home-bar{width:80px;height:4px;background:#2a2a2a;border-radius:2px}
+
+/* ── STORE PREVIEW INSIDE PHONE ── */
+.store-wrap{font-family:'Cairo',sans-serif;background:#f5f5f5;min-height:520px;display:flex;flex-direction:column}
+/* Store Nav */
+.store-nav{background:linear-gradient(135deg,#0a0a0a,#1a1a0a);padding:10px 12px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.store-nav-name{font-family:'Cinzel',serif;font-size:.68rem;font-weight:900;color:#D4AF37;letter-spacing:.06em}
+.store-nav-icons{display:flex;gap:6px;font-size:.7rem}
+.store-badge{background:rgba(212,175,55,.2);border:1px solid rgba(212,175,55,.4);border-radius:3px;padding:1px 5px;font-size:.48rem;color:#D4AF37;font-weight:700;letter-spacing:.08em}
+/* Hero Banner inside store */
+.store-hero{background:linear-gradient(145deg,#0d0d0d,#1a1500);padding:16px 12px 12px;text-align:center;position:relative;overflow:hidden;flex-shrink:0}
+.store-hero-glow{position:absolute;top:-20px;left:50%;transform:translateX(-50%);width:180px;height:80px;border-radius:50%;background:radial-gradient(circle,rgba(212,175,55,.15),transparent 70%);pointer-events:none}
+.store-hero-label{font-size:.45rem;color:rgba(212,175,55,.7);letter-spacing:.12em;text-transform:uppercase;margin-bottom:3px;font-family:'Cinzel',serif}
+.store-hero-title{font-family:'Cinzel Decorative',serif;font-size:.75rem;font-weight:900;color:#D4AF37;line-height:1.3;margin-bottom:4px;word-break:break-word}
+.store-hero-sub{font-size:.48rem;color:rgba(240,230,200,.5);letter-spacing:.06em}
+/* Product Card */
+.store-product{padding:10px;flex-shrink:0}
+.store-prod-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.1)}
+.store-prod-img{width:100%;height:130px;object-fit:cover;display:block;background:linear-gradient(135deg,#1a1a0a,#0a0a0a)}
+.store-prod-img-placeholder{width:100%;height:130px;background:linear-gradient(145deg,#0d0d0d,#1c1600);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}
+.store-prod-img-icon{font-size:2rem;filter:drop-shadow(0 0 8px rgba(212,175,55,.4))}
+.store-prod-body{padding:10px 12px}
+.store-prod-badge{display:inline-flex;align-items:center;gap:3px;padding:2px 7px;border-radius:100px;font-size:.46rem;font-weight:700;background:linear-gradient(135deg,#B8860B,#D4AF37);color:#000;letter-spacing:.06em;margin-bottom:4px;font-family:'Cinzel',serif}
+.store-prod-name{font-family:'Cinzel',serif;font-size:.72rem;font-weight:900;color:#1a1a0a;margin-bottom:3px;word-break:break-word;line-height:1.4}
+.store-prod-price-wrap{display:flex;align-items:center;gap:6px;margin-bottom:8px}
+.store-prod-price{font-family:'Cinzel Decorative',serif;font-size:.9rem;font-weight:900;color:#B8860B}
+.store-prod-old{font-size:.56rem;color:#aaa;text-decoration:line-through}
+.store-prod-discount{font-size:.48rem;font-weight:700;color:#fff;background:#e74c3c;padding:1px 5px;border-radius:3px}
+/* WA Button inside store */
+.store-wa-btn{width:100%;padding:9px;background:linear-gradient(135deg,#1a8a3c,#25D366);border:none;border-radius:8px;color:#fff;font-family:'Cairo',sans-serif;font-size:.66rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:5px;margin-bottom:8px;box-shadow:0 3px 10px rgba(37,211,102,.3)}
+.store-cart-btn{width:100%;padding:7px;background:transparent;border:1.5px solid #D4AF37;border-radius:8px;color:#B8860B;font-family:'Cairo',sans-serif;font-size:.62rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:4px}
+/* Divider */
+.store-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(212,175,55,.3),transparent);margin:0 10px}
+/* More products row */
+.store-more{padding:10px 10px 14px}
+.store-more-title{font-family:'Cinzel',serif;font-size:.56rem;font-weight:700;color:#888;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:5px}
+.store-more-title::after{content:'';flex:1;height:1px;background:rgba(212,175,55,.2)}
+.store-more-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.store-more-item{background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.07)}
+.store-more-img{height:52px;background:linear-gradient(135deg,#111,#1c1600);display:flex;align-items:center;justify-content:center;font-size:.9rem}
+.store-more-body{padding:5px 6px}
+.store-more-name{font-size:.46rem;font-weight:700;color:#1a1a0a;font-family:'Cinzel',serif;word-break:break-word}
+.store-more-price{font-size:.5rem;color:#B8860B;font-weight:900;font-family:'Cinzel Decorative',serif}
+/* Footer inside store */
+.store-footer{background:linear-gradient(135deg,#0a0a0a,#1a1500);padding:8px 10px;text-align:center;margin-top:auto}
+.store-footer-name{font-family:'Cinzel',serif;font-size:.5rem;color:#D4AF37;letter-spacing:.08em}
+.store-footer-sub{font-size:.42rem;color:rgba(212,175,55,.4);margin-top:1px}
+
+/* ── LOADING OVERLAY ── */
+.phone-loader{position:absolute;inset:0;background:rgba(8,8,8,.9);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;z-index:20;border-radius:36px;opacity:0;pointer-events:none;transition:opacity .3s}
+.phone-loader.show{opacity:1;pointer-events:all}
+.loader-ring{width:44px;height:44px;border:3px solid rgba(212,175,55,.15);border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loader-txt{font-family:var(--fh);font-size:.72rem;color:var(--gold);letter-spacing:.08em;animation:blink 1s ease infinite}
+@keyframes blink{0%,100%{opacity:.5}50%{opacity:1}}
+
+/* Preview label */
+.preview-label{font-family:var(--fh);font-size:.72rem;color:var(--t3);letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;gap:6px}
+.preview-label::before,.preview-label::after{content:'';flex:1;height:1px;background:var(--rim)}
+.live-dot{width:7px;height:7px;border-radius:50%;background:var(--ok);animation:pulse 1.5s infinite;flex-shrink:0}
+.share-preview-btn{padding:8px 18px;border-radius:100px;font-family:var(--fh);font-size:.7rem;font-weight:700;letter-spacing:.06em;border:1.5px solid var(--rim2);color:var(--gold);background:transparent;cursor:pointer;transition:all var(--tr)}
+.share-preview-btn:hover{background:var(--gg);border-color:var(--rim3)}
+
+/* ── STATISTICS BAR (social proof) ── */
+.stats-bar{display:flex;gap:0;background:linear-gradient(90deg,rgba(212,175,55,.06),rgba(212,175,55,.03));border:1px solid var(--rim);border-radius:var(--r2);overflow:hidden;max-width:1100px;margin:0 auto 32px}
+.stat-item{flex:1;padding:16px 12px;text-align:center;border-left:1px solid var(--rim);position:relative}
+.stat-item:last-child{border-left:none}
+.stat-num{font-family:var(--ft);font-size:1.3rem;font-weight:900;color:var(--gold);display:block;line-height:1}
+.stat-lbl{font-size:.68rem;color:var(--t3);margin-top:4px;letter-spacing:.04em}
+
+/* ══ CTA SECTION ══ */
+.cta-section{max-width:1100px;margin:0 auto;padding:0 clamp(12px,4vw,40px) clamp(40px,6vw,64px)}
+.cta-card{background:linear-gradient(145deg,rgba(212,175,55,.1),rgba(212,175,55,.03),rgba(0,0,0,.3));border:2px solid var(--rim2);border-radius:var(--r3);padding:clamp(28px,5vw,52px);text-align:center;position:relative;overflow:hidden;box-shadow:0 0 60px rgba(212,175,55,.08),0 40px 80px rgba(0,0,0,.6)}
+.cta-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.cta-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold-dim),transparent)}
+.cta-badge{display:inline-flex;align-items:center;gap:7px;padding:7px 20px;border-radius:100px;background:rgba(231,76,60,.15);border:1px solid rgba(231,76,60,.35);font-family:var(--fh);font-size:.73rem;font-weight:700;color:#e74c3c;letter-spacing:.08em;margin-bottom:20px;animation:ctaPulse 2s ease-in-out infinite}
+@keyframes ctaPulse{0%,100%{box-shadow:0 0 0 0 rgba(231,76,60,.3)}50%{box-shadow:0 0 0 8px rgba(231,76,60,0)}}
+.cta-price{font-family:var(--ft);font-size:clamp(2rem,6vw,4rem);font-weight:900;background:linear-gradient(135deg,var(--gold-d),var(--gold),var(--gold-b));background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 3s linear infinite;line-height:1.1;margin-bottom:8px}
+.cta-desc{font-size:clamp(.88rem,2vw,1.05rem);color:var(--t2);max-width:560px;margin:0 auto 28px;line-height:1.85}
+.cta-desc strong{color:var(--t1);font-weight:700}
+.cta-features{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:32px}
+.cta-feat{display:flex;align-items:center;gap:7px;font-size:.8rem;color:var(--t2);background:rgba(255,255,255,.03);border:1px solid var(--rim);border-radius:100px;padding:6px 14px}
+.cta-feat::before{content:'✦';color:var(--gold);font-size:.7rem}
+.cta-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 40px;border-radius:100px;font-family:var(--fh);font-size:1rem;font-weight:900;letter-spacing:.06em;color:var(--m);background:linear-gradient(135deg,var(--gold-d),var(--gold),var(--gold-l));background-size:200% auto;border:none;cursor:pointer;box-shadow:0 8px 32px rgba(212,175,55,.4),0 4px 16px rgba(0,0,0,.5);transition:all var(--sp);text-decoration:none}
+.cta-btn:hover{transform:translateY(-4px) scale(1.04);box-shadow:0 16px 48px rgba(212,175,55,.55);background-position:right center}
+.cta-timer{font-size:.76rem;color:var(--t3);margin-top:14px;letter-spacing:.04em}
+.cta-timer b{color:var(--err);font-family:var(--fh)}
+.cta-guarantee{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:20px;font-size:.75rem;color:var(--t3);padding-top:20px;border-top:1px solid var(--rim)}
+
+/* ── Toast ── */
+#toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(16px);background:var(--m4);border:1px solid var(--rim2);color:var(--t1);padding:11px 22px;border-radius:100px;font-size:.84rem;font-weight:600;z-index:9999;opacity:0;pointer-events:none;transition:all .3s;white-space:nowrap;box-shadow:0 8px 24px rgba(0,0,0,.6);font-family:var(--fb)}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* Separator */
+.sep{height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.18;margin:0 clamp(12px,4vw,40px)}
+
+/* Confetti particle */
+.confetti-wrap{position:fixed;inset:0;pointer-events:none;z-index:1000;overflow:hidden}
+.conf{position:absolute;width:8px;height:8px;border-radius:2px;animation:confFall linear forwards}
+@keyframes confFall{0%{transform:translateY(-20px) rotate(0deg);opacity:1}100%{transform:translateY(110vh) rotate(720deg);opacity:0}}
+
+/* Responsive tweaks */
+@media(max-width:600px){
+  .stats-bar{flex-wrap:wrap}
+  .stat-item{min-width:50%;border-bottom:1px solid var(--rim)}
+  .phone-frame{width:230px}
+  .phone-screen{height:460px}
+  .cta-features{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body>
+
+<div class="bg"></div>
+<div class="bg-v"></div>
+
+<!-- ══ HERO ══ -->
+<div class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-label">⚡ تجربة تفاعلية مجانية</div>
+  <h1 class="hero-title">محرك التجارة الذكي<br><span style="font-size:.65em">Smart Shop Engine</span></h1>
+  <p class="hero-sub">اكتب اسم منتجك وسعره — شاهد موقعك الاحترافي ينبض بالحياة أمامك فوراً</p>
+  <div class="hero-note">
+    <span class="dot"></span>
+    بدون برمجة · بدون خبرة تقنية · من موبايلك مباشرة
+  </div>
+</div>
+
+<!-- ══ DEMO SECTION ══ -->
+<div class="demo-section">
+
+  <!-- Stats Bar -->
+  <div class="stats-bar reveal">
+    <div class="stat-item"><span class="stat-num" id="visitCount">847</span><div class="stat-lbl">جربوا الأداة اليوم</div></div>
+    <div class="stat-item"><span class="stat-num">150</span><div class="stat-lbl">جنيه فقط للموقع</div></div>
+    <div class="stat-item"><span class="stat-num">24h</span><div class="stat-lbl">وقت التسليم</div></div>
+    <div class="stat-item"><span class="stat-num">⭐ 4.9</span><div class="stat-lbl">تقييم العملاء</div></div>
+  </div>
+
+  <div class="demo-wrap">
+
+    <!-- ══ LEFT: Admin Panel ══ -->
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-header-icon">⚙️</div>
+        <div>
+          <div class="panel-header-title">لوحة التحكم</div>
+          <div class="panel-header-sub">حدّث موقعك من موبايلك</div>
+        </div>
+        <div class="panel-status">
+          <span style="width:6px;height:6px;border-radius:50%;background:var(--ok);display:inline-block;animation:pulse 1.5s infinite"></span>
+          متصل
+        </div>
+      </div>
+
+      <div class="panel-body">
+
+        <!-- Product Name -->
+        <div class="f-group">
+          <label class="f-label">🏷️ اسم المنتج أو المحل</label>
+          <input class="f-inp" id="prodName" type="text" placeholder="مثال: كافيه النجوم · فستان سواريه · ساعة رولكس..." maxlength="60" oninput="liveUpdate()">
+        </div>
+
+        <!-- Price -->
+        <div class="f-group">
+          <label class="f-label">💰 السعر بالجنيه المصري</label>
+          <input class="f-inp" id="prodPrice" type="number" placeholder="مثال: 299" min="1" oninput="liveUpdate()" style="direction:ltr;text-align:right">
+        </div>
+
+        <!-- Category -->
+        <div class="f-group">
+          <label class="f-label">🏪 فئة المنتج</label>
+          <div class="cat-pills" id="catPills">
+            <div class="cat-pill on" onclick="selectCat(this,'👗 ملابس')">👗 ملابس</div>
+            <div class="cat-pill" onclick="selectCat(this,'☕ مشروبات')">☕ مشروبات</div>
+            <div class="cat-pill" onclick="selectCat(this,'⌚ إكسسوار')">⌚ إكسسوار</div>
+            <div class="cat-pill" onclick="selectCat(this,'📱 إلكترونيات')">📱 إلكترونيات</div>
+            <div class="cat-pill" onclick="selectCat(this,'🍕 أكل')">🍕 أكل</div>
+            <div class="cat-pill" onclick="selectCat(this,'💄 تجميل')">💄 تجميل</div>
+          </div>
+        </div>
+
+        <!-- Offer Toggle -->
+        <div class="f-group">
+          <label class="f-label">🏷️ خصم / عرض خاص</label>
+          <div class="offer-row" id="offerRow" onclick="toggleOffer()">
+            <div class="offer-toggle" id="offerToggle"></div>
+            <div class="offer-lbl">تفعيل شارة الخصم</div>
+            <input class="offer-badge-inp" id="offerPct" type="text" placeholder="25%" onclick="event.stopPropagation()" oninput="liveUpdate()">
+          </div>
+        </div>
+
+        <!-- Image Upload -->
+        <div class="f-group">
+          <label class="f-label">🖼️ صورة المنتج</label>
+          <div class="img-upload" id="imgUploadBox">
+            <input type="file" accept="image/*" onchange="handleImg(this)">
+            <img id="imgThumb" class="img-thumb" alt="">
+            <div id="imgPlaceholder">
+              <span class="img-upload-icon">📸</span>
+              <div class="img-upload-txt">اسحب صورة هنا أو<br><b>اضغط لاختيار صورة</b></div>
+              <div style="font-size:.62rem;color:var(--t4);margin-top:5px">PNG · JPG · WEBP</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Update Button -->
+        <button class="update-btn" id="updateBtn" onclick="updateStore()">
+          ✨ تحديث موقعك الآن
+        </button>
+
+        <!-- WhatsApp number for demo -->
+        <div class="f-group">
+          <label class="f-label">📞 رقم واتساب للتواصل</label>
+          <input class="f-inp" id="waNum" type="tel" placeholder="201229317313" style="direction:ltr" oninput="liveUpdate()">
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══ RIGHT: Phone Preview ══ -->
+    <div class="preview-col">
+      <div class="preview-label">
+        <span class="live-dot"></span>
+        معاينة مباشرة
+      </div>
+
+      <!-- Phone Frame -->
+      <div class="phone-frame" id="phoneFrame">
+        <div class="phone-notch">
+          <div class="notch-cam"></div>
+          <div class="notch-sensor"></div>
+        </div>
+        <div class="phone-status">
+          <span>9:41</span>
+          <span>●●●●●</span>
+          <span>100% ■</span>
+        </div>
+
+        <!-- Store Content -->
+        <div class="phone-screen" id="phoneScreen">
+          <div class="store-wrap" id="storeWrap">
+            <!-- Nav -->
+            <div class="store-nav">
+              <div class="store-nav-name" id="s-shop-name">محل عمرو ⭐</div>
+              <div class="store-nav-icons">
+                <span class="store-badge">LIVE</span>
+                🛒 🔔
+              </div>
+            </div>
+            <!-- Hero Banner -->
+            <div class="store-hero">
+              <div class="store-hero-glow"></div>
+              <div class="store-hero-label">✦ منتجات فاخرة بأفضل الأسعار ✦</div>
+              <div class="store-hero-title" id="s-store-title">محل عمرو للموضة</div>
+              <div class="store-hero-sub">اطلب الآن واستلم في نفس اليوم 🚀</div>
+            </div>
+            <!-- Product Card -->
+            <div class="store-product">
+              <div class="store-prod-card">
+                <!-- Image / Placeholder -->
+                <div class="store-prod-img-placeholder" id="s-img-placeholder">
+                  <div class="store-prod-img-icon" id="s-prod-icon">✨</div>
+                  <div style="font-size:.45rem;color:rgba(212,175,55,.4);letter-spacing:.06em;font-family:Cinzel,serif">PREMIUM</div>
+                </div>
+                <img id="s-prod-img" class="store-prod-img" src="" alt="" style="display:none;height:130px;width:100%;object-fit:cover">
+                <div class="store-prod-body">
+                  <div class="store-prod-badge">⭐ مميز</div>
+                  <div class="store-prod-name" id="s-prod-name">اكتب اسم المنتج ✨</div>
+                  <div class="store-prod-price-wrap">
+                    <div class="store-prod-price" id="s-prod-price">0 جنيه</div>
+                    <div class="store-prod-old" id="s-prod-old" style="display:none"></div>
+                    <div class="store-prod-discount" id="s-prod-disc" style="display:none"></div>
+                  </div>
+                  <button class="store-wa-btn" id="s-wa-btn" onclick="previewWA()">
+                    💬 اطلب عبر واتساب
+                  </button>
+                  <button class="store-cart-btn">🛒 أضف للسلة</button>
+                </div>
+              </div>
+            </div>
+            <!-- Divider -->
+            <div class="store-divider"></div>
+            <!-- More Products -->
+            <div class="store-more">
+              <div class="store-more-title">منتجات أخرى</div>
+              <div class="store-more-grid">
+                <div class="store-more-item">
+                  <div class="store-more-img">🌟</div>
+                  <div class="store-more-body">
+                    <div class="store-more-name" id="s-more1">منتج مميز</div>
+                    <div class="store-more-price">199 ج</div>
+                  </div>
+                </div>
+                <div class="store-more-item">
+                  <div class="store-more-img">💎</div>
+                  <div class="store-more-body">
+                    <div class="store-more-name" id="s-more2">عرض خاص</div>
+                    <div class="store-more-price">349 ج</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Footer -->
+            <div class="store-footer">
+              <div class="store-footer-name" id="s-footer-name">محل عمرو ©</div>
+              <div class="store-footer-sub">Powered by Smart Tech ⚡</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="phone-home"><div class="phone-home-bar"></div></div>
+
+        <!-- Loading Overlay -->
+        <div class="phone-loader" id="phoneLoader">
+          <div class="loader-ring"></div>
+          <div class="loader-txt">جاري التحديث...</div>
+        </div>
+      </div>
+
+      <button class="share-preview-btn" onclick="shareDemo()">📤 شارك هذا الموقع</button>
+      <div style="font-size:.7rem;color:var(--t4);text-align:center;letter-spacing:.04em">هذا مجرد نموذج تجريبي — موقعك الحقيقي أجمل بكثير 🌟</div>
+    </div>
+
+  </div>
+</div>
+
+<div class="sep"></div>
+
+<!-- ══ CTA SECTION ══ -->
+<div class="cta-section">
+  <div class="cta-card">
+    <div class="cta-badge">🔥 عرض لفترة محدودة جداً</div>
+    <div class="cta-price">150 جنيه فقط!</div>
+    <p class="cta-desc">
+      امتلك <strong>موقعك الاحترافي الكامل</strong> بلوحة تحكم من موبايلك —
+      تصميم فاخر، تحديث فوري للمنتجات،
+      واسمك على الإنترنت للأبد 🚀
+    </p>
+    <div class="cta-features">
+      <div class="cta-feat">تسليم خلال 24 ساعة</div>
+      <div class="cta-feat">لوحة تحكم من الموبايل</div>
+      
+      
+      <div class="cta-feat">دعم فني مستمر</div>
+    </div>
+    <a class="cta-btn" id="ctaBtn" href="#" onclick="ctaWA(event)">
+      💬 اطلب عرضك الآن عبر واتساب
+    </a>
+    <div class="cta-timer">
+      ⏰ العرض ينتهي خلال: <b id="ctaTimer">--:--:--</b>
+    </div>
+    <div class="cta-guarantee">
+      🔒 ضمان استرداد كامل خلال 7 أيام إذا لم تُعجبك النتيجة
+    </div>
+  </div>
+</div>
+
+<!-- Confetti Container -->
+<div class="confetti-wrap" id="confettiWrap"></div>
+
+<!-- Toast -->
+<div id="toast"></div>
+
+<script>
+'use strict';
+
+/* ═══ CONFIG ═══ */
+const WA_NUMBER = atob('MjAxMjI5MzE3MzEz');
+let selectedCat = '👗 ملابس';
+let offerOn = false;
+let imgDataUrl = null;
+let updateTimeout = null;
+
+/* ═══ LIVE UPDATE (typing) ═══ */
+function liveUpdate() {
+  clearTimeout(updateTimeout);
+  updateTimeout = setTimeout(() => {
+    syncPreview(false);
+  }, 300);
+}
+
+/* ═══ SYNC PREVIEW ═══ */
+function syncPreview(withLoader = false) {
+  const name  = document.getElementById('prodName').value.trim() || 'اسم منتجك هنا ✨';
+  const price = parseFloat(document.getElementById('prodPrice').value) || 0;
+  const offerPct = document.getElementById('offerPct').value.trim();
+
+  /* Shop name */
+  const shopName = name.length > 20 ? name.substring(0, 20) + '...' : name;
+  document.getElementById('s-shop-name').textContent = shopName + ' ⭐';
+  document.getElementById('s-store-title').textContent = shopName;
+  document.getElementById('s-footer-name').textContent = shopName + ' ©';
+
+  /* Product name */
+  document.getElementById('s-prod-name').textContent = name;
+  document.getElementById('s-more1').textContent = name;
+  document.getElementById('s-more2').textContent = selectedCat + ' آخر';
+
+  /* Icon based on category */
+  const catIcons = {'👗 ملابس':'👗','☕ مشروبات':'☕','⌚ إكسسوار':'⌚','📱 إلكترونيات':'📱','🍕 أكل':'🍕','💄 تجميل':'💄'};
+  document.getElementById('s-prod-icon').textContent = catIcons[selectedCat] || '✨';
+
+  /* Price */
+  if (price > 0) {
+    document.getElementById('s-prod-price').textContent = price.toLocaleString('ar-EG') + ' جنيه';
+    if (offerOn && offerPct) {
+      const disc = parseInt(offerPct) || 0;
+      const oldPrice = Math.round(price / (1 - disc/100));
+      document.getElementById('s-prod-old').textContent = oldPrice.toLocaleString('ar-EG') + ' ج';
+      document.getElementById('s-prod-old').style.display = 'block';
+      document.getElementById('s-prod-disc').textContent = '-' + disc + '%';
+      document.getElementById('s-prod-disc').style.display = 'block';
+    } else {
+      document.getElementById('s-prod-old').style.display = 'none';
+      document.getElementById('s-prod-disc').style.display = 'none';
+    }
+  } else {
+    document.getElementById('s-prod-price').textContent = 'السعر عند التواصل';
+  }
+
+  /* Image */
+  if (imgDataUrl) {
+    document.getElementById('s-prod-img').src = imgDataUrl;
+    document.getElementById('s-prod-img').style.display = 'block';
+    document.getElementById('s-img-placeholder').style.display = 'none';
+  } else {
+    document.getElementById('s-prod-img').style.display = 'none';
+    document.getElementById('s-img-placeholder').style.display = 'flex';
+  }
+}
+
+/* ═══ UPDATE BUTTON (with loader + confetti) ═══ */
+function updateStore() {
+  const name  = document.getElementById('prodName').value.trim();
+  const price = document.getElementById('prodPrice').value;
+  if (!name) { toast('⚠️ أدخل اسم المنتج أولاً!'); document.getElementById('prodName').focus(); return; }
+  if (!price) { toast('⚠️ أدخل السعر!'); document.getElementById('prodPrice').focus(); return; }
+
+  const btn = document.getElementById('updateBtn');
+  const loader = document.getElementById('phoneLoader');
+  btn.classList.add('loading');
+  btn.textContent = '⏳ جاري التحديث...';
+  loader.classList.add('show');
+
+  setTimeout(() => {
+    loader.classList.remove('show');
+    btn.classList.remove('loading');
+    btn.textContent = '✅ تم التحديث بنجاح!';
+    syncPreview(false);
+    confetti();
+    toast('🎉 تم تحديث موقعك! شاهد النتيجة على اليمين');
+    setTimeout(() => { btn.textContent = '✨ تحديث موقعك الآن'; }, 3000);
+  }, 1400);
+}
+
+/* ═══ CATEGORY SELECT ═══ */
+function selectCat(el, cat) {
+  document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('on'));
+  el.classList.add('on');
+  selectedCat = cat;
+  liveUpdate();
+}
+
+/* ═══ OFFER TOGGLE ═══ */
+function toggleOffer() {
+  offerOn = !offerOn;
+  document.getElementById('offerRow').classList.toggle('on', offerOn);
+  liveUpdate();
+}
+
+/* ═══ IMAGE UPLOAD ═══ */
+function handleImg(input) {
+  if (!input.files || !input.files[0]) return;
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    imgDataUrl = e.target.result;
+    document.getElementById('imgThumb').src = imgDataUrl;
+    document.getElementById('imgThumb').style.display = 'block';
+    document.getElementById('imgPlaceholder').style.display = 'none';
+    liveUpdate();
+    toast('✅ تم رفع الصورة!');
+  };
+  reader.readAsDataURL(input.files[0]);
+}
+
+/* ═══ PREVIEW WA ═══ */
+function previewWA() {
+  const name  = document.getElementById('prodName').value.trim() || 'منتج';
+  const price = document.getElementById('prodPrice').value || 'عند التواصل';
+  const wa    = document.getElementById('waNum').value.trim() || WA_NUMBER;
+  const msg   = encodeURIComponent(`مرحباً! 👋\nأريد الاستفسار عن:\n📦 ${name}\n💰 السعر: ${price} جنيه\n\nهل متاح؟`);
+  window.open(`https://wa.me/${wa}?text=${msg}`, '_blank', 'noopener');
+}
+
+/* ═══ CTA WA ═══ */
+function ctaWA(e) {
+  e.preventDefault();
+  const msg = encodeURIComponent('مرحباً Smart Tech! 👋\nشفت أداة محرك التجارة الذكي وعايز موقع بـ 150 جنيه 🚀\nممكن تبعتلي التفاصيل؟');
+  window.open(`https://wa.me/${WA_NUMBER}?text=${msg}`, '_blank', 'noopener');
+}
+
+/* ═══ SHARE DEMO ═══ */
+function shareDemo() {
+  const name = document.getElementById('prodName').value.trim();
+  const txt = name
+    ? `شفت موقعي الاحترافي على Smart Tech! 🌟\n${name} — جاهز بلوحة تحكم من الموبايل!\n\nجرّب الأداة مجاناً: ${location.href}`
+    : `جرّب محرك التجارة الذكي من Smart Tech 🚀\nشاهد موقعك الاحترافي بثانية واحدة!\n\n${location.href}`;
+  if (navigator.share) {
+    navigator.share({ title: 'محرك التجارة الذكي', text: txt }).catch(() => {});
+  } else {
+    navigator.clipboard.writeText(txt).then(() => toast('✅ تم نسخ الرابط للمشاركة!'));
+  }
+}
+
+/* ═══ CONFETTI ═══ */
+function confetti() {
+  const wrap = document.getElementById('confettiWrap');
+  const colors = ['#D4AF37','#FFD700','#FFEC80','#B8860B','#fff','#f0e6c8'];
+  for (let i = 0; i < 60; i++) {
+    const el = document.createElement('div');
+    el.className = 'conf';
+    el.style.cssText = `
+      left:${Math.random()*100}%;
+      background:${colors[Math.floor(Math.random()*colors.length)]};
+      width:${4+Math.random()*8}px;height:${4+Math.random()*8}px;
+      border-radius:${Math.random()>.5?'50%':'2px'};
+      animation-duration:${1.5+Math.random()*2}s;
+      animation-delay:${Math.random()*.5}s;
+    `;
+    wrap.appendChild(el);
+    setTimeout(() => el.remove(), 3000);
+  }
+}
+
+/* ═══ TOAST ═══ */
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  clearTimeout(t._t); t._t = setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+/* ═══ COUNTDOWN TIMER ═══ */
+(function countdown() {
+  const end = new Date();
+  end.setHours(23, 59, 59, 0);
+  function tick() {
+    const now = new Date();
+    const diff = end - now;
+    if (diff <= 0) { document.getElementById('ctaTimer').textContent = 'انتهى العرض — تواصل معنا!'; return; }
+    const h = String(Math.floor(diff/3600000)).padStart(2,'0');
+    const m = String(Math.floor((diff%3600000)/60000)).padStart(2,'0');
+    const s = String(Math.floor((diff%60000)/1000)).padStart(2,'0');
+    document.getElementById('ctaTimer').textContent = `${h}:${m}:${s}`;
+    setTimeout(tick, 1000);
+  }
+  tick();
+})();
+
+/* ═══ VISITOR COUNTER (social proof) ═══ */
+(function liveCount() {
+  let n = 800 + Math.floor(Math.random() * 80);
+  document.getElementById('visitCount').textContent = n.toLocaleString('ar-EG');
+  setInterval(() => {
+    n += Math.floor(Math.random() * 3) + 1;
+    document.getElementById('visitCount').textContent = n.toLocaleString('ar-EG');
+  }, 4000);
+})();
+
+/* ═══ REVEAL ANIMATION ═══ */
+const ro = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); ro.unobserve(e.target); } });
+}, {threshold:.1});
+document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+
+/* Initial sync */
+window.addEventListener('load', () => syncPreview(false));
+</script>
+</body>
+</html>
