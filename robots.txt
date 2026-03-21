@@ -18,7 +18,7 @@ Disallow: /_redirects
 Disallow: /_headers
 
 # خريطة الموقع — ضع رابط موقعك الحقيقي هنا
-Sitemap: https://smarttech.pages.dev/sitemap.xml
+Sitemap: https://smart-bwo.pages.dev/sitemap.xml
 
 # مهل التوقف بين الطلبات
 Crawl-delay: 1
