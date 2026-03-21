@@ -1,24 +1,41 @@
-# ════════════════════════════════════════════════
-#   Smart Tech — robots.txt
-#   يساعد Google على فهرسة موقعك بشكل صحيح
-# ════════════════════════════════════════════════
+# ══════════════════════════════════════════
+#   Smart Tech Egypt — robots.txt
+#   https://st-yos.pages.dev
+# ══════════════════════════════════════════
 
+# السماح لجميع محركات البحث
 User-agent: *
 Allow: /
 
-# صفحات مسموح بها
+# السماح بالصفحات الرئيسية
 Allow: /index.html
-Allow: /store.html
 Allow: /blog.html
+Allow: /store.html
 Allow: /affiliates.html
+Allow: /guide.html
 
-# ملفات النظام — لا داعي لفهرستها
+# منع فهرسة ملفات النظام والمجلدات الخاصة
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.json$
 Disallow: /sw.js
-Disallow: /_redirects
-Disallow: /_headers
 
-# خريطة الموقع — ضع رابط موقعك الحقيقي هنا
-Sitemap: https://smart-bwo.pages.dev/sitemap.xml
+# السماح بالـ CSS والـ JS للفهرسة الصحيحة
+Allow: /css/
+Allow: /js/
 
-# مهل التوقف بين الطلبات
+# ══ Sitemaps ══
+Sitemap: https://st-yos.pages.dev/sitemap.xml
+
+# ══ Crawl delay (礼貌 للزحف) ══
+Crawl-delay: 1
+
+# ══ Google Bot خاص ══
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# ══ Bing Bot ══
+User-agent: Bingbot
+Allow: /
 Crawl-delay: 1

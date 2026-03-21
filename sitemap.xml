@@ -1,43 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  Smart Tech — Sitemap XML
-  يساعد Google على اكتشاف جميع صفحاتك وفهرستها بسرعة
-  ⚠️ غيّر "smarttech.pages.dev" برابط موقعك الفعلي
--->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <!-- الصفحة الرئيسية -->
   <url>
-    <loc>https://smart-bwo.pages.dev/</loc>
-    <lastmod>2025-01-01</lastmod>
+    <loc>https://st-yos.pages.dev/</loc>
+    <lastmod>2025-03-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://smart-bwo.pages.dev/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://smart-bwo.pages.dev/?lang=en"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://smart-bwo.pages.dev/?lang=fr"/>
-  </url>
-
-  <!-- المتجر -->
-  <url>
-    <loc>https://smart-bwo.pages.dev/store.html</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://st-yos.pages.dev/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://st-yos.pages.dev/"/>
   </url>
 
   <!-- المدونة -->
   <url>
-    <loc>https://smart-bwo.pages.dev/blog.html</loc>
-    <lastmod>2025-01-01</lastmod>
+    <loc>https://st-yos.pages.dev/blog.html</loc>
+    <lastmod>2025-03-21</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- المتجر -->
+  <url>
+    <loc>https://st-yos.pages.dev/store.html</loc>
+    <lastmod>2025-03-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- الشركاء / التسويق بالعمولة -->
+  <url>
+    <loc>https://st-yos.pages.dev/affiliates.html</loc>
+    <lastmod>2025-03-21</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- شركاؤنا -->
+  <!-- دليل الاستخدام -->
   <url>
-    <loc>https://smart-bwo.pages.dev/affiliates.html</loc>
-    <lastmod>2025-01-01</lastmod>
+    <loc>https://st-yos.pages.dev/guide.html</loc>
+    <lastmod>2025-03-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
