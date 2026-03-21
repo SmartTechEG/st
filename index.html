@@ -43,7 +43,7 @@
          • اذهب إلى: analytics.google.com
          • Admin → Data Streams → اختر موقعك → Measurement ID
          • انسخ الكود (مثال: G-AB12345678)
-         • استبدل GA_MEASUREMENT_ID بهذا الكود هنا وفي كل مكان
+         • Measurement ID: G-56RQG5K81W ✔️ مفعّل
 
      2️⃣  Google Search Console:
          • اذهب إلى: search.google.com/search-console
@@ -58,10 +58,10 @@
 <!-- ── Google Analytics 4 ── -->
 <script>
   /* ═══ ضع Measurement ID هنا ═══ */
-  var GA_ID = 'GA_MEASUREMENT_ID'; /* مثال: G-AB12345678 */
+  var GA_ID = 'G-56RQG5K81W'; /* ✔️ G-56RQG5K81W مفعّل */
 
   /* تحميل GA4 فقط إذا كان الكود صحيحاً (يبدأ بـ G-) */
-  if(GA_ID && GA_ID.startsWith('G-') && GA_ID !== 'GA_MEASUREMENT_ID'){
+  if(GA_ID && GA_ID.startsWith('G-')){
     (function(){
       var s=document.createElement('script');
       s.async=true;
