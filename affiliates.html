@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#0a0a0a">
-<meta name="description" content="أدوات Smart Tech المجانية — حاسبة ضريبة 14%، محوّل العملات، حاسبة الذهب والفضة، QR Code، محوّل الصور، حاسبة ROI وأكثر. 11 أداة مجانية 100%.">
+<meta name="description" content="Smart Tech — 16 أداة رقمية مجانية: ضريبة · عملات · ذهب · هامش ربح · مقارنة أسعار · مولّد كلمات مرور · SEO · محوّل وحدات · QR Code · محوّل صور وأكثر. 100% مجاني بدون تسجيل.">
 <meta name="keywords" content="أدوات مجانية, حاسبة ضريبة, QR Code, محول صور, Smart Tech, أدوات رقمية, مصر">
 <meta name="author" content="Smart Tech Egypt">
 <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
@@ -318,6 +318,97 @@ body.lang-fr{direction:ltr}
 .live-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--ok);animation:pulseDot 1.5s infinite;margin-left:4px}
 @keyframes pulseDot{0%,100%{opacity:1}50%{opacity:.3}}
 
+
+/* ══ v3 Additions: Tabs · Search · Spinner · New Tools ══ */
+
+/* Search Bar */
+.tool-search-wrap{position:relative;margin-bottom:28px;max-width:520px;margin-left:auto;margin-right:auto}
+.tool-search{width:100%;padding:13px 20px 13px 48px;background:rgba(255,255,255,.04);border:1.5px solid var(--rim);border-radius:100px;color:var(--t1);font-family:var(--fb);font-size:.9rem;outline:none;transition:all .25s;direction:rtl}
+.tool-search:focus{border-color:var(--gold-d);box-shadow:0 0 0 3px rgba(212,175,55,.08);background:rgba(255,255,255,.06)}
+.tool-search-icon{position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:1rem;pointer-events:none;color:var(--t3)}
+.search-clear{position:absolute;left:16px;top:50%;transform:translateY(-50%);font-size:.85rem;color:var(--t3);cursor:pointer;display:none;transition:color .2s}
+.search-clear:hover{color:var(--gold)}
+.search-count{text-align:center;font-size:.76rem;color:var(--t3);margin-top:8px;min-height:20px}
+
+/* Category Tabs */
+.cat-tabs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:36px}
+.cat-tab{display:flex;align-items:center;gap:6px;padding:9px 20px;border-radius:100px;font-family:var(--fh);font-size:.76rem;font-weight:700;letter-spacing:.07em;border:1.5px solid var(--rim);color:var(--t3);background:transparent;cursor:pointer;transition:all .25s;white-space:nowrap}
+.cat-tab:hover{border-color:var(--rim2);color:var(--t2);background:rgba(255,255,255,.03)}
+.cat-tab.on{border-color:var(--gold-d);color:var(--gold);background:var(--gg);box-shadow:0 0 16px rgba(212,175,55,.12)}
+.cat-tab .cat-count{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:rgba(212,175,55,.15);font-size:.62rem;color:var(--gold);font-family:var(--fb)}
+.cat-tab.on .cat-count{background:rgba(212,175,55,.25)}
+
+/* Tool card hide/show */
+.tool-card{transition:all .3s ease}
+.tool-card.hidden{display:none}
+
+/* No results */
+.no-results{grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--t3)}
+.no-results-icon{font-size:2.8rem;margin-bottom:14px}
+.no-results-txt{font-size:.9rem}
+
+/* Spinner */
+.spin{display:inline-block;width:14px;height:14px;border:2px solid rgba(212,175,55,.3);border-top-color:var(--gold);border-radius:50%;animation:spin .7s linear infinite;margin-left:6px;vertical-align:middle}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Usage badge */
+.usage-badge{display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:100px;font-size:.6rem;font-weight:700;background:rgba(46,204,113,.1);border:1px solid rgba(46,204,113,.2);color:var(--ok);margin-top:3px}
+
+/* Password strength */
+.pwd-strength{height:4px;border-radius:4px;margin-top:8px;transition:all .3s;background:var(--m5)}
+.pwd-strength-lbl{font-size:.7rem;text-align:center;margin-top:4px;font-weight:700}
+.pwd-opts{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}
+.pwd-opt{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--t2);cursor:pointer}
+.pwd-opt input{accent-color:var(--gold);width:14px;height:14px}
+
+/* Unit Converter */
+.unit-cats{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.unit-cat-btn{padding:5px 13px;border-radius:100px;font-size:.7rem;font-weight:700;background:rgba(255,255,255,.04);border:1px solid var(--rim);color:var(--t3);cursor:pointer;transition:all .2s}
+.unit-cat-btn.on{background:var(--gg);border-color:var(--rim2);color:var(--gold)}
+.unit-result-box{margin-top:10px;padding:13px;background:var(--gg);border:1px solid var(--rim2);border-radius:var(--r);display:none}
+.unit-result-val{font-family:var(--fh);font-size:1.5rem;font-weight:900;color:var(--gold);text-align:center}
+.unit-result-sub{font-size:.72rem;color:var(--t3);text-align:center;margin-top:4px}
+
+/* Profit Margin */
+.profit-result{margin-top:12px;padding:14px;background:linear-gradient(135deg,rgba(46,204,113,.07),rgba(46,204,113,.02));border:1px solid rgba(46,204,113,.2);border-radius:var(--r);display:none}
+.profit-big{font-family:var(--fh);font-size:1.5rem;font-weight:900;color:var(--ok);text-align:center;margin-bottom:8px}
+.profit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.profit-cell{background:rgba(0,0,0,.25);border:1px solid var(--rim);border-radius:var(--r);padding:8px;text-align:center}
+.profit-cell-lbl{font-size:.62rem;color:var(--t3);margin-bottom:3px}
+.profit-cell-val{font-size:.84rem;font-weight:700;color:var(--t1)}
+
+/* Price Compare */
+.price-compare-list{display:flex;flex-direction:column;gap:6px;margin:8px 0}
+.price-row{display:flex;gap:8px;align-items:center}
+.price-row input{flex:1;padding:8px 12px;background:rgba(255,255,255,.04);border:1.5px solid var(--rim);border-radius:var(--r);color:var(--t1);font-family:var(--fb);font-size:.84rem;outline:none;transition:all .2s}
+.price-row input:focus{border-color:var(--gold-d)}
+.price-row .del-btn{padding:6px 10px;border-radius:var(--r);background:rgba(231,76,60,.1);border:1px solid rgba(231,76,60,.2);color:#e74c3c;font-size:.8rem;cursor:pointer;transition:all .2s;flex-shrink:0}
+.price-row .del-btn:hover{background:rgba(231,76,60,.2)}
+.compare-result{margin-top:10px;padding:12px;background:var(--gg);border:1px solid var(--rim2);border-radius:var(--r);display:none}
+.compare-winner{font-family:var(--fh);font-size:1rem;font-weight:700;color:var(--gold);margin-bottom:8px}
+.compare-bars{display:flex;flex-direction:column;gap:5px}
+.compare-bar-row{display:flex;align-items:center;gap:8px;font-size:.75rem}
+.compare-bar-name{width:60px;color:var(--t3);text-align:right;flex-shrink:0;font-size:.7rem}
+.compare-bar-track{flex:1;height:8px;background:var(--m5);border-radius:4px;overflow:hidden}
+.compare-bar-fill{height:100%;border-radius:4px;transition:width .5s ease}
+.compare-bar-val{width:60px;color:var(--t1);font-weight:700;font-size:.72rem}
+
+/* SEO Meta Generator */
+.seo-result-box{margin-top:10px;padding:12px;background:rgba(255,255,255,.02);border:1px solid var(--rim);border-radius:var(--r);display:none}
+.seo-tag{margin-bottom:8px}
+.seo-tag-label{font-size:.65rem;font-weight:700;color:var(--gold-d);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px;font-family:var(--fh)}
+.seo-tag-code{font-family:monospace;font-size:.72rem;color:var(--t2);background:rgba(0,0,0,.3);padding:7px 10px;border-radius:6px;word-break:break-all;cursor:pointer;transition:background .2s;line-height:1.6}
+.seo-tag-code:hover{background:rgba(212,175,55,.08);color:var(--t1)}
+.seo-score{display:flex;align-items:center;gap:10px;padding:10px;background:var(--gg);border:1px solid var(--rim2);border-radius:var(--r);margin-bottom:10px}
+.seo-score-num{font-family:var(--fh);font-size:1.6rem;font-weight:900;color:var(--gold);flex-shrink:0}
+.seo-tips{font-size:.72rem;color:var(--t2);line-height:1.7}
+
+@media(max-width:600px){
+  .profit-grid{grid-template-columns:1fr 1fr}
+  .cat-tabs{gap:6px}
+  .cat-tab{padding:7px 14px;font-size:.7rem}
+}
+
 </style>
 </head>
 <body class="lang-ar">
@@ -450,7 +541,7 @@ body.lang-fr{direction:ltr}
     <div class="hero-tag">⚡ <span class="ar-only">فوري وسريع</span><span class="en-only">Instant results</span><span class="fr-only">Résultats instantanés</span></div>
   </div>
   <div class="hero-stats">
-    <div><div class="hero-stat-num">11+</div><div class="hero-stat-lbl"><span class="ar-only">أداة مجانية</span><span class="en-only">Free Tools</span></div></div>
+    <div><div class="hero-stat-num">16</div><div class="hero-stat-lbl"><span class="ar-only">أداة مجانية</span><span class="en-only">Free Tools</span></div></div>
     <div><div class="hero-stat-num">0</div><div class="hero-stat-lbl"><span class="ar-only">تكلفة</span><span class="en-only">Cost</span></div></div>
     <div><div class="hero-stat-num">∞</div><div class="hero-stat-lbl"><span class="ar-only">استخدامات</span><span class="en-only">Uses</span></div></div>
     <div><div class="hero-stat-num">24/7</div><div class="hero-stat-lbl"><span class="ar-only">متاحة دائماً</span><span class="en-only">Always Available</span></div></div>
@@ -466,6 +557,39 @@ body.lang-fr{direction:ltr}
       <div class="sec-label">🛠️ <span class="ar-only">أدواتنا</span><span class="en-only">Our Tools</span><span class="fr-only">Nos Outils</span></div>
       <h2 class="sec-title"><span class="ar-only">كل الأدوات التي <span class="g">تحتاجها</span></span><span class="en-only">All the Tools You <span class="g">Need</span></span><span class="fr-only">Tous les Outils dont <span class="g">Vous avez Besoin</span></span></h2>
       <p class="sec-desc"><span class="ar-only">أدوات رقمية احترافية مجانية — استخدمها الآن بدون تسجيل</span><span class="en-only">Professional free digital tools — use them now without signing up</span></p>
+    </div>
+
+
+    <!-- ══ Search & Category Tabs ══ -->
+    <div class="reveal" style="margin-bottom:16px">
+      <div class="tool-search-wrap">
+        <span class="tool-search-icon">🔍</span>
+        <input class="tool-search" id="toolSearch" type="text" placeholder="ابحث عن أداة... (مثال: ضريبة، ذهب، كلمة مرور)" oninput="filterTools()">
+        <span class="search-clear" id="searchClear" onclick="clearSearch()">✕</span>
+      </div>
+      <div class="search-count" id="searchCount"></div>
+    </div>
+    <div class="cat-tabs reveal" id="catTabs">
+      <button class="cat-tab on" onclick="setCat('all',this)" data-cat="all">
+        🛠️ <span class="ar-only">الكل</span><span class="en-only">All</span>
+        <span class="cat-count" id="cnt-all">16</span>
+      </button>
+      <button class="cat-tab" onclick="setCat('finance',this)" data-cat="finance">
+        💰 <span class="ar-only">مالية</span><span class="en-only">Finance</span>
+        <span class="cat-count" id="cnt-finance">7</span>
+      </button>
+      <button class="cat-tab" onclick="setCat('marketing',this)" data-cat="marketing">
+        📣 <span class="ar-only">تسويقية</span><span class="en-only">Marketing</span>
+        <span class="cat-count" id="cnt-marketing">4</span>
+      </button>
+      <button class="cat-tab" onclick="setCat('tech',this)" data-cat="tech">
+        ⚡ <span class="ar-only">تقنية</span><span class="en-only">Technical</span>
+        <span class="cat-count" id="cnt-tech">4</span>
+      </button>
+      <button class="cat-tab" onclick="setCat('analytics',this)" data-cat="analytics">
+        📊 <span class="ar-only">تحليلية</span><span class="en-only">Analytics</span>
+        <span class="cat-count" id="cnt-analytics">1</span>
+      </button>
     </div>
 
     <!-- Ad Row 1 -->
@@ -503,7 +627,7 @@ body.lang-fr{direction:ltr}
     <div class="tools-grid">
 
       <!-- 1. VAT Calculator -->
-      <div class="tool-card reveal">
+      <div class="tool-card reveal" data-cat="finance" data-tool-id="vat-calculator" data-name="حاسبة ضريبة القيمة المضافة VAT Calculator">
         <div class="tool-head">
           <div class="tool-icon">🧾</div>
           <div>
@@ -535,7 +659,7 @@ body.lang-fr{direction:ltr}
       </div>
 
       <!-- 2. WhatsApp Link Generator -->
-      <div class="tool-card reveal">
+      <div class="tool-card reveal" data-cat="marketing" data-tool-id="wa-link" data-name="مولّد رابط واتساب WhatsApp Link Generator">
         <div class="tool-head">
           <div class="tool-icon">💬</div>
           <div>
@@ -557,7 +681,7 @@ body.lang-fr{direction:ltr}
       </div>
 
       <!-- 3. QR Code Generator -->
-      <div class="tool-card reveal">
+      <div class="tool-card reveal" data-cat="marketing" data-tool-id="qr-generator" data-name="مولّد QR Code QR Code Generator">
         <div class="tool-head">
           <div class="tool-icon">📱</div>
           <div>
@@ -580,7 +704,7 @@ body.lang-fr{direction:ltr}
       </div>
 
       <!-- 4. Image Converter -->
-      <div class="tool-card reveal">
+      <div class="tool-card reveal" data-cat="tech" data-tool-id="image-converter" data-name="محوّل الصور Image Converter">
         <div class="tool-head">
           <div class="tool-icon">🖼️</div>
           <div>
@@ -618,7 +742,7 @@ body.lang-fr{direction:ltr}
       </div>
 
       <!-- 5. Word Counter -->
-      <div class="tool-card reveal">
+      <div class="tool-card reveal" data-cat="tech" data-tool-id="word-counter" data-name="عداد الكلمات Word Counter">
         <div class="tool-head">
           <div class="tool-icon">📊</div>
           <div>
@@ -640,7 +764,7 @@ body.lang-fr{direction:ltr}
       </div>
 
       <!-- 6. Video Embed -->
-      <div class="tool-card reveal">
+      <div class="tool-card reveal" data-cat="marketing" data-tool-id="video-embed" data-name="مضمّن الفيديو Video Embedder">
         <div class="tool-head">
           <div class="tool-icon">🎬</div>
           <div>
@@ -692,7 +816,7 @@ body.lang-fr{direction:ltr}
     <div class="tools-grid" style="margin-top:0">
 
       <!-- 7. ROI Calculator -->
-      <div class="tool-card reveal">
+      <div class="tool-card reveal" data-cat="finance" data-tool-id="roi-calculator" data-name="حاسبة عائد الاستثمار ROI Calculator">
         <div class="tool-head">
           <div class="tool-icon">📈</div>
           <div>
@@ -734,7 +858,7 @@ body.lang-fr{direction:ltr}
       </div>
 
       <!-- 8. Privacy Policy Generator -->
-      <div class="tool-card reveal">
+      <div class="tool-card reveal" data-cat="tech" data-tool-id="privacy-generator" data-name="مولّد سياسة الخصوصية Privacy Policy Generator">
         <div class="tool-head">
           <div class="tool-icon">📄</div>
           <div>
@@ -768,7 +892,7 @@ body.lang-fr{direction:ltr}
       </div>
 
       <!-- 9. Digital Readiness Quiz -->
-      <div class="tool-card reveal">
+      <div class="tool-card reveal" data-cat="analytics" data-tool-id="readiness-quiz" data-name="اختبار الجاهزية الرقمية Digital Readiness Quiz">
         <div class="tool-head">
           <div class="tool-icon">🎯</div>
           <div>
@@ -804,7 +928,7 @@ body.lang-fr{direction:ltr}
 
 
       <!-- 10. Currency Converter -->
-      <div class="tool-card reveal">
+      <div class="tool-card reveal" data-cat="finance" data-tool-id="currency-converter" data-name="محوّل العملات Currency Converter">
         <div class="tool-head">
           <div class="tool-icon">💱</div>
           <div>
@@ -840,7 +964,7 @@ body.lang-fr{direction:ltr}
       </div>
 
       <!-- 11. Gold & Silver Calculator -->
-      <div class="tool-card reveal">
+      <div class="tool-card reveal" data-cat="finance" data-tool-id="gold-calculator" data-name="حاسبة الذهب والفضة Gold Silver Calculator">
         <div class="tool-head">
           <div class="tool-icon">🥇</div>
           <div>
@@ -887,6 +1011,170 @@ body.lang-fr{direction:ltr}
         <div class="t-share" style="margin-top:10px">
           <button class="t-share-btn" onclick="shareGold()">📤 <span class="ar-only">مشاركة</span><span class="en-only">Share</span></button>
           <button class="t-share-btn" onclick="openWA('استفسار ذهب وفضة')">💬 <span class="ar-only">استشارة</span><span class="en-only">Consult</span></button>
+        </div>
+      </div>
+
+
+      <!-- 12. Password Generator -->
+      <div class="tool-card reveal" data-cat="tech" data-tool-id="password-generator" data-name="مولّد كلمات المرور Password Generator">
+        <div class="tool-head">
+          <div class="tool-icon">🔐</div>
+          <div>
+            <div class="tool-name"><span class="ar-only">مولّد كلمات مرور قوية</span><span class="en-only">Password Generator</span></div>
+            <div class="tool-sub"><span class="ar-only">كلمات مرور آمنة بخيارات متقدمة + مؤشر القوة</span><span class="en-only">Secure passwords with strength indicator</span></div>
+            <div class="tool-badge">🔒 <span class="ar-only">آمن 100%</span><span class="en-only">100% Secure</span></div>
+          </div>
+        </div>
+        <label class="t-lbl"><span class="ar-only">طول كلمة المرور</span><span class="en-only">Password Length</span></label>
+        <div class="t-row" style="align-items:center;margin-bottom:10px">
+          <input type="range" id="pwdLen" min="6" max="64" value="16" oninput="document.getElementById('pwdLenVal').textContent=this.value;genPwd()" style="flex:1;accent-color:var(--gold)">
+          <span id="pwdLenVal" style="font-family:var(--fh);font-weight:900;color:var(--gold);width:30px;text-align:center;flex-shrink:0">16</span>
+        </div>
+        <div class="pwd-opts">
+          <label class="pwd-opt"><input type="checkbox" id="pwdUpper" checked onchange="genPwd()"> A-Z</label>
+          <label class="pwd-opt"><input type="checkbox" id="pwdLower" checked onchange="genPwd()"> a-z</label>
+          <label class="pwd-opt"><input type="checkbox" id="pwdNums" checked onchange="genPwd()"> 0-9</label>
+          <label class="pwd-opt"><input type="checkbox" id="pwdSyms" checked onchange="genPwd()"> !@#$</label>
+        </div>
+        <div class="t-row">
+          <input class="t-inp" id="pwdOut" type="text" readonly style="letter-spacing:.06em;font-family:monospace;font-size:.82rem" placeholder="اضغط توليد...">
+          <button class="t-btn" onclick="genPwd()">🔀</button>
+        </div>
+        <div class="pwd-strength" id="pwdStr"></div>
+        <div class="pwd-strength-lbl" id="pwdStrLbl"></div>
+        <div class="t-share" style="margin-top:8px">
+          <button class="t-share-btn" onclick="copyPwd()">📋 <span class="ar-only">نسخ</span><span class="en-only">Copy</span></button>
+          <button class="t-share-btn" onclick="genPwd()">🔀 <span class="ar-only">جديد</span><span class="en-only">New</span></button>
+        </div>
+      </div>
+
+      <!-- 13. SEO Meta Tags Generator -->
+      <div class="tool-card reveal" data-cat="marketing" data-tool-id="seo-meta" data-name="مولّد SEO Meta Tags محسّن لمحركات البحث">
+        <div class="tool-head">
+          <div class="tool-icon">🔍</div>
+          <div>
+            <div class="tool-name"><span class="ar-only">مولّد وسوم SEO</span><span class="en-only">SEO Meta Tags Generator</span></div>
+            <div class="tool-sub"><span class="ar-only">title · description · keywords · Open Graph</span><span class="en-only">title · description · keywords · Open Graph</span></div>
+            <div class="tool-badge">📈 SEO</div>
+          </div>
+        </div>
+        <label class="t-lbl"><span class="ar-only">عنوان الصفحة</span><span class="en-only">Page Title</span></label>
+        <input class="t-inp rtl" id="seoTitle" type="text" placeholder="مثال: متجر النجوم — أفضل الأسعار في مصر" style="direction:rtl;margin-bottom:8px" oninput="updateSEOScore()">
+        <label class="t-lbl"><span class="ar-only">نشاط / مجال</span><span class="en-only">Business Type</span></label>
+        <select class="t-sel" id="seoBiz" onchange="updateSEOScore()">
+          <option value="shop">🛒 متجر إلكتروني</option>
+          <option value="service">🎯 خدمات مهنية</option>
+          <option value="blog">📝 مدونة / محتوى</option>
+          <option value="clinic">🏥 عيادة / صحة</option>
+          <option value="tech">💻 تقنية / برمجة</option>
+          <option value="food">🍽️ مطعم / أغذية</option>
+        </select>
+        <label class="t-lbl"><span class="ar-only">كلمات مفتاحية (مفصولة بفاصلة)</span><span class="en-only">Keywords (comma separated)</span></label>
+        <input class="t-inp rtl" id="seoKw" type="text" placeholder="تسوق أونلاين, أسعار رخيصة, شحن سريع" style="direction:rtl;margin-bottom:8px" oninput="updateSEOScore()">
+        <button class="t-btn t-btn-full" onclick="genSEO();gtagTool('SEO Generator')">✨ <span class="ar-only">توليد وسوم SEO</span><span class="en-only">Generate SEO Tags</span></button>
+        <div class="seo-result-box" id="seoBox"></div>
+        <div id="seoBtns" style="display:none" class="t-share">
+          <button class="t-share-btn" onclick="copySEO()">📋 <span class="ar-only">نسخ الكل</span><span class="en-only">Copy All</span></button>
+        </div>
+      </div>
+
+      <!-- 14. Unit Converter -->
+      <div class="tool-card reveal" data-cat="tech" data-tool-id="unit-converter" data-name="محوّل الوحدات طول وزن حرارة مساحة">
+        <div class="tool-head">
+          <div class="tool-icon">📐</div>
+          <div>
+            <div class="tool-name"><span class="ar-only">محوّل الوحدات الشامل</span><span class="en-only">Universal Unit Converter</span></div>
+            <div class="tool-sub"><span class="ar-only">طول · وزن · حرارة · مساحة · سرعة</span><span class="en-only">Length · Weight · Temperature · Area · Speed</span></div>
+            <div class="tool-badge">📐 <span class="ar-only">شامل</span><span class="en-only">Full</span></div>
+          </div>
+        </div>
+        <div class="unit-cats" id="unitCats">
+          <button class="unit-cat-btn on" onclick="setUnitCat(this,'length')">📏 <span class="ar-only">طول</span></button>
+          <button class="unit-cat-btn" onclick="setUnitCat(this,'weight')">⚖️ <span class="ar-only">وزن</span></button>
+          <button class="unit-cat-btn" onclick="setUnitCat(this,'temp')">🌡️ <span class="ar-only">حرارة</span></button>
+          <button class="unit-cat-btn" onclick="setUnitCat(this,'area')">📐 <span class="ar-only">مساحة</span></button>
+          <button class="unit-cat-btn" onclick="setUnitCat(this,'speed')">💨 <span class="ar-only">سرعة</span></button>
+        </div>
+        <div class="t-row" style="margin-bottom:8px">
+          <input class="t-inp" id="unitVal" type="number" placeholder="100" oninput="convertUnit()" style="flex:1">
+          <select class="t-sel" id="unitFrom" onchange="convertUnit()" style="flex:1.2;margin-bottom:0"></select>
+        </div>
+        <div style="text-align:center;font-size:.8rem;color:var(--t3);margin-bottom:6px">⬇️</div>
+        <select class="t-sel" id="unitTo" onchange="convertUnit()"></select>
+        <div class="unit-result-box" id="unitResult">
+          <div class="unit-result-val" id="unitResultVal">—</div>
+          <div class="unit-result-sub" id="unitResultSub"></div>
+        </div>
+        <div class="t-share" style="margin-top:8px">
+          <button class="t-share-btn" onclick="copyUnit()">📋 <span class="ar-only">نسخ</span></button>
+          <button class="t-share-btn" onclick="swapUnit()">🔄 <span class="ar-only">تبديل</span></button>
+        </div>
+      </div>
+
+      <!-- 15. Profit Margin Calculator -->
+      <div class="tool-card reveal" data-cat="finance" data-tool-id="profit-margin" data-name="حاسبة هامش الربح سعر البيع تسعير المنتج">
+        <div class="tool-head">
+          <div class="tool-icon">💹</div>
+          <div>
+            <div class="tool-name"><span class="ar-only">حاسبة هامش الربح</span><span class="en-only">Profit Margin Calculator</span></div>
+            <div class="tool-sub"><span class="ar-only">تكلفة المنتج + الربح المطلوب = سعر البيع</span><span class="en-only">Cost + Profit = Selling Price</span></div>
+            <div class="tool-badge">💹 <span class="ar-only">تسعير</span><span class="en-only">Pricing</span></div>
+          </div>
+        </div>
+        <label class="t-lbl"><span class="ar-only">تكلفة المنتج (جنيه)</span><span class="en-only">Product Cost</span></label>
+        <input class="t-inp" id="profCost" type="number" placeholder="100" min="0" oninput="calcProfit()" style="margin-bottom:8px">
+        <label class="t-lbl"><span class="ar-only">نسبة الربح المطلوبة %</span><span class="en-only">Desired Profit %</span></label>
+        <div class="t-row" style="align-items:center;margin-bottom:10px">
+          <input type="range" id="profPct" min="1" max="500" value="30" oninput="document.getElementById('profPctVal').textContent=this.value+'%';calcProfit()" style="flex:1;accent-color:var(--gold)">
+          <span id="profPctVal" style="font-family:var(--fh);font-weight:900;color:var(--gold);width:46px;text-align:center;flex-shrink:0;font-size:.82rem">30%</span>
+        </div>
+        <button class="t-btn t-btn-full" onclick="calcProfit();gtagTool('Profit Calculator')">
+          💹 <span class="ar-only">احسب سعر البيع</span><span class="en-only">Calculate Price</span>
+        </button>
+        <div class="profit-result" id="profResult">
+          <div class="profit-big" id="profPrice">—</div>
+          <div class="profit-grid">
+            <div class="profit-cell"><div class="profit-cell-lbl"><span class="ar-only">التكلفة</span></div><div class="profit-cell-val" id="profCostOut">—</div></div>
+            <div class="profit-cell"><div class="profit-cell-lbl"><span class="ar-only">الربح</span></div><div class="profit-cell-val" id="profGain" style="color:var(--ok)">—</div></div>
+            <div class="profit-cell"><div class="profit-cell-lbl"><span class="ar-only">هامش % (فعلي)</span></div><div class="profit-cell-val" id="profMargin" style="color:var(--gold)">—</div></div>
+          </div>
+        </div>
+        <div class="t-share" style="margin-top:8px">
+          <button class="t-share-btn" onclick="shareProfit()">📤 <span class="ar-only">مشاركة</span></button>
+          <button class="t-share-btn" onclick="openWA('استشارة تسعير منتج')">💬 <span class="ar-only">استشارة</span></button>
+        </div>
+      </div>
+
+      <!-- 16. Price Comparison -->
+      <div class="tool-card reveal" data-cat="finance" data-tool-id="price-compare" data-name="مقارنة الأسعار Price Comparison فرق السعر">
+        <div class="tool-head">
+          <div class="tool-icon">⚖️</div>
+          <div>
+            <div class="tool-name"><span class="ar-only">مقارنة الأسعار</span><span class="en-only">Price Comparison</span></div>
+            <div class="tool-sub"><span class="ar-only">قارن بين أسعار متعددة واكتشف الأوفر</span><span class="en-only">Compare multiple prices, find the best deal</span></div>
+            <div class="tool-badge">⚖️ <span class="ar-only">ذكي</span><span class="en-only">Smart</span></div>
+          </div>
+        </div>
+        <div class="price-compare-list" id="priceList">
+          <div class="price-row">
+            <input type="text" placeholder="مثال: iPhone 15 — 25,000 ج" oninput="comparePrice()">
+            <input type="number" placeholder="السعر" oninput="comparePrice()" min="0">
+          </div>
+          <div class="price-row">
+            <input type="text" placeholder="مثال: Samsung S24 — 22,000 ج" oninput="comparePrice()">
+            <input type="number" placeholder="السعر" oninput="comparePrice()" min="0">
+          </div>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:8px">
+          <button class="t-btn" onclick="addPriceRow()" style="flex:1">+ <span class="ar-only">إضافة سعر</span><span class="en-only">Add Price</span></button>
+          <button class="t-btn t-btn-full" onclick="comparePrice();gtagTool('Price Compare')" style="flex:1.5">⚖️ <span class="ar-only">مقارنة</span><span class="en-only">Compare</span></button>
+        </div>
+        <div class="compare-result" id="compareResult">
+          <div class="compare-winner" id="compareWinner"></div>
+          <div class="compare-bars" id="compareBars"></div>
+        </div>
+        <div class="t-share" style="margin-top:8px">
+          <button class="t-share-btn" onclick="shareCompare()">📤 <span class="ar-only">مشاركة</span></button>
         </div>
       </div>
 
@@ -1507,6 +1795,454 @@ function shareGold() {
 
 احسب ذهبك مجاناً: https://st-yos.pages.dev/affiliates.html';
   navigator.share ? navigator.share({text: tx}).catch(()=>{}) : navigator.clipboard.writeText(tx).then(() => toast('✅ تم النسخ!'));
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   Smart Tech Tools v3 — Category Tabs · Search · New Tools
+   Gold Auto-Refresh · localStorage · Hash Routing
+═══════════════════════════════════════════════════════ */
+
+/* ── Tool Metadata for SEO routing ── */
+const TOOL_META = {
+  'vat-calculator':     {title:'حاسبة ضريبة القيمة المضافة 14% — Smart Tech', desc:'احسب ضريبة القيمة المضافة المصرية 14% مجاناً — إضافة أو استخراج الضريبة من أي مبلغ فورياً'},
+  'currency-converter': {title:'محوّل العملات — Smart Tech', desc:'تحويل فوري بين الجنيه المصري والدولار واليورو والريال السعودي والدرهم وأكثر'},
+  'gold-calculator':    {title:'حاسبة الذهب والفضة — Smart Tech', desc:'سعر الذهب عيار 24 · 21 · 18 والفضة بالجنيه المصري والدولار — محدّث تلقائياً'},
+  'roi-calculator':     {title:'حاسبة عائد الاستثمار ROI — Smart Tech', desc:'احسب توفيرك السنوي عند استبدال موظفي خدمة العملاء ببوت واتساب ذكي'},
+  'profit-margin':      {title:'حاسبة هامش الربح وسعر البيع — Smart Tech', desc:'احسب سعر بيع منتجك بناءً على التكلفة وهامش الربح المطلوب — مجاناً'},
+  'price-compare':      {title:'مقارنة الأسعار — Smart Tech', desc:'قارن بين أسعار منتجات متعددة واكتشف الأوفر مع نسب الفرق'},
+  'wa-link':            {title:'مولّد رابط واتساب — Smart Tech', desc:'أنشئ رابط واتساب مباشر مع رسالة ترحيبية جاهزة لعملائك مجاناً'},
+  'qr-generator':       {title:'مولّد QR Code — Smart Tech', desc:'أنشئ QR Code لأي رابط أو نص — تحميل ونسخ مجاني فوري'},
+  'video-embed':        {title:'مضمّن الفيديو — Smart Tech', desc:'حوّل رابط يوتيوب إلى كود تضمين جاهز للصق في موقعك'},
+  'seo-meta':           {title:'مولّد وسوم SEO — Smart Tech', desc:'ولّد meta description وkeywords وOpen Graph لموقعك بضغطة واحدة'},
+  'image-converter':    {title:'محوّل الصور — Smart Tech', desc:'حوّل صورك من PNG لـ JPG لـ WEBP مع ضبط الجودة والحجم مجاناً'},
+  'word-counter':       {title:'عداد الكلمات والأحرف — Smart Tech', desc:'احسب عدد الكلمات والأحرف والجمل ووقت القراءة لأي نص فورياً'},
+  'privacy-generator':  {title:'مولّد سياسة الخصوصية — Smart Tech', desc:'أنشئ سياسة خصوصية كاملة لموقعك أو متجرك في ثوانٍ — مجاناً'},
+  'password-generator': {title:'مولّد كلمات المرور القوية — Smart Tech', desc:'أنشئ كلمات مرور آمنة ومعقدة مع مؤشر القوة — 100% آمن محلياً'},
+  'unit-converter':     {title:'محوّل الوحدات الشامل — Smart Tech', desc:'حوّل الطول والوزن ودرجة الحرارة والمساحة والسرعة بين جميع الوحدات'},
+  'readiness-quiz':     {title:'اختبار الجاهزية الرقمية — Smart Tech', desc:'اكتشف مدى استعداد عملك للتحول الرقمي في 5 أسئلة — تقرير مجاني فوري'},
+};
+
+/* ── Hash Routing ── */
+function handleRoute() {
+  const hash = window.location.hash.replace('#','');
+  if (hash && TOOL_META[hash]) {
+    const meta = TOOL_META[hash];
+    document.title = meta.title;
+    const desc = document.querySelector('meta[name="description"]');
+    if (desc) desc.setAttribute('content', meta.desc);
+    const can = document.querySelector('link[rel="canonical"]');
+    if (can) can.href = 'https://st-yos.pages.dev/affiliates.html#' + hash;
+    /* Scroll to tool */
+    setTimeout(() => {
+      const el = document.querySelector('[data-tool-id="'+hash+'"]');
+      if (el) { el.scrollIntoView({behavior:'smooth', block:'center'}); el.style.boxShadow = '0 0 0 2px var(--gold), 0 0 40px rgba(212,175,55,.3)'; setTimeout(()=>el.style.boxShadow='',2500); }
+    }, 400);
+  }
+}
+window.addEventListener('hashchange', handleRoute);
+window.addEventListener('load', handleRoute);
+
+/* ── Category Tabs ── */
+let activeCat = 'all';
+function setCat(cat, btn) {
+  activeCat = cat;
+  document.querySelectorAll('.cat-tab').forEach(b => b.classList.toggle('on', b === btn));
+  filterTools();
+}
+function filterTools() {
+  const q = (document.getElementById('toolSearch')?.value || '').toLowerCase().trim();
+  const clear = document.getElementById('searchClear');
+  if (clear) clear.style.display = q ? 'block' : 'none';
+  let visible = 0;
+  document.querySelectorAll('.tool-card[data-cat]').forEach(card => {
+    const catMatch = activeCat === 'all' || card.dataset.cat === activeCat;
+    const name = (card.dataset.name || '').toLowerCase();
+    const searchMatch = !q || name.includes(q);
+    const show = catMatch && searchMatch;
+    card.classList.toggle('hidden', !show);
+    if (show) visible++;
+  });
+  const countEl = document.getElementById('searchCount');
+  if (countEl) {
+    countEl.textContent = q ? ('نتائج البحث: ' + visible + ' أداة') : '';
+  }
+  /* Show/hide no-results */
+  let noRes = document.getElementById('noResults');
+  if (!noRes) {
+    noRes = document.createElement('div');
+    noRes.id = 'noResults';
+    noRes.className = 'no-results';
+    noRes.innerHTML = '<div class="no-results-icon">🔍</div><div class="no-results-txt">لا توجد أدوات مطابقة — جرّب كلمة أخرى</div>';
+    document.querySelector('.tool-card')?.parentElement?.appendChild(noRes);
+  }
+  noRes.style.display = visible === 0 ? 'block' : 'none';
+}
+function clearSearch() {
+  document.getElementById('toolSearch').value = '';
+  filterTools();
+}
+
+/* ── localStorage Persistence ── */
+const LS_INPUTS = {
+  vatAmt: 'ls_vatAmt', vatMode: 'ls_vatMode',
+  currAmt: 'ls_currAmt', currFrom: 'ls_currFrom',
+  goldGrams: 'ls_goldGrams',
+  roiSal: 'ls_roiSal',
+  profCost: 'ls_profCost', profPct: 'ls_profPct',
+  waNum: 'ls_waNum', qrInp: 'ls_qrInp',
+  wordTxt: 'ls_wordTxt',
+  seoTitle: 'ls_seoTitle', seoKw: 'ls_seoKw',
+};
+function saveInput(id) {
+  const el = document.getElementById(id);
+  if (el && LS_INPUTS[id]) localStorage.setItem(LS_INPUTS[id], el.value || '');
+}
+function restoreInputs() {
+  Object.entries(LS_INPUTS).forEach(([id, key]) => {
+    const el = document.getElementById(id);
+    const val = localStorage.getItem(key);
+    if (el && val !== null) {
+      el.value = val;
+      if (id === 'profPct') {
+        const lbl = document.getElementById('profPctVal');
+        if (lbl) lbl.textContent = val + '%';
+      }
+    }
+  });
+  /* Re-run calculations if values exist */
+  if (document.getElementById('vatAmt')?.value) calcVAT();
+  if (document.getElementById('currAmt')?.value) convertCurr();
+  if (document.getElementById('goldGrams')?.value) calcGold();
+  if (document.getElementById('wordTxt')?.value) countWords();
+}
+/* Attach save listeners */
+document.addEventListener('DOMContentLoaded', () => {
+  Object.keys(LS_INPUTS).forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('input', () => saveInput(id));
+  });
+  restoreInputs();
+  initUnitConverter();
+  genPwd();
+});
+
+/* ── Gold Auto-Refresh ── */
+async function autoRefreshGoldPrices() {
+  const CACHE_KEY = 'st_gold_cache';
+  const CACHE_TTL = 6 * 60 * 60 * 1000; /* 6 hours */
+  const cached = JSON.parse(localStorage.getItem(CACHE_KEY) || 'null');
+  if (cached && Date.now() - cached.ts < CACHE_TTL) {
+    Object.assign(GOLD_PRICES, cached.prices);
+    RATES['USD'] = cached.usd || RATES['USD'];
+    ratesLastUpdate = new Date(cached.ts).toLocaleTimeString('ar-EG', {hour:'2-digit',minute:'2-digit'});
+    return;
+  }
+  try {
+    /* Fetch currency rates */
+    const r1 = await fetch('https://open.er-api.com/v6/latest/EGP');
+    if (r1.ok) {
+      const d1 = await r1.json();
+      if (d1.rates) {
+        ['USD','EUR','SAR','AED','KWD','GBP'].forEach(c => { if(d1.rates[c]) RATES[c] = d1.rates[c]; });
+      }
+    }
+    /* Fetch gold from Yahoo Finance */
+    const r2 = await fetch('https://query1.finance.yahoo.com/v8/finance/chart/GC=F?interval=1d&range=1d');
+    if (r2.ok) {
+      const d2 = await r2.json();
+      const goldUSD = d2?.chart?.result?.[0]?.meta?.regularMarketPrice;
+      if (goldUSD && goldUSD > 1000) {
+        GOLD_PRICES.gold24 = Math.round(goldUSD);
+        GOLD_PRICES.gold21 = Math.round(goldUSD * 21/24);
+        GOLD_PRICES.gold18 = Math.round(goldUSD * 18/24);
+      }
+    }
+    /* Fetch silver */
+    const r3 = await fetch('https://query1.finance.yahoo.com/v8/finance/chart/SI=F?interval=1d&range=1d');
+    if (r3.ok) {
+      const d3 = await r3.json();
+      const silverUSD = d3?.chart?.result?.[0]?.meta?.regularMarketPrice;
+      if (silverUSD && silverUSD > 5) GOLD_PRICES.silver = Math.round(silverUSD * 10) / 10;
+    }
+    ratesLastUpdate = 'الآن ✅';
+    localStorage.setItem(CACHE_KEY, JSON.stringify({ts: Date.now(), prices: {...GOLD_PRICES}, usd: RATES.USD}));
+    /* Re-calc if open */
+    if (document.getElementById('goldGrams')?.value) calcGold();
+    if (document.getElementById('currAmt')?.value) convertCurr();
+  } catch(e) {
+    /* Silent fail — static prices remain */
+  }
+}
+/* Run on load */
+window.addEventListener('load', () => { autoRefreshGoldPrices(); });
+/* Override existing refreshRates to also update gold */
+const _origRefreshRates = window.refreshRates;
+window.refreshRates = async function() {
+  toast('🔄 جاري تحديث الأسعار...<span class="spin"></span>');
+  localStorage.removeItem('st_gold_cache');
+  await autoRefreshGoldPrices();
+  toast('✅ تم تحديث أسعار الصرف والمعادن!');
+  if (document.getElementById('currAmt')?.value) convertCurr();
+  if (document.getElementById('goldGrams')?.value) calcGold();
+};
+
+/* ═══ 12. Password Generator ═══ */
+function genPwd() {
+  const len = parseInt(document.getElementById('pwdLen')?.value) || 16;
+  const upper = document.getElementById('pwdUpper')?.checked;
+  const lower = document.getElementById('pwdLower')?.checked;
+  const nums  = document.getElementById('pwdNums')?.checked;
+  const syms  = document.getElementById('pwdSyms')?.checked;
+  let chars = '';
+  if (upper) chars += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  if (lower) chars += 'abcdefghijklmnopqrstuvwxyz';
+  if (nums)  chars += '0123456789';
+  if (syms)  chars += '!@#$%^&*()-_=+[]{}|;:,.<>?';
+  if (!chars) chars = 'abcdefghijklmnopqrstuvwxyz';
+  const arr = new Uint32Array(len);
+  crypto.getRandomValues(arr);
+  const pwd = Array.from(arr).map(n => chars[n % chars.length]).join('');
+  const el = document.getElementById('pwdOut');
+  if (el) el.value = pwd;
+  /* Strength */
+  let score = 0;
+  if (pwd.length >= 8)  score++;
+  if (pwd.length >= 16) score++;
+  if (/[A-Z]/.test(pwd)) score++;
+  if (/[a-z]/.test(pwd)) score++;
+  if (/[0-9]/.test(pwd)) score++;
+  if (/[^A-Za-z0-9]/.test(pwd)) score++;
+  const bar = document.getElementById('pwdStr');
+  const lbl = document.getElementById('pwdStrLbl');
+  const colors = ['#e74c3c','#e67e22','#f39c12','#2ecc71','#27ae60','#1abc9c'];
+  const labels = ['ضعيفة جداً','ضعيفة','متوسطة','جيدة','قوية','ممتازة 💪'];
+  if (bar) { bar.style.width = (score/6*100)+'%'; bar.style.background = colors[score-1]||'#e74c3c'; }
+  if (lbl) { lbl.textContent = labels[score-1]||''; lbl.style.color = colors[score-1]||''; }
+}
+function copyPwd() {
+  const v = document.getElementById('pwdOut')?.value;
+  if (!v) { toast('⚠️ أنشئ كلمة مرور أولاً'); return; }
+  navigator.clipboard.writeText(v).then(() => toast('✅ تم نسخ كلمة المرور!'));
+  gtagTool('Password Generator');
+}
+
+/* ═══ 13. SEO Meta Tags Generator ═══ */
+const SEO_TIPS = {
+  shop:    {kw:'متجر إلكتروني, أسعار رخيصة, شحن سريع, تسوق أونلاين', desc:'متجر {{title}} — أفضل الأسعار وأسرع التوصيل في مصر 🛒'},
+  service: {kw:'خدمات مهنية, احترافية, موثوقة, خبرة', desc:'{{title}} — خدمات احترافية موثوقة بأعلى معايير الجودة ✅'},
+  blog:    {kw:'مدونة, مقالات, نصائح, معلومات', desc:'{{title}} — مقالات ونصائح قيّمة في مجالك المفضل 📚'},
+  clinic:  {kw:'عيادة, دكتور, حجز مواعيد, رعاية صحية', desc:'{{title}} — رعاية صحية متميزة وحجز مواعيد سهل 🏥'},
+  tech:    {kw:'تقنية, برمجة, تطوير, حلول رقمية', desc:'{{title}} — حلول تقنية ورقمية متطورة لعملك 💻'},
+  food:    {kw:'مطعم, طعام, وجبات, توصيل, أكل', desc:'{{title}} — أشهى الوجبات وأسرع التوصيل في منطقتك 🍽️'},
+};
+function updateSEOScore() { /* Live preview on input */ }
+function genSEO() {
+  const title = document.getElementById('seoTitle')?.value.trim();
+  if (!title) { toast('⚠️ أدخل عنوان الصفحة أولاً'); return; }
+  const biz = document.getElementById('seoBiz')?.value || 'service';
+  const tips = SEO_TIPS[biz] || SEO_TIPS.service;
+  let kw = document.getElementById('seoKw')?.value.trim();
+  if (!kw) kw = tips.kw;
+  const desc = tips.desc.replace('{{title}}', title);
+  const canonical = window.location.origin + window.location.pathname;
+  const tags = [
+    {label:'Title Tag', code:`<title>${title}</title>`},
+    {label:'Meta Description', code:`<meta name="description" content="${desc}">`},
+    {label:'Meta Keywords', code:`<meta name="keywords" content="${kw}">`},
+    {label:'Canonical URL', code:`<link rel="canonical" href="${canonical}">`},
+    {label:'Open Graph Title', code:`<meta property="og:title" content="${title}">`},
+    {label:'Open Graph Description', code:`<meta property="og:description" content="${desc}">`},
+    {label:'Open Graph Type', code:`<meta property="og:type" content="website">`},
+    {label:'Twitter Card', code:`<meta name="twitter:card" content="summary_large_image">`},
+    {label:'Twitter Title', code:`<meta name="twitter:title" content="${title}">`},
+    {label:'Robots', code:`<meta name="robots" content="index, follow, max-snippet:-1">`},
+  ];
+  /* SEO Score */
+  let score = 0;
+  if (title.length >= 30 && title.length <= 60) score += 30;
+  else if (title.length > 0) score += 15;
+  if (desc.length >= 120 && desc.length <= 160) score += 30;
+  else if (desc.length > 0) score += 15;
+  if (kw.split(',').length >= 3) score += 20;
+  else if (kw.length > 0) score += 10;
+  score += 20; /* For having og tags */
+  const scoreColor = score >= 80 ? 'var(--ok)' : score >= 50 ? 'var(--warn)' : 'var(--err)';
+  const box = document.getElementById('seoBox');
+  box.style.display = 'block';
+  box.innerHTML = `
+    <div class="seo-score">
+      <div class="seo-score-num" style="color:${scoreColor}">${score}<span style="font-size:.7rem">/100</span></div>
+      <div class="seo-tips">
+        ${score >= 80 ? '✅ ممتاز! وسوم SEO محسّنة بشكل رائع' : score >= 50 ? '⚠️ جيد — حسّن طول العنوان والوصف' : '❌ يحتاج تحسين — أضف كلمات مفتاحية وحسّن الوصف'}
+        <br>طول العنوان: <b>${title.length}</b> حرف (مثالي: 30-60)
+        <br>طول الوصف: <b>${desc.length}</b> حرف (مثالي: 120-160)
+      </div>
+    </div>
+    ${tags.map(t => `
+      <div class="seo-tag">
+        <div class="seo-tag-label">${t.label}</div>
+        <div class="seo-tag-code" onclick="navigator.clipboard.writeText(\`${t.code.replace(/`/g,"'")}\`).then(()=>toast('✅ تم نسخ: ${t.label}'))" title="انقر للنسخ">${t.code}</div>
+      </div>
+    `).join('')}
+  `;
+  document.getElementById('seoBtns').style.display = 'flex';
+}
+function copySEO() {
+  const codes = [...document.querySelectorAll('.seo-tag-code')].map(el => el.textContent).join('\n');
+  navigator.clipboard.writeText(codes).then(() => toast('✅ تم نسخ جميع الوسوم!'));
+}
+
+/* ═══ 14. Unit Converter ═══ */
+const UNIT_DATA = {
+  length: {
+    label:'طول', units:['متر','كيلومتر','سنتيمتر','مليمتر','ميل','قدم','بوصة','يارد'],
+    toBase:[1, 1000, 0.01, 0.001, 1609.34, 0.3048, 0.0254, 0.9144]
+  },
+  weight: {
+    label:'وزن', units:['كيلوجرام','جرام','مليجرام','طن','باوند','أوقية','قيراط'],
+    toBase:[1, 0.001, 0.000001, 1000, 0.453592, 0.0283495, 0.0002]
+  },
+  temp: {
+    label:'حرارة', units:['مئوية °C','فهرنهايت °F','كلفن K'],
+    toBase:null /* special */
+  },
+  area: {
+    label:'مساحة', units:['متر مربع','كيلومتر مربع','سنتيمتر مربع','هكتار','فدان','قدم مربع','ميل مربع'],
+    toBase:[1, 1e6, 0.0001, 10000, 4046.86, 0.092903, 2589988]
+  },
+  speed: {
+    label:'سرعة', units:['م/ث','كم/س','ميل/س','عقدة (بحري)'],
+    toBase:[1, 0.277778, 0.44704, 0.514444]
+  }
+};
+let activeUnitCat = 'length';
+function setUnitCat(btn, cat) {
+  activeUnitCat = cat;
+  document.querySelectorAll('.unit-cat-btn').forEach(b => b.classList.toggle('on', b === btn));
+  loadUnitSelects();
+  document.getElementById('unitResult').style.display = 'none';
+}
+function loadUnitSelects() {
+  const data = UNIT_DATA[activeUnitCat];
+  const opts = data.units.map((u,i) => `<option value="${i}">${u}</option>`).join('');
+  const fromEl = document.getElementById('unitFrom');
+  const toEl = document.getElementById('unitTo');
+  if (fromEl) fromEl.innerHTML = opts;
+  if (toEl) { toEl.innerHTML = opts; if (toEl.options.length > 1) toEl.selectedIndex = 1; }
+}
+function initUnitConverter() { loadUnitSelects(); }
+function convertUnit() {
+  const val = parseFloat(document.getElementById('unitVal')?.value);
+  if (isNaN(val)) { document.getElementById('unitResult').style.display='none'; return; }
+  const fi = parseInt(document.getElementById('unitFrom')?.value) || 0;
+  const ti = parseInt(document.getElementById('unitTo')?.value) || 1;
+  const data = UNIT_DATA[activeUnitCat];
+  let result;
+  if (activeUnitCat === 'temp') {
+    /* Special temperature conversion */
+    const from = data.units[fi], to = data.units[ti];
+    let celsius = val;
+    if (from.includes('F')) celsius = (val - 32) * 5/9;
+    else if (from.includes('K')) celsius = val - 273.15;
+    if (to.includes('F')) result = celsius * 9/5 + 32;
+    else if (to.includes('K')) result = celsius + 273.15;
+    else result = celsius;
+  } else {
+    const inBase = val * data.toBase[fi];
+    result = inBase / data.toBase[ti];
+  }
+  const fmt = result >= 1000000 ? result.toExponential(4) :
+              result >= 1 ? Math.round(result * 10000) / 10000 :
+              result.toFixed(8).replace(/\.?0+$/, '');
+  document.getElementById('unitResultVal').textContent = fmt;
+  document.getElementById('unitResultSub').textContent = `${val} ${data.units[fi]} = ${fmt} ${data.units[ti]}`;
+  document.getElementById('unitResult').style.display = 'block';
+  gtagTool('Unit Converter - ' + activeUnitCat);
+}
+function copyUnit() {
+  const v = document.getElementById('unitResultVal')?.textContent;
+  if (!v || v === '—') { toast('⚠️ قم بالتحويل أولاً'); return; }
+  navigator.clipboard.writeText(v).then(() => toast('✅ تم النسخ!'));
+}
+function swapUnit() {
+  const f = document.getElementById('unitFrom');
+  const t = document.getElementById('unitTo');
+  if (!f || !t) return;
+  [f.value, t.value] = [t.value, f.value];
+  convertUnit();
+}
+
+/* ═══ 15. Profit Margin Calculator ═══ */
+function calcProfit() {
+  const cost = parseFloat(document.getElementById('profCost')?.value) || 0;
+  const pct  = parseFloat(document.getElementById('profPct')?.value)  || 30;
+  const box  = document.getElementById('profResult');
+  if (!cost) { if (box) box.style.display = 'none'; return; }
+  const gain   = cost * pct / 100;
+  const price  = cost + gain;
+  const margin = (gain / price * 100).toFixed(1);
+  const f = n => n.toLocaleString('ar-EG', {minimumFractionDigits:2, maximumFractionDigits:2}) + ' ج';
+  document.getElementById('profPrice').textContent  = 'سعر البيع: ' + f(price);
+  document.getElementById('profCostOut').textContent = f(cost);
+  document.getElementById('profGain').textContent   = '+' + f(gain);
+  document.getElementById('profMargin').textContent  = margin + '%';
+  if (box) box.style.display = 'block';
+  saveInput('profCost'); saveInput('profPct');
+}
+function shareProfit() {
+  const p = document.getElementById('profPrice')?.textContent;
+  if (!p) { toast('⚠️ احسب السعر أولاً'); return; }
+  const tx = '💹 حاسبة هامش الربح — Smart Tech\n' + p +
+    '\nربح: ' + document.getElementById('profGain')?.textContent +
+    '\nهامش: ' + document.getElementById('profMargin')?.textContent +
+    '\n\nاحسب سعر منتجك: https://st-yos.pages.dev/affiliates.html#profit-margin';
+  navigator.share ? navigator.share({text:tx}).catch(()=>{}) : navigator.clipboard.writeText(tx).then(()=>toast('✅ تم النسخ!'));
+}
+
+/* ═══ 16. Price Comparison ═══ */
+let priceRowCount = 2;
+function addPriceRow() {
+  if (priceRowCount >= 8) { toast('⚠️ الحد الأقصى 8 أسعار'); return; }
+  priceRowCount++;
+  const row = document.createElement('div');
+  row.className = 'price-row';
+  row.innerHTML = `<input type="text" placeholder="اسم العنصر..." oninput="comparePrice()">
+    <input type="number" placeholder="السعر" oninput="comparePrice()" min="0">
+    <button class="del-btn" onclick="this.parentElement.remove();comparePrice()">✕</button>`;
+  document.getElementById('priceList').appendChild(row);
+}
+function comparePrice() {
+  const rows = [...document.querySelectorAll('#priceList .price-row')];
+  const items = rows.map(r => {
+    const inputs = r.querySelectorAll('input');
+    return { name: inputs[0]?.value.trim() || ('منتج '+(rows.indexOf(r)+1)), price: parseFloat(inputs[1]?.value) || 0 };
+  }).filter(i => i.price > 0);
+  const box = document.getElementById('compareResult');
+  if (items.length < 2) { if (box) box.style.display = 'none'; return; }
+  const maxP = Math.max(...items.map(i => i.price));
+  const minP = Math.min(...items.map(i => i.price));
+  const winner = items.find(i => i.price === minP);
+  document.getElementById('compareWinner').textContent = '🏆 الأوفر: ' + winner.name + ' — ' + minP.toLocaleString('ar-EG') + ' ج';
+  const bars = document.getElementById('compareBars');
+  bars.innerHTML = items.map(item => {
+    const pct = Math.round((item.price / maxP) * 100);
+    const diff = item.price === minP ? '✅ الأرخص' : '+' + Math.round((item.price - minP) / minP * 100) + '%';
+    const color = item.price === minP ? 'var(--ok)' : item.price === maxP ? 'var(--err)' : 'var(--gold)';
+    return `<div class="compare-bar-row">
+      <div class="compare-bar-name">${item.name.substring(0,10)}</div>
+      <div class="compare-bar-track"><div class="compare-bar-fill" style="width:${pct}%;background:${color}"></div></div>
+      <div class="compare-bar-val">${item.price.toLocaleString('ar-EG')} ج <span style="font-size:.6rem;color:${color}">${diff}</span></div>
+    </div>`;
+  }).join('');
+  if (box) box.style.display = 'block';
+}
+function shareCompare() {
+  const w = document.getElementById('compareWinner')?.textContent;
+  if (!w) { toast('⚠️ أضف أسعاراً أولاً'); return; }
+  const rows = [...document.querySelectorAll('.compare-bar-row')].map(r => r.textContent.trim().replace(/\s+/g,' ')).join('\n');
+  const tx = '⚖️ مقارنة الأسعار — Smart Tech\n' + w + '\n' + rows + '\n\nقارن أسعارك: https://st-yos.pages.dev/affiliates.html#price-compare';
+  navigator.share ? navigator.share({text:tx}).catch(()=>{}) : navigator.clipboard.writeText(tx).then(()=>toast('✅ تم النسخ!'));
 }
 
 </script>
