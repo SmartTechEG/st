@@ -902,6 +902,7 @@ footer{background:linear-gradient(180deg,rgba(10,8,3,.95),rgba(6,5,2,1));border-
   <div class="nav-links">
    <a onclick="goTo('services')"><span class="ar-only">خدماتنا</span><span class="en-only">Services</span><span class="fr-only">Services</span></a>
    <a onclick="goTo('packages')"><span class="ar-only">الباقات</span><span class="en-only">Packages</span><span class="fr-only">Forfaits</span></a>
+   <a onclick="goTo('bots')" style="color:var(--g)"><span class="ar-only">🤖 البوت</span><span class="en-only">🤖 Bot</span><span class="fr-only">🤖 Bot</span></a>
    <a onclick="goTo('why')"><span class="ar-only">لماذا نحن</span><span class="en-only">Why Us</span><span class="fr-only">Pourquoi</span></a>
    <a onclick="goTo('contact')"><span class="ar-only">تواصل</span><span class="en-only">Contact</span><span class="fr-only">Contact</span></a>
    <!-- ── Pages Dropdown ── -->
@@ -942,6 +943,7 @@ footer{background:linear-gradient(180deg,rgba(10,8,3,.95),rgba(6,5,2,1));border-
  <div class="mobile-menu" id="mobileMenu">
   <a onclick="goTo('services');closeMobile()"><span class="ar-only">🌐 خدماتنا</span><span class="en-only">🌐 Services</span><span class="fr-only">🌐 Services</span></a>
   <a onclick="goTo('packages');closeMobile()"><span class="ar-only">📦 الباقات والأسعار</span><span class="en-only">📦 Packages</span><span class="fr-only">📦 Forfaits</span></a>
+  <a onclick="goTo('bots');closeMobile()" style="color:var(--g)"><span class="ar-only">🤖 البوت الذكي</span><span class="en-only">🤖 Smart Bot</span></a>
   <a onclick="goTo('process');closeMobile()"><span class="ar-only">⚙️ كيف نعمل</span><span class="en-only">⚙️ How We Work</span><span class="fr-only">⚙️ Comment</span></a>
   <a onclick="goTo('why');closeMobile()"><span class="ar-only">✦ لماذا نحن</span><span class="en-only">✦ Why Us</span><span class="fr-only">✦ Pourquoi</span></a>
   <a onclick="goTo('contact');closeMobile()"><span class="ar-only">📞 تواصل</span><span class="en-only">📞 Contact</span><span class="fr-only">📞 Contact</span></a>
@@ -1577,6 +1579,42 @@ footer{background:linear-gradient(180deg,rgba(10,8,3,.95),rgba(6,5,2,1));border-
   <div class="reveal" style="text-align:center;margin-top:24px">
    <button class="btn btn-gold" onclick="openWA('أريد موقع متجر احترافي')">
     💬 <span class="ar-only">اطلب موقعك الآن</span><span class="en-only">Order Your Store</span>
+   </button>
+  </div>
+ </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- ══ SMART BOT ENGINE ══ -->
+<section class="section" id="bots">
+ <div class="container">
+  <div class="reveal" style="text-align:center;margin-bottom:36px">
+   <div class="sec-label"><span class="ar-only">🤖 بوت ذكي</span><span class="en-only">🤖 Smart Bot</span></div>
+   <h2 class="sec-title ar-only">محرك البوت الذكي — <span class="gold-text">Smart Bot Engine</span></h2>
+   <h2 class="sec-title en-only">Smart Bot Engine — <span class="gold-text">Try Your Bot Live</span></h2>
+   <p style="font-size:.88rem;color:var(--t2);max-width:520px;margin:12px auto 0;line-height:1.85">
+    <span class="ar-only">اختر منصتك، اكتب اسم نشاطك — شاهد بوتك يتحدث مع عملائك فوراً على 6 منصات 🤖</span>
+    <span class="en-only">Choose your platform, type your business name — see your bot chat live across 6 platforms 🤖</span>
+   </p>
+  </div>
+
+  <div class="reveal" style="border:1px solid var(--rim2);border-radius:var(--r2);overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.7)">
+   <div style="padding:12px 20px;border-bottom:1px solid var(--rim);background:linear-gradient(90deg,rgba(212,175,55,.07),transparent);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
+    <div style="display:flex;align-items:center;gap:8px">
+     <div style="width:7px;height:7px;border-radius:50%;background:var(--ok);animation:pulseDot 1.5s infinite"></div>
+     <span style="font-family:var(--fh);font-size:.75rem;font-weight:700;color:var(--g);letter-spacing:.06em">Bot Live Demo</span>
+    </div>
+    <a href="smart-bot-engine.html" target="_blank" style="display:inline-flex;align-items:center;gap:5px;padding:5px 14px;border-radius:100px;background:var(--gg2);border:1px solid var(--rim2);font-family:var(--fh);font-size:.68rem;font-weight:700;color:var(--g);text-decoration:none">
+     🔗 <span class="ar-only">فتح النسخة الكاملة</span><span class="en-only">Full Screen</span>
+    </a>
+   </div>
+   <iframe src="smart-bot-engine.html" style="width:100%;height:580px;border:none;display:block" loading="lazy" title="Smart Bot Engine"></iframe>
+  </div>
+
+  <div class="reveal" style="text-align:center;margin-top:24px">
+   <button class="btn btn-gold" onclick="openWA('أريد بوت ذكي بـ 150 جنيه')">
+    🤖 <span class="ar-only">اطلب بوتك بـ 150 جنيه</span><span class="en-only">Order Your Bot — 150 EGP</span>
    </button>
   </div>
  </div>

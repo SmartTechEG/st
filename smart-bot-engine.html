@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>محرك البوت الذكي — Smart Bot Engine | Smart Tech</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700;900&family=Cairo:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════════════════
+   SMART BOT ENGINE — محرك البوت الذكي
+   Black × Gold Luxury — Smart Tech Egypt
+══════════════════════════════════════════════════════ */
+:root{
+  --gold:#D4AF37;--gold-l:#FFD700;--gold-b:#FFEC80;--gold-d:#B8860B;
+  --gg:rgba(212,175,55,.10);--gg2:rgba(212,175,55,.20);--gg3:rgba(212,175,55,.32);
+  --m:#080808;--m2:#111;--m3:#181818;--m4:#1e1e1e;--m5:#252525;
+  --rim:rgba(212,175,55,.16);--rim2:rgba(212,175,55,.34);--rim3:rgba(212,175,55,.58);
+  --t1:#f0e6c8;--t2:#c9a96e;--t3:#7a6840;--t4:#3d3420;
+  --ok:#2ecc71;--err:#e74c3c;--wa:#25D366;--tg:#229ED9;
+  --fh:'Cinzel',serif;--ft:'Cinzel Decorative',serif;--fb:'Cairo',sans-serif;
+  --r:12px;--r2:20px;--r3:32px;--sp:.4s cubic-bezier(.34,1.56,.64,1);--tr:.25s ease;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{overflow-x:hidden;scroll-behavior:smooth}
+body{background:var(--m);color:var(--t1);font-family:var(--fb);line-height:1.7;overflow-x:hidden;min-height:100dvh}
+::selection{background:var(--gold);color:var(--m)}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--m2)}::-webkit-scrollbar-thumb{background:var(--gold-d);border-radius:3px}
+a{text-decoration:none;color:inherit}button{font-family:var(--fb);cursor:pointer;border:none;background:none}
+
+/* ── Background ── */
+.bg{position:fixed;inset:0;z-index:-2;background:radial-gradient(ellipse at 20% 20%,rgba(212,175,55,.06),transparent 55%),radial-gradient(ellipse at 80% 80%,rgba(212,175,55,.05),transparent 55%),linear-gradient(145deg,#060606,#0e0e0e 40%,#080808)}
+.bg-v{position:fixed;inset:0;z-index:-1;opacity:.05;background-image:repeating-linear-gradient(30deg,transparent,transparent 100px,rgba(212,175,55,.6) 100px,rgba(212,175,55,.6) 101px),repeating-linear-gradient(150deg,transparent,transparent 80px,rgba(212,175,55,.3) 80px,rgba(212,175,55,.3) 81px)}
+
+/* ── HERO ── */
+.hero{text-align:center;padding:clamp(36px,7vw,72px) clamp(16px,5vw,60px) 0;position:relative}
+.hero-glow{position:absolute;top:40%;left:50%;transform:translate(-50%,-50%);width:700px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(212,175,55,.07),transparent 65%);pointer-events:none}
+.hero-label{display:inline-flex;align-items:center;gap:8px;padding:6px 20px;border-radius:100px;background:var(--gg);border:1px solid var(--rim2);font-family:var(--fh);font-size:.72rem;font-weight:700;color:var(--gold);letter-spacing:.11em;text-transform:uppercase;margin-bottom:20px;animation:fadeUp .6s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.hero-title{font-family:var(--ft);font-size:clamp(1.6rem,5vw,3.2rem);font-weight:900;line-height:1.15;margin-bottom:14px;background:linear-gradient(135deg,var(--gold-d),var(--gold),var(--gold-b),var(--gold));background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:fadeUp .7s ease both,shimmer 4s linear infinite}
+@keyframes shimmer{to{background-position:200% center}}
+.hero-sub{font-size:clamp(.88rem,2vw,1.02rem);color:var(--t2);max-width:560px;margin:0 auto 10px;line-height:1.85;animation:fadeUp .8s ease both}
+.hero-note{display:inline-flex;align-items:center;gap:6px;font-size:.76rem;color:var(--t3);animation:fadeUp .9s ease both;margin-bottom:36px}
+.dot-live{width:7px;height:7px;border-radius:50%;background:var(--ok);animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(46,204,113,.5)}50%{box-shadow:0 0 0 6px rgba(46,204,113,0)}}
+
+/* ── PLATFORM TABS ── */
+.platform-tabs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:28px;padding:0 clamp(12px,4vw,40px)}
+.plat-tab{display:flex;align-items:center;gap:7px;padding:9px 18px;border-radius:100px;font-family:var(--fh);font-size:.74rem;font-weight:700;letter-spacing:.06em;border:1.5px solid var(--rim);color:var(--t3);background:transparent;cursor:pointer;transition:all .25s;white-space:nowrap}
+.plat-tab:hover{border-color:var(--rim2);color:var(--t2)}
+.plat-tab.on{color:#fff;box-shadow:0 0 20px rgba(0,0,0,.4)}
+.plat-tab[data-plat="wa"].on{border-color:#25D366;background:rgba(37,211,102,.12);color:#25D366}
+.plat-tab[data-plat="tg"].on{border-color:#229ED9;background:rgba(34,158,217,.12);color:#229ED9}
+.plat-tab[data-plat="web"].on{border-color:var(--gold);background:var(--gg2);color:var(--gold)}
+.plat-tab[data-plat="fb"].on{border-color:#1877F2;background:rgba(24,119,242,.12);color:#1877F2}
+.plat-tab[data-plat="slack"].on{border-color:#E01E5A;background:rgba(224,30,90,.1);color:#E01E5A}
+.plat-tab[data-plat="discord"].on{border-color:#5865F2;background:rgba(88,101,242,.1);color:#5865F2}
+
+/* ── DEMO WRAP ── */
+.demo-wrap{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,3vw,36px);align-items:start;padding:0 clamp(12px,4vw,40px) clamp(40px,7vw,72px)}
+@media(max-width:760px){.demo-wrap{grid-template-columns:1fr}}
+
+/* ── ADMIN PANEL ── */
+.panel{background:linear-gradient(160deg,var(--m3),var(--m2));border:1px solid var(--rim);border-radius:var(--r3);overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.7)}
+.panel-hdr{padding:16px 22px;border-bottom:1px solid var(--rim);background:linear-gradient(90deg,rgba(212,175,55,.07),transparent);display:flex;align-items:center;gap:12px}
+.panel-hdr-icon{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--gold-d),var(--gold));display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.panel-hdr-title{font-family:var(--fh);font-size:.86rem;font-weight:900;color:var(--t1)}
+.panel-hdr-sub{font-size:.67rem;color:var(--t3);margin-top:1px}
+.panel-status{display:flex;align-items:center;gap:5px;font-size:.63rem;color:var(--ok);margin-right:auto;font-weight:700;letter-spacing:.06em;background:rgba(46,204,113,.08);border:1px solid rgba(46,204,113,.2);padding:3px 10px;border-radius:100px}
+.panel-body{padding:20px;display:flex;flex-direction:column;gap:14px}
+.f-group{display:flex;flex-direction:column;gap:6px}
+.f-label{font-size:.7rem;font-weight:700;color:var(--gold-d);letter-spacing:.08em;text-transform:uppercase;font-family:var(--fh)}
+.f-inp{width:100%;padding:10px 13px;background:rgba(255,255,255,.04);border:1.5px solid var(--rim);border-radius:var(--r);color:var(--t1);font-family:var(--fb);font-size:.86rem;outline:none;transition:all var(--tr);direction:rtl}
+.f-inp:focus{border-color:var(--gold-d);box-shadow:0 0 0 3px rgba(212,175,55,.08);background:rgba(255,255,255,.06)}
+.f-inp::placeholder{color:var(--t4)}
+.f-textarea{width:100%;padding:10px 13px;background:rgba(255,255,255,.04);border:1.5px solid var(--rim);border-radius:var(--r);color:var(--t1);font-family:var(--fb);font-size:.84rem;outline:none;transition:all var(--tr);direction:rtl;resize:none;min-height:70px}
+.f-textarea:focus{border-color:var(--gold-d);box-shadow:0 0 0 3px rgba(212,175,55,.08)}
+
+/* Quick replies */
+.replies-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.reply-inp{width:100%;padding:8px 11px;background:rgba(255,255,255,.03);border:1.5px solid var(--rim);border-radius:var(--r);color:var(--t1);font-family:var(--fb);font-size:.78rem;outline:none;transition:all var(--tr);direction:rtl}
+.reply-inp:focus{border-color:var(--gold-d)}
+.reply-inp::placeholder{color:var(--t4);font-size:.73rem}
+
+/* Activate button */
+.activate-btn{width:100%;padding:13px;border-radius:var(--r2);font-family:var(--fh);font-size:.88rem;font-weight:900;letter-spacing:.06em;color:var(--m);background:linear-gradient(135deg,var(--gold-d),var(--gold),var(--gold-l));background-size:200% auto;border:none;cursor:pointer;transition:all var(--sp);box-shadow:0 6px 24px rgba(212,175,55,.35)}
+.activate-btn:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 14px 40px rgba(212,175,55,.5);background-position:right center}
+.activate-btn:active{transform:translateY(0) scale(.98)}
+
+/* ── CHAT PREVIEW ── */
+.preview-col{display:flex;flex-direction:column;align-items:center;gap:14px;position:sticky;top:20px}
+.preview-label{font-family:var(--fh);font-size:.7rem;color:var(--t3);letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;gap:6px;width:100%;justify-content:center}
+.preview-label::before,.preview-label::after{content:'';flex:1;height:1px;background:var(--rim);max-width:80px}
+
+/* Platform-specific phone frames */
+.phone-frame{width:260px;flex-shrink:0;border-radius:36px;background:#0a0a0a;box-shadow:0 0 0 2px #2a2a2a,0 0 0 5px #1a1a1a,0 0 0 7px #2a2a2a,0 40px 80px rgba(0,0,0,.8);overflow:hidden;position:relative;transition:all .4s ease}
+.phone-frame:hover{transform:scale(1.02)}
+.phone-notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:100px;height:28px;background:#0a0a0a;border-radius:0 0 18px 18px;z-index:10;display:flex;align-items:center;justify-content:center;gap:6px}
+.notch-cam{width:8px;height:8px;border-radius:50%;background:#1a1a1a;border:1px solid #2a2a2a}
+.phone-status{padding:32px 14px 6px;display:flex;justify-content:space-between;align-items:center;font-size:.56rem;color:rgba(255,255,255,.4);font-family:monospace}
+.phone-screen{height:480px;overflow-y:auto;overscroll-behavior:contain;display:flex;flex-direction:column}
+.phone-screen::-webkit-scrollbar{width:0}
+.phone-home{height:22px;display:flex;align-items:center;justify-content:center}
+.phone-home-bar{width:80px;height:4px;background:#2a2a2a;border-radius:2px}
+.phone-frame::before{content:'';position:absolute;top:80px;left:-5px;width:4px;height:32px;background:#1a1a1a;border-radius:2px 0 0 2px;box-shadow:0 40px 0 #1a1a1a}
+.phone-frame::after{content:'';position:absolute;top:90px;right:-5px;width:4px;height:50px;background:#1a1a1a;border-radius:0 2px 2px 0}
+
+/* WA Chat UI */
+.wa-screen{background:#0b141a;flex:1;display:flex;flex-direction:column}
+.wa-header{padding:8px 10px;display:flex;align-items:center;gap:8px;flex-shrink:0;background:#202c33}
+.wa-avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--gold-d),var(--gold));display:flex;align-items:center;justify-content:center;font-size:.8rem;flex-shrink:0}
+.wa-info{flex:1}
+.wa-name{font-size:.72rem;font-weight:700;color:#e9edef}
+.wa-online{font-size:.58rem;color:#00a884}
+.wa-msgs{flex:1;padding:8px;overflow-y:auto;display:flex;flex-direction:column;gap:5px;background:#0b141a}
+.wa-msgs::-webkit-scrollbar{width:0}
+.wa-msg{max-width:82%;padding:6px 10px;border-radius:8px;font-size:.72rem;line-height:1.4;position:relative}
+.wa-msg.bot{align-self:flex-start;background:#202c33;color:#e9edef;border-radius:0 8px 8px 8px}
+.wa-msg.user{align-self:flex-end;background:#005c4b;color:#e9edef;border-radius:8px 8px 0 8px}
+.wa-msg-time{font-size:.52rem;opacity:.5;text-align:left;margin-top:2px}
+.wa-quick-btns{padding:6px 8px;display:flex;gap:5px;flex-wrap:wrap;background:#0b141a}
+.wa-quick-btn{padding:5px 10px;border-radius:100px;font-size:.64rem;font-weight:600;border:1px solid #00a884;color:#00a884;background:transparent;cursor:pointer;transition:all .2s;white-space:nowrap}
+.wa-quick-btn:hover{background:#00a884;color:#0b141a}
+.wa-input-bar{padding:6px 8px;background:#202c33;display:flex;gap:6px;align-items:center;flex-shrink:0}
+.wa-inp{flex:1;padding:7px 10px;background:#2a3942;border:none;border-radius:100px;color:#e9edef;font-family:var(--fb);font-size:.72rem;outline:none;direction:rtl}
+.wa-inp::placeholder{color:rgba(233,237,239,.35)}
+.wa-send{width:32px;height:32px;border-radius:50%;background:#00a884;display:flex;align-items:center;justify-content:center;font-size:.85rem;cursor:pointer;border:none;transition:all .2s;flex-shrink:0}
+.wa-send:hover{background:#00c49a;transform:scale(1.05)}
+/* Typing indicator */
+.wa-typing{display:flex;gap:3px;align-items:center;padding:8px 12px;background:#202c33;border-radius:0 8px 8px 8px;align-self:flex-start;margin:3px 0}
+.wa-typing span{width:5px;height:5px;border-radius:50%;background:#8696a0;animation:typeDot .9s ease-in-out infinite}
+.wa-typing span:nth-child(2){animation-delay:.15s}
+.wa-typing span:nth-child(3){animation-delay:.3s}
+@keyframes typeDot{0%,100%{transform:translateY(0);opacity:.4}50%{transform:translateY(-3px);opacity:1}}
+
+/* TG Chat UI */
+.tg-screen{background:#17212b;flex:1;display:flex;flex-direction:column}
+.tg-header{padding:8px 10px;display:flex;align-items:center;gap:8px;flex-shrink:0;background:#242f3d}
+.tg-avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#229ED9,#1a7fc1);display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0}
+.tg-name{font-size:.72rem;font-weight:700;color:#fff}
+.tg-bot-label{font-size:.58rem;color:#229ED9}
+.tg-msgs{flex:1;padding:8px;overflow-y:auto;display:flex;flex-direction:column;gap:5px}
+.tg-msgs::-webkit-scrollbar{width:0}
+.tg-msg{max-width:82%;padding:6px 10px;border-radius:8px;font-size:.72rem;line-height:1.4}
+.tg-msg.bot{align-self:flex-start;background:#182533;color:#e9edef;border-radius:0 8px 8px 8px}
+.tg-msg.user{align-self:flex-end;background:#2b5278;color:#fff;border-radius:8px 8px 0 8px}
+.tg-kbd{padding:6px 8px;display:flex;gap:5px;flex-wrap:wrap}
+.tg-kbd-btn{padding:5px 10px;border-radius:6px;font-size:.64rem;font-weight:600;background:#2b5278;color:#fff;cursor:pointer;transition:all .2s;border:none;white-space:nowrap}
+.tg-kbd-btn:hover{background:#3a6d9e}
+.tg-input-bar{padding:6px 8px;background:#242f3d;display:flex;gap:6px;align-items:center;flex-shrink:0}
+.tg-inp{flex:1;padding:7px 10px;background:#17212b;border:none;border-radius:100px;color:#fff;font-family:var(--fb);font-size:.72rem;outline:none;direction:rtl}
+.tg-inp::placeholder{color:rgba(255,255,255,.3)}
+.tg-send{width:32px;height:32px;border-radius:50%;background:#229ED9;display:flex;align-items:center;justify-content:center;font-size:.85rem;cursor:pointer;border:none;transition:all .2s;flex-shrink:0}
+.tg-send:hover{background:#1a87c1;transform:scale(1.05)}
+
+/* Web Widget */
+.web-screen{background:#f5f5f5;flex:1;display:flex;flex-direction:column;position:relative}
+.web-site-bg{flex:1;padding:10px;overflow:hidden}
+.web-site-bar{height:28px;background:#fff;border-radius:6px;display:flex;align-items:center;gap:6px;padding:0 8px;box-shadow:0 1px 4px rgba(0,0,0,.1);margin-bottom:8px}
+.web-dots{display:flex;gap:4px}.web-dot{width:6px;height:6px;border-radius:50%}
+.web-url{flex:1;height:14px;background:#f0f0f0;border-radius:3px;margin-right:4px}
+.web-page-skeleton{display:flex;flex-direction:column;gap:6px}
+.web-sk-line{height:8px;background:#e0e0e0;border-radius:4px}
+.web-sk-line.short{width:60%}
+.web-sk-line.med{width:80%}
+.web-widget{position:absolute;bottom:50px;left:10px;width:200px;background:#fff;border-radius:14px;box-shadow:0 8px 32px rgba(0,0,0,.18);overflow:hidden;border:1px solid #e0e0e0}
+.web-widget-header{padding:10px 12px;display:flex;align-items:center;gap:8px}
+.web-widget-avatar{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--gold-d),var(--gold));display:flex;align-items:center;justify-content:center;font-size:.7rem}
+.web-widget-name{font-size:.68rem;font-weight:700;color:#1a1a0a;font-family:serif}
+.web-widget-status{font-size:.55rem;color:var(--ok)}
+.web-msgs{padding:8px;display:flex;flex-direction:column;gap:4px;max-height:100px;overflow-y:auto}
+.web-msg{padding:5px 8px;border-radius:8px;font-size:.62rem;line-height:1.35}
+.web-msg.bot{background:#f0f0f0;color:#333;border-radius:0 8px 8px 8px;align-self:flex-start}
+.web-msg.user{background:linear-gradient(135deg,var(--gold-d),var(--gold));color:#0a0a0a;border-radius:8px 8px 0 8px;align-self:flex-end;max-width:80%}
+.web-inp-bar{padding:6px 8px;border-top:1px solid #f0f0f0;display:flex;gap:5px;align-items:center}
+.web-inp{flex:1;padding:5px 8px;background:#f5f5f5;border:1px solid #e0e0e0;border-radius:100px;font-size:.62rem;outline:none;direction:rtl}
+.web-send-btn{width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,var(--gold-d),var(--gold));display:flex;align-items:center;justify-content:center;font-size:.6rem;cursor:pointer;border:none;flex-shrink:0}
+.web-bubble{position:absolute;bottom:14px;left:10px;width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--gold-d),var(--gold));display:flex;align-items:center;justify-content:center;font-size:1.2rem;box-shadow:0 4px 16px rgba(212,175,55,.4);cursor:pointer;animation:goldPulse 2.5s ease-in-out infinite}
+@keyframes goldPulse{0%,100%{box-shadow:0 4px 16px rgba(212,175,55,.4)}50%{box-shadow:0 4px 28px rgba(212,175,55,.7),0 0 0 6px rgba(212,175,55,.1)}}
+
+/* FB Messenger UI */
+.fb-screen{background:#fff;flex:1;display:flex;flex-direction:column}
+.fb-header{padding:8px 10px;display:flex;align-items:center;gap:8px;flex-shrink:0;background:#0866ff;color:#fff}
+.fb-avatar{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;font-size:.8rem;flex-shrink:0}
+.fb-name{font-size:.7rem;font-weight:700}
+.fb-msgs{flex:1;padding:8px;overflow-y:auto;display:flex;flex-direction:column;gap:4px;background:#f0f2f5}
+.fb-msg{max-width:80%;padding:7px 11px;border-radius:18px;font-size:.7rem;line-height:1.4}
+.fb-msg.bot{align-self:flex-start;background:#fff;color:#050505;border-radius:0 18px 18px 18px}
+.fb-msg.user{align-self:flex-end;background:#0866ff;color:#fff;border-radius:18px 18px 0 18px}
+.fb-quick{padding:5px 8px;display:flex;gap:4px;flex-wrap:wrap;background:#f0f2f5}
+.fb-quick-btn{padding:5px 10px;border-radius:100px;font-size:.62rem;font-weight:600;border:1.5px solid #0866ff;color:#0866ff;background:transparent;cursor:pointer;white-space:nowrap;transition:all .2s}
+.fb-quick-btn:hover{background:#0866ff;color:#fff}
+.fb-input-bar{padding:6px 8px;background:#fff;display:flex;gap:5px;align-items:center;flex-shrink:0;border-top:1px solid #e4e6ea}
+.fb-inp{flex:1;padding:7px 11px;background:#f0f2f5;border:none;border-radius:100px;color:#050505;font-family:var(--fb);font-size:.7rem;outline:none;direction:rtl}
+.fb-send{width:30px;height:30px;border-radius:50%;background:#0866ff;display:flex;align-items:center;justify-content:center;font-size:.8rem;cursor:pointer;border:none;flex-shrink:0}
+
+/* Slack/Discord minimal */
+.slack-screen,.discord-screen{background:#1a1d21;flex:1;display:flex;flex-direction:column}
+.slack-screen{background:#1a1d21}.discord-screen{background:#313338}
+.slack-hdr,.discord-hdr{padding:10px 12px;display:flex;align-items:center;gap:8px;flex-shrink:0;border-bottom:1px solid rgba(255,255,255,.08)}
+.slack-hdr{background:#1a1d21}.discord-hdr{background:#2b2d31}
+.slack-ch,.discord-ch{font-size:.72rem;font-weight:700;color:#fff;display:flex;align-items:center;gap:5px}
+.slack-msgs,.discord-msgs{flex:1;padding:10px;overflow-y:auto;display:flex;flex-direction:column;gap:6px}
+.slack-msg,.discord-msg{display:flex;gap:7px;align-items:flex-start}
+.slack-avatar,.discord-avatar{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;flex-shrink:0}
+.slack-avatar{background:#E01E5A}.discord-avatar{background:#5865F2}
+.slack-msg-body,.discord-msg-body{background:rgba(255,255,255,.05);padding:6px 9px;border-radius:6px;font-size:.68rem;color:rgba(255,255,255,.85);line-height:1.45;flex:1}
+.slack-input,.discord-input{padding:8px 10px;border-top:1px solid rgba(255,255,255,.06)}
+.slack-inp,.discord-inp{width:100%;padding:7px 11px;border-radius:6px;font-size:.7rem;outline:none;direction:rtl}
+.slack-inp{background:#222529;border:1px solid rgba(255,255,255,.12);color:#d1d2d3}
+.discord-inp{background:#383a40;border:none;color:#dcddde}
+
+/* ── CTA SECTION ── */
+.cta-section{max-width:1100px;margin:0 auto;padding:0 clamp(12px,4vw,40px) clamp(40px,6vw,60px)}
+.cta-card{background:linear-gradient(145deg,rgba(212,175,55,.1),rgba(212,175,55,.03));border:2px solid var(--rim2);border-radius:var(--r3);padding:clamp(28px,5vw,52px);text-align:center;position:relative;overflow:hidden;box-shadow:0 0 60px rgba(212,175,55,.08),0 40px 80px rgba(0,0,0,.6)}
+.cta-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.cta-badge{display:inline-flex;align-items:center;gap:7px;padding:7px 20px;border-radius:100px;background:rgba(231,76,60,.15);border:1px solid rgba(231,76,60,.35);font-family:var(--fh);font-size:.73rem;font-weight:700;color:#e74c3c;letter-spacing:.08em;margin-bottom:20px;animation:ctaPulse 2s ease-in-out infinite}
+@keyframes ctaPulse{0%,100%{box-shadow:0 0 0 0 rgba(231,76,60,.3)}50%{box-shadow:0 0 0 8px rgba(231,76,60,0)}}
+.cta-price{font-family:var(--ft);font-size:clamp(2rem,6vw,4rem);font-weight:900;background:linear-gradient(135deg,var(--gold-d),var(--gold),var(--gold-b));background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 3s linear infinite;line-height:1.1;margin-bottom:8px}
+.cta-desc{font-size:clamp(.86rem,2vw,1.02rem);color:var(--t2);max-width:560px;margin:0 auto 28px;line-height:1.85}
+.cta-desc strong{color:var(--t1)}
+.cta-platforms{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:28px}
+.cta-plat{display:flex;align-items:center;gap:6px;padding:6px 14px;border-radius:100px;font-size:.76rem;font-weight:700;border:1px solid var(--rim);color:var(--t2);background:rgba(255,255,255,.03)}
+.cta-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 38px;border-radius:100px;font-family:var(--fh);font-size:.95rem;font-weight:900;letter-spacing:.06em;color:var(--m);background:linear-gradient(135deg,var(--gold-d),var(--gold),var(--gold-l));background-size:200% auto;border:none;cursor:pointer;box-shadow:0 8px 32px rgba(212,175,55,.4);transition:all var(--sp);text-decoration:none}
+.cta-btn:hover{transform:translateY(-4px) scale(1.04);box-shadow:0 16px 48px rgba(212,175,55,.55);background-position:right center}
+.cta-timer{font-size:.76rem;color:var(--t3);margin-top:14px;letter-spacing:.04em}
+.cta-timer b{color:var(--err);font-family:var(--fh)}
+.cta-guarantee{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:20px;font-size:.74rem;color:var(--t3);padding-top:18px;border-top:1px solid var(--rim)}
+
+/* Toast */
+#toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(16px);background:var(--m4);border:1px solid var(--rim2);color:var(--t1);padding:10px 22px;border-radius:100px;font-size:.82rem;font-weight:600;z-index:9999;opacity:0;pointer-events:none;transition:all .3s;white-space:nowrap;box-shadow:0 8px 24px rgba(0,0,0,.6)}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* Confetti */
+.conf-wrap{position:fixed;inset:0;pointer-events:none;z-index:1000;overflow:hidden}
+.conf{position:absolute;width:7px;height:7px;border-radius:2px;animation:confFall linear forwards}
+@keyframes confFall{0%{transform:translateY(-20px) rotate(0deg);opacity:1}100%{transform:translateY(110vh) rotate(720deg);opacity:0}}
+
+@media(max-width:600px){.phone-frame{width:230px}.phone-screen{height:430px}.cta-platforms{flex-direction:column;align-items:center}}
+</style>
+</head>
+<body>
+<div class="bg"></div><div class="bg-v"></div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-label">🤖 تجربة تفاعلية مجانية</div>
+  <h1 class="hero-title">محرك البوت الذكي<br><span style="font-size:.62em">Smart Bot Engine</span></h1>
+  <p class="hero-sub">اختر منصتك، اكتب اسم نشاطك — شاهد بوتك الذكي يتحدث مع عملائك فوراً</p>
+  <div class="hero-note"><span class="dot-live"></span>6 منصات · بدون برمجة · يعمل 24/7</div>
+</div>
+
+<!-- PLATFORM TABS -->
+<div class="platform-tabs">
+  <button class="plat-tab on" data-plat="wa" onclick="switchPlatform('wa',this)">💬 واتساب</button>
+  <button class="plat-tab" data-plat="tg" onclick="switchPlatform('tg',this)">✈️ تيليجرام</button>
+  <button class="plat-tab" data-plat="web" onclick="switchPlatform('web',this)">🌐 موقع ويب</button>
+  <button class="plat-tab" data-plat="fb" onclick="switchPlatform('fb',this)">📘 ماسنجر</button>
+  <button class="plat-tab" data-plat="slack" onclick="switchPlatform('slack',this)">🔴 سلاك</button>
+  <button class="plat-tab" data-plat="discord" onclick="switchPlatform('discord',this)">🟣 ديسكورد</button>
+</div>
+
+<!-- DEMO WRAP -->
+<div class="demo-wrap">
+
+  <!-- LEFT: Control Panel -->
+  <div class="panel">
+    <div class="panel-hdr">
+      <div class="panel-hdr-icon">⚙️</div>
+      <div>
+        <div class="panel-hdr-title">إعداد البوت</div>
+        <div class="panel-hdr-sub">خصّص بوتك من هنا</div>
+      </div>
+      <div class="panel-status"><span style="width:6px;height:6px;border-radius:50%;background:var(--ok);display:inline-block;animation:pulse 1.5s infinite"></span>نشط</div>
+    </div>
+    <div class="panel-body">
+      <div class="f-group">
+        <label class="f-label">🏪 اسم نشاطك التجاري</label>
+        <input class="f-inp" id="bizName" type="text" placeholder="مثال: مطعم الشيف · صيدلية الشفاء · بوتيك نور..." maxlength="40" oninput="liveUpdate()">
+      </div>
+      <div class="f-group">
+        <label class="f-label">🤖 اسم البوت</label>
+        <input class="f-inp" id="botName" type="text" placeholder="مثال: سمارت · مساعد · خدمة العملاء..." maxlength="25" oninput="liveUpdate()">
+      </div>
+      <div class="f-group">
+        <label class="f-label">👋 رسالة الترحيب</label>
+        <textarea class="f-textarea" id="welcomeMsg" placeholder="مثال: أهلاً! أنا مساعدك الذكي. كيف يمكنني مساعدتك اليوم؟ 😊" oninput="liveUpdate()"></textarea>
+      </div>
+      <div class="f-group">
+        <label class="f-label">⚡ ردود سريعة (4 أزرار)</label>
+        <div class="replies-grid">
+          <input class="reply-inp" id="r1" type="text" placeholder="🕐 ساعات العمل" oninput="liveUpdate()">
+          <input class="reply-inp" id="r2" type="text" placeholder="📍 العنوان" oninput="liveUpdate()">
+          <input class="reply-inp" id="r3" type="text" placeholder="💰 الأسعار" oninput="liveUpdate()">
+          <input class="reply-inp" id="r4" type="text" placeholder="📞 تواصل معنا" oninput="liveUpdate()">
+        </div>
+      </div>
+      <div class="f-group">
+        <label class="f-label">📋 معلومات النشاط (للردود الذكية)</label>
+        <textarea class="f-textarea" id="bizInfo" placeholder="مثال: نعمل من 9 صباحاً حتى 11 مساءً · موقعنا: القاهرة الجديدة · خدمة توصيل متاحة..." oninput="liveUpdate()" style="min-height:60px"></textarea>
+      </div>
+      <button class="activate-btn" id="activateBtn" onclick="activateBot()">
+        ✨ تفعيل البوت الآن
+      </button>
+    </div>
+  </div>
+
+  <!-- RIGHT: Chat Preview -->
+  <div class="preview-col">
+    <div class="preview-label"><span class="dot-live"></span>معاينة مباشرة</div>
+
+    <div class="phone-frame" id="phoneFrame">
+      <div class="phone-notch"><div class="notch-cam"></div><div class="notch-cam" style="width:4px;height:4px"></div></div>
+      <div class="phone-status"><span>9:41</span><span>●●●●</span><span>100% ■</span></div>
+
+      <!-- WA Screen -->
+      <div class="phone-screen" id="screen-wa">
+        <div class="wa-screen" style="flex:1;display:flex;flex-direction:column">
+          <div class="wa-header">
+            <div class="wa-avatar" id="wa-avatar">🤖</div>
+            <div class="wa-info">
+              <div class="wa-name" id="wa-bot-name">مساعد البوت</div>
+              <div class="wa-online">● متصل الآن</div>
+            </div>
+            <span style="font-size:.7rem;color:rgba(233,237,239,.5);margin-right:auto">⋮</span>
+          </div>
+          <div class="wa-msgs" id="wa-msgs"></div>
+          <div class="wa-quick-btns" id="wa-quick-btns"></div>
+          <div class="wa-input-bar">
+            <input class="wa-inp" id="wa-inp" placeholder="اكتب رسالة..." onkeydown="if(event.key==='Enter')sendMsg('wa')">
+            <button class="wa-send" onclick="sendMsg('wa')">➤</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- TG Screen -->
+      <div class="phone-screen" id="screen-tg" style="display:none">
+        <div class="tg-screen" style="flex:1;display:flex;flex-direction:column">
+          <div class="tg-header">
+            <div class="tg-avatar">🤖</div>
+            <div><div class="tg-name" id="tg-bot-name">البوت الذكي</div><div class="tg-bot-label">bot</div></div>
+          </div>
+          <div class="tg-msgs" id="tg-msgs"></div>
+          <div class="tg-kbd" id="tg-kbd"></div>
+          <div class="tg-input-bar">
+            <input class="tg-inp" id="tg-inp" placeholder="رسالة..." onkeydown="if(event.key==='Enter')sendMsg('tg')">
+            <button class="tg-send" onclick="sendMsg('tg')">➤</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Web Widget Screen -->
+      <div class="phone-screen" id="screen-web" style="display:none;background:#f5f5f5">
+        <div class="web-screen" style="flex:1;display:flex;flex-direction:column">
+          <div class="web-site-bg" style="flex:1;padding:10px;overflow:hidden">
+            <div class="web-site-bar">
+              <div class="web-dots"><div class="web-dot" style="background:#ff5f57"></div><div class="web-dot" style="background:#febc2e"></div><div class="web-dot" style="background:#28c840"></div></div>
+              <div class="web-url"></div>
+            </div>
+            <div class="web-page-skeleton">
+              <div class="web-sk-line" style="height:12px;width:55%;background:#d0d0d0"></div>
+              <div class="web-sk-line"></div><div class="web-sk-line med"></div>
+              <div class="web-sk-line short"></div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:4px">
+                <div class="web-sk-line" style="height:40px;border-radius:6px"></div>
+                <div class="web-sk-line" style="height:40px;border-radius:6px"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Widget -->
+          <div class="web-widget" id="web-widget">
+            <div class="web-widget-header" id="web-widget-color">
+              <div class="web-widget-avatar">🤖</div>
+              <div><div class="web-widget-name" id="web-bot-name">البوت الذكي</div><div class="web-widget-status">● متاح الآن</div></div>
+              <span style="margin-right:auto;font-size:.65rem;color:#888;cursor:pointer">✕</span>
+            </div>
+            <div class="web-msgs" id="web-msgs"></div>
+            <div class="web-inp-bar">
+              <input class="web-inp" id="web-inp" placeholder="اكتب..." onkeydown="if(event.key==='Enter')sendMsg('web')">
+              <button class="web-send-btn" onclick="sendMsg('web')">➤</button>
+            </div>
+          </div>
+          <div class="web-bubble" id="web-bubble">💬</div>
+        </div>
+      </div>
+
+      <!-- FB Screen -->
+      <div class="phone-screen" id="screen-fb" style="display:none">
+        <div class="fb-screen" style="flex:1;display:flex;flex-direction:column">
+          <div class="fb-header">
+            <div class="fb-avatar">🤖</div>
+            <div><div class="fb-name" id="fb-bot-name">البوت الذكي</div><div style="font-size:.55rem;opacity:.8">عادةً ما يرد فوراً</div></div>
+          </div>
+          <div class="fb-msgs" id="fb-msgs"></div>
+          <div class="fb-quick" id="fb-quick"></div>
+          <div class="fb-input-bar">
+            <input class="fb-inp" id="fb-inp" placeholder="Aa" onkeydown="if(event.key==='Enter')sendMsg('fb')">
+            <button class="fb-send" onclick="sendMsg('fb')">➤</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slack Screen -->
+      <div class="phone-screen" id="screen-slack" style="display:none">
+        <div class="slack-screen" style="flex:1;display:flex;flex-direction:column">
+          <div class="slack-hdr">
+            <div class="slack-ch"><span style="color:#E01E5A">#</span> <span id="slack-ch-name">general</span></div>
+            <span style="font-size:.6rem;color:rgba(255,255,255,.4);margin-right:auto">🤖 bot</span>
+          </div>
+          <div class="slack-msgs" id="slack-msgs"></div>
+          <div class="slack-input" style="padding:8px 10px;border-top:1px solid rgba(255,255,255,.06)">
+            <input class="slack-inp" id="slack-inp" placeholder="رسالة..." onkeydown="if(event.key==='Enter')sendMsg('slack')">
+          </div>
+        </div>
+      </div>
+
+      <!-- Discord Screen -->
+      <div class="phone-screen" id="screen-discord" style="display:none">
+        <div class="discord-screen" style="flex:1;display:flex;flex-direction:column">
+          <div class="discord-hdr">
+            <div class="slack-ch"><span style="color:#5865F2">#</span> <span id="discord-ch-name">general</span></div>
+            <span style="font-size:.6rem;color:rgba(255,255,255,.4);margin-right:auto">🤖 bot</span>
+          </div>
+          <div class="discord-msgs" id="discord-msgs"></div>
+          <div style="padding:8px 10px;border-top:1px solid rgba(255,255,255,.06)">
+            <input class="discord-inp" id="discord-inp" placeholder="رسالة..." onkeydown="if(event.key==='Enter')sendMsg('discord')">
+          </div>
+        </div>
+      </div>
+
+      <div class="phone-home"><div class="phone-home-bar"></div></div>
+    </div><!-- /phone-frame -->
+
+    <button style="padding:7px 18px;border-radius:100px;font-family:var(--fh);font-size:.68rem;font-weight:700;border:1.5px solid var(--rim2);color:var(--gold);background:transparent;cursor:pointer;transition:all .2s" onmouseover="this.style.background='var(--gg)'" onmouseout="this.style.background='transparent'" onclick="shareDemo()">📤 شارك هذه التجربة</button>
+  </div><!-- /preview-col -->
+
+</div><!-- /demo-wrap -->
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="cta-card">
+    <div class="cta-badge">🔥 عرض لفترة محدودة جداً</div>
+    <div class="cta-price">150 جنيه فقط!</div>
+    <p class="cta-desc">
+      امتلك <strong>بوتك الذكي الحقيقي</strong> على منصتك المفضلة —
+      يرد على عملائك 24/7 بدون توقف، يحجز المواعيد، يجيب على الأسئلة،
+      ويحول المتابعين إلى عملاء حقيقيين 🚀
+    </p>
+    <div class="cta-platforms">
+      <div class="cta-plat">💬 واتساب</div>
+      <div class="cta-plat">✈️ تيليجرام</div>
+      <div class="cta-plat">🌐 موقع ويب</div>
+      <div class="cta-plat">📘 ماسنجر</div>
+      <div class="cta-plat">🔴 سلاك</div>
+      <div class="cta-plat">🟣 ديسكورد</div>
+    </div>
+    <a class="cta-btn" href="#" onclick="ctaWA(event)">💬 اطلب بوتك الآن عبر واتساب</a>
+    <div class="cta-timer">⏰ العرض ينتهي خلال: <b id="ctaTimer">--:--:--</b></div>
+    <div class="cta-guarantee">🔒 ضمان استرداد كامل خلال 7 أيام إذا لم تُعجبك النتيجة</div>
+  </div>
+</div>
+
+<div class="conf-wrap" id="confWrap"></div>
+<div id="toast"></div>
+
+<script>
+'use strict';
+/* ═══ CONFIG ═══ */
+const _wa = atob('MjAxMjI5MzE3MzEz');
+let activePlat = 'wa';
+let botActivated = false;
+let bizName = '', botName = '', welcomeMsg = '', bizInfo = '';
+let replies = ['', '', '', ''];
+let msgHistory = { wa:[], tg:[], web:[], fb:[], slack:[], discord:[] };
+
+/* ═══ PLATFORM SWITCH ═══ */
+function switchPlatform(plat, btn) {
+  activePlat = plat;
+  document.querySelectorAll('.plat-tab').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  ['wa','tg','web','fb','slack','discord'].forEach(p => {
+    const el = document.getElementById('screen-' + p);
+    if (el) el.style.display = p === plat ? '' : 'none';
+  });
+  // Re-render messages for this platform
+  if (botActivated) renderAllMsgs(plat);
+}
+
+/* ═══ GET VALUES ═══ */
+function getVals() {
+  bizName = document.getElementById('bizName').value.trim() || 'نشاطك التجاري';
+  botName = document.getElementById('botName').value.trim() || 'المساعد الذكي';
+  welcomeMsg = document.getElementById('welcomeMsg').value.trim() || `أهلاً بك في ${bizName}! 👋 أنا ${botName}، كيف يمكنني مساعدتك؟`;
+  bizInfo = document.getElementById('bizInfo').value.trim();
+  replies = [
+    document.getElementById('r1').value.trim() || '🕐 ساعات العمل',
+    document.getElementById('r2').value.trim() || '📍 العنوان',
+    document.getElementById('r3').value.trim() || '💰 الأسعار',
+    document.getElementById('r4').value.trim() || '📞 تواصل معنا',
+  ];
+}
+
+/* ═══ LIVE UPDATE (while typing) ═══ */
+function liveUpdate() {
+  getVals();
+  // Update bot names in all headers
+  const names = ['wa-bot-name','tg-bot-name','web-bot-name','fb-bot-name','slack-ch-name','discord-ch-name'];
+  names.forEach(id => { const el = document.getElementById(id); if (el) el.textContent = botName; });
+  // Update avatars
+  const avatar = bizName ? bizName[0].toUpperCase() : '🤖';
+  document.querySelectorAll('.wa-avatar,.tg-avatar,.web-widget-avatar,.fb-avatar').forEach(el => { el.textContent = avatar; });
+}
+
+/* ═══ ACTIVATE BOT ═══ */
+function activateBot() {
+  getVals();
+  botActivated = true;
+  // Reset all histories
+  msgHistory = { wa:[], tg:[], web:[], fb:[], slack:[], discord:[] };
+  // Init all platforms with welcome
+  ['wa','tg','web','fb','slack','discord'].forEach(p => {
+    addBotMsg(p, welcomeMsg);
+    renderMsgsFor(p);
+  });
+  renderQuickBtns();
+  confetti();
+  toast(`✅ تم تفعيل ${botName}! اكتب رسالة وجرّبه 🎉`);
+  // Button feedback
+  const btn = document.getElementById('activateBtn');
+  btn.textContent = '✅ البوت نشط — اكتب رسالة!';
+  setTimeout(() => { btn.textContent = '🔄 إعادة تفعيل البوت'; }, 3000);
+}
+
+/* ═══ ADD MESSAGE ═══ */
+function addBotMsg(plat, text) {
+  msgHistory[plat].push({ type: 'bot', text, time: now() });
+}
+function addUserMsg(plat, text) {
+  msgHistory[plat].push({ type: 'user', text, time: now() });
+}
+function now() {
+  const d = new Date();
+  return d.getHours().toString().padStart(2,'0') + ':' + d.getMinutes().toString().padStart(2,'0');
+}
+
+/* ═══ GEMINI AI — الذكاء الاصطناعي الحقيقي ═══ */
+const GEMINI_KEY = 'AIzaSyDxGKase23MtV9-3lhdtYsQg5AAd_NLc9g';
+
+async function getAIReply(userMsg) {
+  /* تحقق سريع بالكلمات المفتاحية أولاً (أسرع وأوفر) */
+  const msg = userMsg.toLowerCase().trim();
+  if (/سعر|أسعار|بكام|بكم|كم|تكلف/.test(msg)) return getReplyContent(2);
+  if (/وين|فين|عنوان|موقع|مكان|أين/.test(msg))  return getReplyContent(1);
+  if (/وقت|ساعة|مواعيد|يفتح|يقفل|متى/.test(msg)) return getReplyContent(0);
+  if (/تواصل|هاتف|تلفون|رقم|اتصل/.test(msg))    return getReplyContent(3);
+  if (/شكر|تمام|ممتاز|جميل/.test(msg)) return 'العفو! 😊 سعيد بخدمتك. هل هناك شيء آخر؟';
+  if (/مرحب|أهل|هلا|هاي|hi|hello/.test(msg))    return welcomeMsg;
+
+  /* Gemini للردود الذكية المعقدة */
+  try {
+    const systemPrompt = `أنت مساعد ذكي اسمك "${botName}" تعمل لصالح "${bizName}".
+معلومات النشاط: ${bizInfo || 'غير محددة'}
+ردودك: مختصرة (3-4 سطور)، بالعربية، ودودة، مع إيموجي مناسبة.
+إذا سُئلت عن شيء خارج نطاق النشاط، اعتذر بلطف وأحِل للتواصل المباشر.`;
+
+    const res = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_KEY}`,
+      {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          system_instruction: {parts: [{text: systemPrompt}]},
+          contents: [{role:'user', parts:[{text: userMsg}]}],
+          generationConfig: {maxOutputTokens: 200, temperature: 0.7}
+        })
+      }
+    );
+    if (!res.ok) throw new Error('API error');
+    const data = await res.json();
+    return data.candidates?.[0]?.content?.parts?.[0]?.text
+      || `شكراً لتواصلك مع ${bizName}! سيرد عليك فريقنا قريباً. 🙏`;
+  } catch(e) {
+    return getBotReplyFallback(userMsg);
+  }
+}
+
+/* ═══ FALLBACK (بدون إنترنت أو خطأ) ═══ */
+function getBotReplyFallback(userMsg) {
+  const msg = userMsg.toLowerCase().trim();
+  // Check quick replies
+  for (let i = 0; i < replies.length; i++) {
+    const r = replies[i].replace(/^[^\u0600-\u06FF\w]+/, '').toLowerCase().trim();
+    if (r && msg.includes(r.substring(0, 4))) {
+      return getReplyContent(i);
+    }
+  }
+  // Smart keyword matching
+  if (/سعر|أسعار|بكام|بكم|كم|تكلف/.test(msg)) return getReplyContent(2);
+  if (/وين|فين|عنوان|موقع|مكان|أين/.test(msg)) return getReplyContent(1);
+  if (/وقت|ساعة|مواعيد|يفتح|يقفل|متى/.test(msg)) return getReplyContent(0);
+  if (/تواصل|هاتف|تلفون|رقم|اتصل/.test(msg)) return getReplyContent(3);
+  if (/شكر|تمام|ممتاز|جميل|برافو/.test(msg)) return `العفو! 😊 سعيد بخدمتك. هل هناك أي شيء آخر يمكنني مساعدتك به؟`;
+  if (/مرحب|أهل|هلا|هاي|hi|hello/.test(msg)) return welcomeMsg;
+  if (/طلب|اطلب|أطلب|حجز/.test(msg)) return `يسعدنا خدمتك! 🌟 للطلب يمكنك التواصل معنا مباشرة أو اختيار "تواصل معنا" من القائمة.`;
+  // Use bizInfo if available
+  if (bizInfo) {
+    const words = msg.split(' ');
+    for (const w of words) {
+      if (w.length > 2 && bizInfo.includes(w)) {
+        return `بناءً على معلوماتنا:\n${bizInfo.substring(0, 120)}...`;
+      }
+    }
+  }
+  return `شكراً لتواصلك مع ${bizName} 🙏\nسأقوم بتحويلك لأحد ممثلي خدمة العملاء للإجابة على استفسارك.\n\nأو اختر من الخيارات التالية 👇`;
+}
+
+function getReplyContent(idx) {
+  const labels = [
+    `🕐 ساعات العمل في ${bizName}:\n${bizInfo || 'نعمل طوال أيام الأسبوع. تواصل معنا للاستفسار.'}`,
+    `📍 موقع ${bizName}:\n${bizInfo || 'تواصل معنا للحصول على العنوان التفصيلي.'}`,
+    `💰 أسعارنا تنافسية جداً في ${bizName}!\n${bizInfo || 'للاطلاع على قائمة الأسعار الكاملة تواصل معنا.'}`,
+    `📞 للتواصل مع ${bizName}:\nيمكنك مراسلتنا هنا مباشرة وسنرد عليك في أقرب وقت. ⚡`,
+  ];
+  return labels[idx] || labels[3];
+}
+
+/* ═══ SEND MESSAGE — مع Gemini AI ═══ */
+async function sendMsg(plat) {
+  if (!botActivated) { activateBot(); return; }
+  const inp = document.getElementById(plat + '-inp');
+  if (!inp) return;
+  const text = inp.value.trim();
+  if (!text) return;
+  inp.value = '';
+  addUserMsg(plat, text);
+  renderMsgsFor(plat);
+  /* مؤشر الكتابة */
+  msgHistory[plat].push({type:'typing', text:'...', time: now()});
+  renderMsgsFor(plat);
+  try {
+    const reply = await getAIReply(text);
+    /* احذف مؤشر الكتابة */
+    msgHistory[plat] = msgHistory[plat].filter(m => m.type !== 'typing');
+    addBotMsg(plat, reply);
+    renderMsgsFor(plat);
+  } catch(e) {
+    msgHistory[plat] = msgHistory[plat].filter(m => m.type !== 'typing');
+    addBotMsg(plat, getBotReplyFallback(text));
+    renderMsgsFor(plat);
+  }
+}
+
+/* ═══ QUICK BUTTON CLICK ═══ */
+async function clickQuick(plat, text) {
+  if (!botActivated) { activateBot(); return; }
+  addUserMsg(plat, text);
+  renderMsgsFor(plat);
+  msgHistory[plat].push({type:'typing', text:'...', time: now()});
+  renderMsgsFor(plat);
+  const reply = await getAIReply(text);
+  msgHistory[plat] = msgHistory[plat].filter(m => m.type !== 'typing');
+  addBotMsg(plat, reply);
+  renderMsgsFor(plat);
+}
+
+/* ═══ RENDER MESSAGES ═══ */
+function renderMsgsFor(plat) {
+  const msgs = msgHistory[plat];
+  if (plat === 'wa') {
+    const el = document.getElementById('wa-msgs');
+    el.innerHTML = msgs.map(m => m.type==='typing'
+      ? '<div class="wa-typing"><span></span><span></span><span></span></div>'
+      : `<div class="wa-msg ${m.type}">${m.text.replace(/\n/g,'<br>')}<div class="wa-msg-time">${m.time} ${m.type==='user'?'✓✓':''}</div></div>`
+    ).join('');
+    el.scrollTop = el.scrollHeight;
+  } else if (plat === 'tg') {
+    const el = document.getElementById('tg-msgs');
+    el.innerHTML = msgs.map(m => `<div class="tg-msg ${m.type}">${m.text.replace(/\n/g,'<br>')}</div>`).join('');
+    el.scrollTop = el.scrollHeight;
+  } else if (plat === 'web') {
+    const el = document.getElementById('web-msgs');
+    el.innerHTML = msgs.map(m => `<div class="web-msg ${m.type}">${m.text.replace(/\n/g,'<br>')}</div>`).join('');
+    el.scrollTop = el.scrollHeight;
+  } else if (plat === 'fb') {
+    const el = document.getElementById('fb-msgs');
+    el.innerHTML = msgs.map(m => `<div class="fb-msg ${m.type}">${m.text.replace(/\n/g,'<br>')}</div>`).join('');
+    el.scrollTop = el.scrollHeight;
+  } else if (plat === 'slack') {
+    const el = document.getElementById('slack-msgs');
+    el.innerHTML = msgs.map(m => `<div class="slack-msg"><div class="slack-avatar">${m.type==='bot'?'🤖':'👤'}</div><div class="slack-msg-body"><b style="font-size:.65rem;color:${m.type==='bot'?'#E01E5A':'#fff'}">${m.type==='bot'?botName:'أنت'}</b><br>${m.text.replace(/\n/g,'<br>')}</div></div>`).join('');
+    el.scrollTop = el.scrollHeight;
+  } else if (plat === 'discord') {
+    const el = document.getElementById('discord-msgs');
+    el.innerHTML = msgs.map(m => `<div class="discord-msg"><div class="discord-avatar">${m.type==='bot'?'🤖':'👤'}</div><div class="discord-msg-body"><b style="font-size:.65rem;color:${m.type==='bot'?'#5865F2':'#fff'}">${m.type==='bot'?botName:'أنت'}</b><br>${m.text.replace(/\n/g,'<br>')}</div></div>`).join('');
+    el.scrollTop = el.scrollHeight;
+  }
+}
+
+function renderAllMsgs(plat) { renderMsgsFor(plat); }
+
+function renderQuickBtns() {
+  // WA
+  const waQ = document.getElementById('wa-quick-btns');
+  waQ.innerHTML = replies.map((r,i) => `<button class="wa-quick-btn" onclick="clickQuick('wa','${r.replace(/'/g,"\\'")}')">  ${r}</button>`).join('');
+  // TG
+  const tgQ = document.getElementById('tg-kbd');
+  tgQ.innerHTML = replies.map((r,i) => `<button class="tg-kbd-btn" onclick="clickQuick('tg','${r.replace(/'/g,"\\'")}')">  ${r}</button>`).join('');
+  // FB
+  const fbQ = document.getElementById('fb-quick');
+  fbQ.innerHTML = replies.map((r,i) => `<button class="fb-quick-btn" onclick="clickQuick('fb','${r.replace(/'/g,"\\'")}')">  ${r}</button>`).join('');
+}
+
+/* ═══ CTA WhatsApp ═══ */
+function ctaWA(e) {
+  e.preventDefault();
+  const msg = encodeURIComponent('مرحباً Smart Tech! 👋\nشفت محرك البوت الذكي وعايز بوت بـ 150 جنيه 🤖\nممكن تبعتلي التفاصيل؟');
+  window.open(`https://wa.me/${_wa}?text=${msg}`, '_blank', 'noopener');
+}
+
+/* ═══ SHARE ═══ */
+function shareDemo() {
+  const txt = `جرّبت محرك البوت الذكي من Smart Tech! 🤖\nبوت ذكي على واتساب وتيليجرام وماسنجر بـ 150 جنيه فقط!\n\n${location.href}`;
+  if (navigator.share) navigator.share({ text: txt }).catch(() => {});
+  else navigator.clipboard.writeText(txt).then(() => toast('✅ تم نسخ الرابط للمشاركة!'));
+}
+
+/* ═══ CONFETTI ═══ */
+function confetti() {
+  const wrap = document.getElementById('confWrap');
+  const colors = ['#D4AF37','#FFD700','#FFEC80','#B8860B','#fff'];
+  for (let i = 0; i < 50; i++) {
+    const el = document.createElement('div');
+    el.className = 'conf';
+    el.style.cssText = `left:${Math.random()*100}%;background:${colors[Math.floor(Math.random()*colors.length)]};width:${4+Math.random()*8}px;height:${4+Math.random()*8}px;border-radius:${Math.random()>.5?'50%':'2px'};animation-duration:${1.5+Math.random()*2}s;animation-delay:${Math.random()*.4}s`;
+    wrap.appendChild(el);
+    setTimeout(() => el.remove(), 3000);
+  }
+}
+
+/* ═══ TOAST ═══ */
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  clearTimeout(t._t); t._t = setTimeout(() => t.classList.remove('show'), 3200);
+}
+
+/* ═══ COUNTDOWN ═══ */
+(function countdown() {
+  const end = new Date(); end.setHours(23,59,59,0);
+  function tick() {
+    const diff = end - new Date();
+    if (diff <= 0) { document.getElementById('ctaTimer').textContent = 'انتهى — تواصل معنا!'; return; }
+    const h = String(Math.floor(diff/3600000)).padStart(2,'0');
+    const m = String(Math.floor((diff%3600000)/60000)).padStart(2,'0');
+    const s = String(Math.floor((diff%60000)/1000)).padStart(2,'0');
+    document.getElementById('ctaTimer').textContent = `${h}:${m}:${s}`;
+    setTimeout(tick, 1000);
+  }
+  tick();
+})();
+
+/* ═══ INIT — رسالة ترحيب أولية ═══ */
+window.addEventListener('load', () => {
+  getVals();
+  // Show initial messages
+  ['wa','tg','web','fb','slack','discord'].forEach(p => {
+    addBotMsg(p, 'مرحباً! 👋 أنا مساعدك الذكي.\nاكتب اسم نشاطك التجاري واضغط "تفعيل البوت" لتجربة بوتك الخاص!');
+  });
+  renderMsgsFor('wa');
+  // Initial quick btns
+  const waQ = document.getElementById('wa-quick-btns');
+  waQ.innerHTML = ['🕐 ساعات العمل','📍 العنوان','💰 الأسعار','📞 تواصل معنا'].map(r => `<button class="wa-quick-btn" onclick="activateBot()">${r}</button>`).join('');
+  liveUpdate();
+});
+</script>
+</body>
+</html>
