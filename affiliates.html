@@ -409,83 +409,6 @@ body.lang-fr{direction:ltr}
   .cat-tab{padding:7px 14px;font-size:.7rem}
 }
 
-
-/* ── Quick Nav Bar (sticky top of tools) ── */
-.quick-nav-bar{
-  position:sticky;top:65px;z-index:800;
-  background:rgba(7,7,7,.97);backdrop-filter:blur(20px);
-  border-bottom:1px solid var(--rim);
-  padding:8px clamp(12px,4vw,40px);
-  display:flex;align-items:center;justify-content:space-between;
-  gap:10px;flex-wrap:wrap;
-  animation:fadeUp .4s ease both;
-}
-.quick-nav-links{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
-.qn-link{
-  display:inline-flex;align-items:center;gap:5px;
-  padding:6px 14px;border-radius:100px;
-  font-family:var(--fh);font-size:.7rem;font-weight:700;
-  letter-spacing:.05em;color:var(--t3);
-  border:1px solid var(--rim);background:transparent;
-  text-decoration:none;transition:all .2s;white-space:nowrap;cursor:pointer;
-}
-.qn-link:hover{color:var(--gold);border-color:var(--rim2);background:var(--gg)}
-.qn-link.primary{background:linear-gradient(135deg,var(--gold-d),var(--gold));color:var(--m);border-color:transparent;box-shadow:0 3px 12px rgba(212,175,55,.3)}
-.qn-link.primary:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(212,175,55,.45)}
-.qn-sep{width:1px;height:18px;background:var(--rim);flex-shrink:0}
-
-/* ── Weather Tool ── */
-.weather-card{
-  background:linear-gradient(160deg,var(--m3),var(--m2));
-  border:1px solid var(--rim);border-radius:var(--r2);
-  padding:0;overflow:hidden;position:relative;
-  transition:all var(--tr);
-}
-.weather-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0;transition:opacity var(--tr)}
-.weather-card:hover{border-color:var(--rim2);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.6),0 0 0 1px var(--rim2)}
-.weather-card:hover::before{opacity:1}
-.weather-inner{padding:26px}
-.weather-hero{
-  background:linear-gradient(145deg,#0a0a14,#0d0d1a);
-  border:1px solid var(--rim);border-radius:var(--r);
-  padding:18px;text-align:center;margin-bottom:14px;
-  position:relative;overflow:hidden;
-}
-.weather-hero-bg{
-  position:absolute;inset:0;
-  background:radial-gradient(ellipse at 50% 0%,rgba(212,175,55,.08),transparent 65%);
-  pointer-events:none;
-}
-.weather-icon-big{font-size:3rem;margin-bottom:6px;display:block;
-  animation:weatherFloat 3s ease-in-out infinite}
-@keyframes weatherFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-.weather-temp{font-family:var(--ft);font-size:2.4rem;font-weight:900;color:var(--gold);line-height:1}
-.weather-city{font-size:.78rem;color:var(--t2);margin-top:4px}
-.weather-desc{font-size:.72rem;color:var(--t3);letter-spacing:.04em}
-.weather-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:12px}
-.weather-cell{background:rgba(255,255,255,.03);border:1px solid var(--rim);border-radius:var(--r);padding:8px;text-align:center}
-.weather-cell-icon{font-size:.9rem;margin-bottom:2px}
-.weather-cell-val{font-size:.82rem;font-weight:700;color:var(--t1);font-family:var(--fh)}
-.weather-cell-lbl{font-size:.6rem;color:var(--t4);margin-top:2px}
-.weather-city-btns{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
-.weather-city-btn{padding:5px 12px;border-radius:100px;font-size:.7rem;font-weight:700;
-  border:1.5px solid var(--rim);color:var(--t3);cursor:pointer;
-  background:transparent;transition:all .2s;white-space:nowrap}
-.weather-city-btn.on,.weather-city-btn:hover{border-color:var(--gold-d);color:var(--gold);background:var(--gg)}
-.weather-inp-row{display:flex;gap:7px}
-.weather-search{flex:1;padding:9px 13px;background:rgba(255,255,255,.04);border:1.5px solid var(--rim);border-radius:var(--r);color:var(--t1);font-family:var(--fb);font-size:.84rem;outline:none;transition:all .2s;direction:rtl}
-.weather-search:focus{border-color:var(--gold-d);box-shadow:0 0 0 3px rgba(212,175,55,.08)}
-.weather-forecast{display:flex;gap:7px;margin-top:10px;overflow-x:auto;padding-bottom:4px}
-.weather-forecast::-webkit-scrollbar{height:3px}
-.weather-forecast::-webkit-scrollbar-thumb{background:var(--gold-d);border-radius:2px}
-.forecast-day{flex-shrink:0;background:rgba(255,255,255,.03);border:1px solid var(--rim);border-radius:var(--r);padding:8px 10px;text-align:center;min-width:56px}
-.forecast-day-name{font-size:.62rem;color:var(--t3);margin-bottom:3px}
-.forecast-day-icon{font-size:.95rem;margin-bottom:2px}
-.forecast-day-temp{font-size:.72rem;font-weight:700;color:var(--gold);font-family:var(--fh)}
-.weather-loading{text-align:center;padding:24px;color:var(--t3);font-size:.82rem}
-.weather-spin{display:inline-block;width:18px;height:18px;border:2px solid rgba(212,175,55,.2);border-top-color:var(--gold);border-radius:50%;animation:wspin .7s linear infinite;margin-left:6px;vertical-align:middle}
-@keyframes wspin{to{transform:rotate(360deg)}}
-
 </style>
 </head>
 <body class="lang-ar">
@@ -545,22 +468,6 @@ body.lang-fr{direction:ltr}
   </div>
 </div>
 
-
-<!-- ══ Quick Navigation Bar ══ -->
-<div class="quick-nav-bar" id="quickNav">
-  <div class="quick-nav-links">
-    <a href="index.html" class="qn-link primary">🏠 <span class="ar-only">الموقع الرئيسي</span><span class="en-only">Main Site</span></a>
-    <div class="qn-sep"></div>
-    <a href="blog.html" class="qn-link">📝 <span class="ar-only">المدونة</span><span class="en-only">Blog</span></a>
-    <a href="store.html" class="qn-link">🛒 <span class="ar-only">المتجر</span><span class="en-only">Store</span></a>
-    <a href="smart-shop-engine.html" class="qn-link">🛍️ <span class="ar-only">متجر ديمو</span><span class="en-only">Shop Demo</span></a>
-    <a href="smart-bot-engine.html" class="qn-link">🤖 <span class="ar-only">بوت ديمو</span><span class="en-only">Bot Demo</span></a>
-  </div>
-  <a href="index.html#packages" class="qn-link" style="border-color:var(--rim2);color:var(--gold)">
-    💬 <span class="ar-only">اطلب خدمة</span><span class="en-only">Order Service</span>
-  </a>
-</div>
-
 <!-- DUAL TICKER -->
 <div class="ticker-wrap">
   <div class="ticker-row">
@@ -576,7 +483,6 @@ body.lang-fr{direction:ltr}
       <div class="t-item">🎯 اختبار الجاهزية</div><div class="t-dot"></div>
       <div class="t-item">📊 عداد الكلمات</div><div class="t-dot"></div>
       <div class="t-item">🎬 تضمين الفيديو</div><div class="t-dot"></div>
-      <div class="t-item">🌤️ حالة الطقس</div><div class="t-dot"></div>
       <!-- duplicate -->
       <div class="t-item">🧾 حاسبة الضريبة</div><div class="t-dot"></div>
       <div class="t-item">📱 مولّد QR Code</div><div class="t-dot"></div>
@@ -635,7 +541,7 @@ body.lang-fr{direction:ltr}
     <div class="hero-tag">⚡ <span class="ar-only">فوري وسريع</span><span class="en-only">Instant results</span><span class="fr-only">Résultats instantanés</span></div>
   </div>
   <div class="hero-stats">
-    <div><div class="hero-stat-num">17</div><div class="hero-stat-lbl"><span class="ar-only">أداة مجانية</span><span class="en-only">Free Tools</span></div></div>
+    <div><div class="hero-stat-num">16</div><div class="hero-stat-lbl"><span class="ar-only">أداة مجانية</span><span class="en-only">Free Tools</span></div></div>
     <div><div class="hero-stat-num">0</div><div class="hero-stat-lbl"><span class="ar-only">تكلفة</span><span class="en-only">Cost</span></div></div>
     <div><div class="hero-stat-num">∞</div><div class="hero-stat-lbl"><span class="ar-only">استخدامات</span><span class="en-only">Uses</span></div></div>
     <div><div class="hero-stat-num">24/7</div><div class="hero-stat-lbl"><span class="ar-only">متاحة دائماً</span><span class="en-only">Always Available</span></div></div>
@@ -666,7 +572,7 @@ body.lang-fr{direction:ltr}
     <div class="cat-tabs reveal" id="catTabs">
       <button class="cat-tab on" onclick="setCat('all',this)" data-cat="all">
         🛠️ <span class="ar-only">الكل</span><span class="en-only">All</span>
-        <span class="cat-count" id="cnt-all">17</span>
+        <span class="cat-count" id="cnt-all">16</span>
       </button>
       <button class="cat-tab" onclick="setCat('finance',this)" data-cat="finance">
         💰 <span class="ar-only">مالية</span><span class="en-only">Finance</span>
@@ -678,7 +584,7 @@ body.lang-fr{direction:ltr}
       </button>
       <button class="cat-tab" onclick="setCat('tech',this)" data-cat="tech">
         ⚡ <span class="ar-only">تقنية</span><span class="en-only">Technical</span>
-        <span class="cat-count" id="cnt-tech">5</span>
+        <span class="cat-count" id="cnt-tech">4</span>
       </button>
       <button class="cat-tab" onclick="setCat('analytics',this)" data-cat="analytics">
         📊 <span class="ar-only">تحليلية</span><span class="en-only">Analytics</span>
@@ -1272,51 +1178,6 @@ body.lang-fr{direction:ltr}
         </div>
       </div>
 
-
-      <!-- 17. Weather Tool — Open-Meteo (no key needed) -->
-      <div class="weather-card reveal" data-cat="tech" data-tool-id="weather" data-name="الطقس Weather حالة الجو درجة الحرارة">
-        <div class="weather-inner">
-          <div class="tool-head" style="margin-bottom:14px">
-            <div class="tool-icon">🌤️</div>
-            <div>
-              <div class="tool-name"><span class="ar-only">حالة الطقس الآن</span><span class="en-only">Live Weather</span></div>
-              <div class="tool-sub"><span class="ar-only">مصر والعالم — محدّث لحظياً بدون API Key</span><span class="en-only">Egypt & World — real-time, no API key</span></div>
-              <div class="tool-badge">⚡ <span class="ar-only">لحظي</span><span class="en-only">Live</span></div>
-            </div>
-          </div>
-
-          <!-- المدن السريعة -->
-          <div class="weather-city-btns" id="wCityBtns">
-            <button class="weather-city-btn on" onclick="getWeather('Cairo',30.06,31.25,this)">🇪🇬 القاهرة</button>
-            <button class="weather-city-btn" onclick="getWeather('Alexandria',31.2,29.91,this)">🇪🇬 الإسكندرية</button>
-            <button class="weather-city-btn" onclick="getWeather('Riyadh',24.69,46.72,this)">🇸🇦 الرياض</button>
-            <button class="weather-city-btn" onclick="getWeather('Dubai',25.2,55.27,this)">🇦🇪 دبي</button>
-            <button class="weather-city-btn" onclick="getWeather('Paris',48.85,2.35,this)">🇫🇷 باريس</button>
-          </div>
-
-          <!-- بحث عن مدينة -->
-          <div class="weather-inp-row" style="margin-bottom:12px">
-            <input class="weather-search" id="wCityInp" type="text" placeholder="ابحث عن مدينة... (بالإنجليزية)" onkeydown="if(event.key==='Enter')searchWeatherCity()">
-            <button class="t-btn" onclick="searchWeatherCity();gtagTool('Weather')"><span class="ar-only">بحث</span><span class="en-only">Search</span></button>
-          </div>
-
-          <!-- النتيجة الرئيسية -->
-          <div id="wResult">
-            <div class="weather-loading">
-              <span class="weather-spin"></span>
-              <span class="ar-only"> جاري تحميل بيانات الطقس...</span>
-              <span class="en-only"> Loading weather data...</span>
-            </div>
-          </div>
-
-          <!-- مشاركة -->
-          <div class="t-share" style="margin-top:8px">
-            <button class="t-share-btn" onclick="shareWeather()">📤 <span class="ar-only">مشاركة</span><span class="en-only">Share</span></button>
-            <button class="t-share-btn" onclick="getWeather('Cairo',30.06,31.25,null)">🔄 <span class="ar-only">تحديث</span><span class="en-only">Refresh</span></button>
-          </div>
-        </div>
-      </div>
-
     </div><!-- /tools-grid row 2 -->
 
     <!-- Ad Row 3 (Bottom) -->
@@ -1401,6 +1262,7 @@ body.lang-fr{direction:ltr}
 
     <!-- Footer Nav -->
     <div class="footer-nav">
+      <a href="freelance.html"><span class="ar-only">🏠 اشتغل من البيت</span><span class="en-only">Work from Home</span></a>
       <a href="index.html#services"><span class="ar-only">خدماتنا</span><span class="en-only">Services</span></a>
       <a href="index.html#packages"><span class="ar-only">الباقات</span><span class="en-only">Packages</span></a>
       <a href="index.html#contact"><span class="ar-only">تواصل</span><span class="en-only">Contact</span></a>
@@ -2383,135 +2245,6 @@ function shareCompare() {
   const tx = '⚖️ مقارنة الأسعار — Smart Tech\n' + w + '\n' + rows + '\n\nقارن أسعارك: https://st-yos.pages.dev/affiliates.html#price-compare';
   navigator.share ? navigator.share({text:tx}).catch(()=>{}) : navigator.clipboard.writeText(tx).then(()=>toast('✅ تم النسخ!'));
 }
-
-
-/* ═══ 17. WEATHER TOOL — Open-Meteo (No API key needed) ═══ */
-const WMO_ICONS = {
-  0:'☀️',1:'🌤️',2:'⛅',3:'☁️',
-  45:'🌫️',48:'🌫️',
-  51:'🌦️',53:'🌦️',55:'🌧️',
-  61:'🌧️',63:'🌧️',65:'🌊',
-  71:'❄️',73:'❄️',75:'🌨️',
-  80:'🌦️',81:'🌧️',82:'⛈️',
-  95:'⛈️',96:'⛈️',99:'🌩️'
-};
-const WMO_DESC = {
-  0:'صافٍ تماماً',1:'غائم جزئياً',2:'غائم',3:'غائم بالكامل',
-  45:'ضبابي',48:'ضباب متجمد',
-  51:'رذاذ خفيف',53:'رذاذ',55:'رذاذ كثيف',
-  61:'مطر خفيف',63:'مطر معتدل',65:'مطر غزير',
-  71:'ثلج خفيف',73:'ثلج',75:'ثلج كثيف',
-  80:'زخات مطر',81:'مطر',82:'عواصف',
-  95:'عاصفة رعدية',96:'عاصفة رعدية وبَرَد',99:'عاصفة شديدة'
-};
-const DAYS_AR = ['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'];
-
-let lastWeatherData = null;
-let lastWeatherCity = 'القاهرة';
-
-async function getWeather(cityName, lat, lon, btn) {
-  /* تحديث زرار active */
-  if (btn) {
-    document.querySelectorAll('.weather-city-btn').forEach(b => b.classList.remove('on'));
-    btn.classList.add('on');
-  }
-  lastWeatherCity = cityName;
-  const box = document.getElementById('wResult');
-  box.innerHTML = '<div class="weather-loading"><span class="weather-spin"></span> جاري التحميل...</div>';
-  try {
-    const url = 'https://api.open-meteo.com/v1/forecast?latitude='+lat+'&longitude='+lon+
-      '&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m,uv_index'+
-      '&daily=weather_code,temperature_2m_max,temperature_2m_min'+
-      '&timezone=auto&forecast_days=6';
-    const res = await fetch(url);
-    if (!res.ok) throw new Error('weather error');
-    const d = await res.json();
-    lastWeatherData = { city: cityName, data: d };
-    renderWeather(cityName, d);
-    gtagTool('Weather - ' + cityName);
-  } catch(e) {
-    box.innerHTML = '<div class="weather-loading" style="color:var(--err)">⚠️ تعذّر تحميل بيانات الطقس — تحقق من الاتصال</div>';
-  }
-}
-
-function renderWeather(city, d) {
-  const c = d.current;
-  const daily = d.daily;
-  const icon = WMO_ICONS[c.weather_code] || '🌤️';
-  const desc = WMO_DESC[c.weather_code] || 'طقس متغير';
-  const temp = Math.round(c.temperature_2m);
-  const feels = Math.round(c.apparent_temperature);
-  const humid = c.relative_humidity_2m;
-  const wind = Math.round(c.wind_speed_10m);
-  const uv = c.uv_index || 0;
-
-  /* توليد تقرير الـ 6 أيام */
-  const forecastHTML = daily.time.slice(1, 6).map((t, i) => {
-    const day = new Date(t);
-    const dayName = DAYS_AR[day.getDay()];
-    const fi = WMO_ICONS[daily.weather_code[i+1]] || '🌤️';
-    const maxT = Math.round(daily.temperature_2m_max[i+1]);
-    return '<div class="forecast-day"><div class="forecast-day-name">'+dayName+'</div><div class="forecast-day-icon">'+fi+'</div><div class="forecast-day-temp">'+maxT+'°</div></div>';
-  }).join('');
-
-  /* لون درجة الحرارة */
-  const tempColor = temp >= 40 ? '#e74c3c' : temp >= 30 ? '#f39c12' : temp >= 20 ? '#D4AF37' : temp >= 10 ? '#2ecc71' : '#229ED9';
-
-  document.getElementById('wResult').innerHTML = '<div class="weather-hero"><div class="weather-hero-bg"></div>'+
-    '<span class="weather-icon-big">'+icon+'</span>'+
-    '<div class="weather-temp" style="color:'+tempColor+'">'+temp+'°C</div>'+
-    '<div class="weather-city">📍 '+city+'</div>'+
-    '<div class="weather-desc">'+desc+' · يبدو كـ '+feels+'°</div>'+
-    '</div>'+
-    '<div class="weather-grid">'+
-      '<div class="weather-cell"><div class="weather-cell-icon">💧</div><div class="weather-cell-val">'+humid+'%</div><div class="weather-cell-lbl">الرطوبة</div></div>'+
-      '<div class="weather-cell"><div class="weather-cell-icon">💨</div><div class="weather-cell-val">'+wind+' km/h</div><div class="weather-cell-lbl">الرياح</div></div>'+
-      '<div class="weather-cell"><div class="weather-cell-icon">☀️</div><div class="weather-cell-val">'+uv+'</div><div class="weather-cell-lbl">UV Index</div></div>'+
-    '</div>'+
-    '<div class="weather-forecast">'+forecastHTML+'</div>';
-}
-
-async function searchWeatherCity() {
-  const q = document.getElementById('wCityInp').value.trim();
-  if (!q) { toast('⚠️ أدخل اسم المدينة بالإنجليزية'); return; }
-  /* Geocoding API (مجاني) */
-  try {
-    const res = await fetch('https://geocoding-api.open-meteo.com/v1/search?name='+encodeURIComponent(q)+'&count=1&language=ar&format=json');
-    const data = await res.json();
-    if (!data.results || data.results.length === 0) { toast('⚠️ المدينة غير موجودة — جرّب اسماً آخر'); return; }
-    const city = data.results[0];
-    const name = city.name + (city.country_code ? ' ' + city.country_code : '');
-    /* إلغاء تحديد باقي الأزرار */
-    document.querySelectorAll('.weather-city-btn').forEach(b => b.classList.remove('on'));
-    getWeather(name, city.latitude, city.longitude, null);
-    document.getElementById('wCityInp').value = '';
-  } catch(e) {
-    toast('⚠️ تعذّر البحث — تحقق من الاتصال');
-  }
-}
-
-function shareWeather() {
-  if (!lastWeatherData) { toast('⚠️ حمّل بيانات الطقس أولاً'); return; }
-  const d = lastWeatherData.data.current;
-  const temp = Math.round(d.temperature_2m);
-  const desc = WMO_DESC[d.weather_code] || '';
-  const tx = '🌤️ حالة الطقس الآن في ' + lastWeatherCity + ':
-' +
-    '🌡️ ' + temp + '°C — ' + desc + '
-' +
-    '💧 رطوبة: ' + d.relative_humidity_2m + '%
-' +
-    '💨 رياح: ' + Math.round(d.wind_speed_10m) + ' km/h
-
-' +
-    'تابع الطقس على أدوات Smart Tech: https://st-yos.pages.dev/affiliates.html#weather';
-  navigator.share ? navigator.share({text:tx}).catch(()=>{}) : navigator.clipboard.writeText(tx).then(()=>toast('✅ تم النسخ!'));
-}
-
-/* تحميل طقس القاهرة عند فتح الصفحة */
-window.addEventListener('load', () => {
-  setTimeout(() => getWeather('القاهرة', 30.06, 31.25, null), 1500);
-});
 
 </script>
 </body>

@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="أعلن مع Smart Tech — وصول مباشر لآلاف أصحاب الأعمال والمهنيين في مصر والخليج. باقات إعلانية من 100 جنيه فقط.">
+<meta name="keywords" content="إعلان, أعلن معنا, smart tech, تسويق رقمي, إعلانات مصر">
+<meta property="og:title" content="أعلن مع Smart Tech — وصول لآلاف العملاء">
+<meta property="og:description" content="باقات إعلانية احترافية من 100 جنيه — استهداف دقيق لأصحاب الأعمال في مصر">
+<meta property="og:type" content="website">
+<title>أعلن معنا — Smart Tech Advertising</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700;900&family=Cairo:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════════
+   SMART TECH — صفحة الإعلانات
+   Black × Gold Luxury
+══════════════════════════════════════════════ */
+:root{
+  --gold:#D4AF37;--gold-l:#FFD700;--gold-b:#FFEC80;--gold-d:#B8860B;
+  --gg:rgba(212,175,55,.10);--gg2:rgba(212,175,55,.20);--gg3:rgba(212,175,55,.32);
+  --m:#080808;--m2:#111;--m3:#181818;--m4:#1e1e1e;--m5:#252525;
+  --rim:rgba(212,175,55,.16);--rim2:rgba(212,175,55,.34);--rim3:rgba(212,175,55,.58);
+  --t1:#f0e6c8;--t2:#c9a96e;--t3:#7a6840;--t4:#3d3420;
+  --ok:#2ecc71;--err:#e74c3c;
+  --fh:'Cinzel',serif;--ft:'Cinzel Decorative',serif;--fb:'Cairo',sans-serif;
+  --r:12px;--r2:20px;--r3:32px;--sp:.4s cubic-bezier(.34,1.56,.64,1);--tr:.25s ease;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{overflow-x:hidden;scroll-behavior:smooth}
+body{background:var(--m);color:var(--t1);font-family:var(--fb);line-height:1.7;overflow-x:hidden;min-height:100dvh}
+::selection{background:var(--gold);color:var(--m)}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--m2)}::-webkit-scrollbar-thumb{background:var(--gold-d);border-radius:3px}
+a{text-decoration:none;color:inherit}
+button{font-family:var(--fb);cursor:pointer;border:none;background:none}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes shimmer{to{background-position:200% center}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(46,204,113,.5)}50%{box-shadow:0 0 0 8px rgba(46,204,113,0)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes ctaPulse{0%,100%{box-shadow:0 0 0 0 rgba(212,175,55,.4)}50%{box-shadow:0 0 0 10px rgba(212,175,55,0)}}
+
+/* ── Background ── */
+.bg{position:fixed;inset:0;z-index:-2;background:radial-gradient(ellipse at 20% 20%,rgba(212,175,55,.06),transparent 55%),radial-gradient(ellipse at 80% 80%,rgba(212,175,55,.05),transparent 55%),linear-gradient(145deg,#060606,#0e0e0e 40%,#080808)}
+.bg-v{position:fixed;inset:0;z-index:-1;opacity:.05;background-image:repeating-linear-gradient(30deg,transparent,transparent 100px,rgba(212,175,55,.6) 100px,rgba(212,175,55,.6) 101px),repeating-linear-gradient(150deg,transparent,transparent 80px,rgba(212,175,55,.3) 80px,rgba(212,175,55,.3) 81px)}
+
+/* ── NAV ── */
+nav{position:sticky;top:0;z-index:900;background:rgba(7,7,7,.96);backdrop-filter:blur(28px);border-bottom:1px solid var(--rim);padding:0 clamp(16px,4vw,60px)}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo-mark{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--gold-d),var(--gold));display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-weight:900;font-size:12px;color:var(--m);box-shadow:0 4px 14px rgba(212,175,55,.4)}
+.nav-logo-name{font-family:var(--fh);font-weight:900;font-size:1rem;background:linear-gradient(135deg,var(--gold),var(--gold-b));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-logo-sub{font-size:.6rem;color:var(--t3);letter-spacing:.08em;margin-top:-2px}
+.nav-links{display:flex;gap:4px;align-items:center}
+.nav-link{padding:7px 13px;border-radius:8px;font-size:.79rem;color:var(--t3);transition:all var(--tr);font-weight:600}
+.nav-link:hover{color:var(--gold);background:var(--gg)}
+.nav-cta{padding:8px 20px;border-radius:100px;font-family:var(--fh);font-size:.77rem;font-weight:700;color:var(--m);background:linear-gradient(135deg,var(--gold-d),var(--gold));box-shadow:0 4px 14px rgba(212,175,55,.3);transition:all var(--sp)}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(212,175,55,.5)}
+
+/* ── HERO ── */
+.hero{padding:clamp(56px,10vw,96px) clamp(16px,5vw,60px) clamp(40px,7vw,72px);text-align:center;position:relative;overflow:hidden}
+.hero-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(212,175,55,.07),transparent 65%);pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:7px 22px;border-radius:100px;background:rgba(231,76,60,.12);border:1px solid rgba(231,76,60,.3);font-family:var(--fh);font-size:.73rem;font-weight:700;color:#e74c3c;letter-spacing:.1em;margin-bottom:22px;animation:fadeUp .5s ease both,ctaPulse 2.5s infinite}
+.hero-title{font-family:var(--ft);font-size:clamp(2rem,6vw,4rem);font-weight:900;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,var(--gold-d),var(--gold),var(--gold-b),var(--gold));background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:fadeUp .6s ease both,shimmer 4s linear infinite}
+.hero-sub{font-size:clamp(.9rem,2vw,1.1rem);color:var(--t2);max-width:620px;margin:0 auto 14px;line-height:1.85;animation:fadeUp .7s ease both}
+.hero-note{font-size:.8rem;color:var(--t3);animation:fadeUp .8s ease both;margin-bottom:40px}
+
+/* ── STATS ── */
+.stats-strip{max-width:900px;margin:0 auto 56px;display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:linear-gradient(135deg,rgba(212,175,55,.07),rgba(212,175,55,.03));border:1px solid var(--rim);border-radius:var(--r2);overflow:hidden}
+.stat-item{padding:22px 16px;text-align:center;border-left:1px solid var(--rim)}
+.stat-item:last-child{border-left:none}
+.stat-num{font-family:var(--ft);font-size:1.8rem;font-weight:900;color:var(--gold);display:block;line-height:1;animation:float 3s ease-in-out infinite}
+.stat-num:nth-child(1){animation-delay:.2s}
+.stat-lbl{font-size:.7rem;color:var(--t3);margin-top:6px;letter-spacing:.04em}
+
+/* ── WHY ADVERTISE ── */
+.why-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;max-width:1200px;margin:0 auto 64px;padding:0 clamp(16px,5vw,60px)}
+.why-card{background:linear-gradient(160deg,var(--m3),var(--m2));border:1px solid var(--rim);border-radius:var(--r2);padding:24px;transition:all var(--tr);position:relative;overflow:hidden}
+.why-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0;transition:opacity var(--tr)}
+.why-card:hover{border-color:var(--rim2);transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,.6)}
+.why-card:hover::before{opacity:1}
+.why-icon{font-size:2rem;margin-bottom:12px;display:block;animation:float 3s ease-in-out infinite}
+.why-title{font-family:var(--fh);font-size:.88rem;font-weight:900;color:var(--t1);margin-bottom:8px}
+.why-desc{font-size:.78rem;color:var(--t3);line-height:1.7}
+
+/* ── PACKAGES ── */
+.section{padding:clamp(48px,8vw,80px) clamp(16px,5vw,60px)}
+.container{max-width:1200px;margin:0 auto}
+.sec-hdr{text-align:center;margin-bottom:48px}
+.sec-label{display:inline-flex;align-items:center;gap:7px;padding:5px 18px;border-radius:100px;background:var(--gg);border:1px solid var(--rim2);font-family:var(--fh);font-size:.7rem;font-weight:700;color:var(--gold);letter-spacing:.11em;text-transform:uppercase;margin-bottom:14px}
+.sec-title{font-family:var(--fh);font-size:clamp(1.5rem,4vw,2.6rem);font-weight:900;margin-bottom:10px;color:var(--t1)}
+.sec-title .g{background:linear-gradient(135deg,var(--gold-d),var(--gold),var(--gold-b));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sec-desc{font-size:.88rem;color:var(--t2);max-width:520px;margin:0 auto;line-height:1.85}
+
+.pkg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px}
+.pkg-card{background:linear-gradient(160deg,var(--m3),var(--m2));border:1px solid var(--rim);border-radius:var(--r3);overflow:hidden;position:relative;transition:all var(--tr)}
+.pkg-card:hover{border-color:var(--rim2);transform:translateY(-5px);box-shadow:0 24px 64px rgba(0,0,0,.7),0 0 0 1px var(--rim2)}
+.pkg-card.featured{border-color:var(--gold-d);box-shadow:0 0 0 1px rgba(212,175,55,.2),0 20px 60px rgba(212,175,55,.08);transform:scale(1.03)}
+.pkg-card.featured:hover{transform:scale(1.03) translateY(-5px)}
+.pkg-top-bar{height:3px;background:linear-gradient(90deg,transparent,var(--gold-d),var(--gold),transparent)}
+.pkg-badge-wrap{padding:18px 24px 0;text-align:center}
+.pkg-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 16px;border-radius:100px;font-family:var(--fh);font-size:.68rem;font-weight:700;letter-spacing:.08em}
+.pkg-badge.starter{background:rgba(46,204,113,.12);border:1px solid rgba(46,204,113,.3);color:var(--ok)}
+.pkg-badge.pro{background:var(--gg2);border:1px solid var(--rim2);color:var(--gold)}
+.pkg-badge.premium{background:rgba(139,92,246,.12);border:1px solid rgba(139,92,246,.3);color:#a78bfa}
+.pkg-badge.sponsor{background:linear-gradient(135deg,var(--gold-d),var(--gold));color:var(--m)}
+.pkg-head{padding:20px 24px 16px;border-bottom:1px solid var(--rim);text-align:center}
+.pkg-name{font-family:var(--fh);font-size:1.1rem;font-weight:900;color:var(--t1);margin-bottom:14px}
+.pkg-price-wrap{margin-bottom:6px}
+.pkg-price{font-family:var(--ft);font-size:2.6rem;font-weight:900;background:linear-gradient(135deg,var(--gold-d),var(--gold),var(--gold-b));background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 4s linear infinite;line-height:1}
+.pkg-period{font-size:.75rem;color:var(--t3);margin-top:4px}
+.pkg-note{font-size:.73rem;color:var(--t3);font-style:italic;margin-top:6px}
+.pkg-body{padding:22px 24px}
+.pkg-feats{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:22px}
+.pkg-feats li{display:flex;align-items:flex-start;gap:9px;font-size:.82rem;color:var(--t2);line-height:1.5}
+.feat-yes{width:18px;height:18px;border-radius:50%;background:rgba(46,204,113,.15);border:1px solid rgba(46,204,113,.3);display:flex;align-items:center;justify-content:center;font-size:.65rem;color:var(--ok);flex-shrink:0;margin-top:1px}
+.feat-star{width:18px;height:18px;border-radius:50%;background:var(--gg);border:1px solid var(--rim2);display:flex;align-items:center;justify-content:center;font-size:.6rem;color:var(--gold);flex-shrink:0;margin-top:1px}
+.pkg-btn{width:100%;padding:13px;border-radius:var(--r2);font-family:var(--fh);font-size:.82rem;font-weight:700;letter-spacing:.06em;cursor:pointer;transition:all var(--sp)}
+.pkg-btn.gold{background:linear-gradient(135deg,var(--gold-d),var(--gold));color:var(--m);border:none;box-shadow:0 6px 20px rgba(212,175,55,.3)}
+.pkg-btn.gold:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(212,175,55,.5)}
+.pkg-btn.outline{background:transparent;color:var(--gold);border:1.5px solid var(--rim2)}
+.pkg-btn.outline:hover{background:var(--gg);border-color:var(--rim3);transform:translateY(-2px)}
+.pkg-ribbon{position:absolute;top:14px;left:14px;background:linear-gradient(135deg,var(--gold-d),var(--gold));color:var(--m);font-family:var(--fh);font-size:.62rem;font-weight:900;padding:3px 10px;border-radius:100px;letter-spacing:.06em}
+
+/* ── AD SPOTS VISUAL ── */
+.spots-section{padding:0 clamp(16px,5vw,60px) clamp(48px,8vw,80px)}
+.spots-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;max-width:1200px;margin:0 auto}
+.spot-card{background:linear-gradient(160deg,rgba(212,175,55,.06),rgba(212,175,55,.02));border:2px dashed rgba(212,175,55,.3);border-radius:var(--r2);padding:24px;text-align:center;position:relative;overflow:hidden;transition:all var(--tr);cursor:pointer}
+.spot-card:hover{border-color:rgba(212,175,55,.65);box-shadow:0 8px 32px rgba(0,0,0,.5);transform:translateY(-3px)}
+.spot-icon{font-size:1.8rem;margin-bottom:10px;display:block}
+.spot-title{font-family:var(--fh);font-size:.9rem;font-weight:900;color:var(--gold);margin-bottom:6px}
+.spot-sub{font-size:.76rem;color:var(--t3);margin-bottom:14px;line-height:1.6}
+.spot-sizes{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:14px}
+.spot-size{padding:3px 10px;border-radius:100px;font-size:.64rem;font-weight:600;background:rgba(255,255,255,.04);border:1px solid var(--rim);color:var(--t3)}
+.spot-badge{display:inline-flex;align-items:center;gap:5px;padding:5px 14px;border-radius:100px;font-family:var(--fh);font-size:.7rem;font-weight:700;background:linear-gradient(135deg,var(--gold-d),var(--gold));color:var(--m);letter-spacing:.06em}
+.spot-avail{position:absolute;top:12px;left:12px;width:8px;height:8px;border-radius:50%;background:var(--ok);animation:pulse 1.5s infinite}
+
+/* ── AUDIENCE ── */
+.audience-section{padding:0 clamp(16px,5vw,60px) clamp(48px,8vw,80px)}
+.audience-card{max-width:1200px;margin:0 auto;background:linear-gradient(160deg,var(--m3),var(--m2));border:1px solid var(--rim2);border-radius:var(--r3);padding:clamp(28px,5vw,48px);position:relative;overflow:hidden}
+.audience-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.audience-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,48px);align-items:center}
+.aud-title{font-family:var(--fh);font-size:clamp(1.2rem,3vw,1.8rem);font-weight:900;color:var(--t1);margin-bottom:14px}
+.aud-desc{font-size:.86rem;color:var(--t2);line-height:1.85;margin-bottom:20px}
+.aud-tags{display:flex;flex-wrap:wrap;gap:8px}
+.aud-tag{padding:6px 14px;border-radius:100px;font-size:.76rem;font-weight:700;background:var(--gg);border:1px solid var(--rim2);color:var(--t2)}
+.aud-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.aud-stat{background:rgba(0,0,0,.3);border:1px solid var(--rim);border-radius:var(--r);padding:16px;text-align:center}
+.aud-stat-num{font-family:var(--ft);font-size:1.5rem;font-weight:900;color:var(--gold);display:block}
+.aud-stat-lbl{font-size:.68rem;color:var(--t3);margin-top:4px}
+@media(max-width:640px){.audience-grid{grid-template-columns:1fr}.stats-strip{grid-template-columns:1fr 1fr}}
+
+/* ── HOW IT WORKS ── */
+.steps-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;max-width:1200px;margin:0 auto}
+.step-card{text-align:center;padding:28px 20px;background:linear-gradient(160deg,var(--m3),var(--m2));border:1px solid var(--rim);border-radius:var(--r2);position:relative;transition:all var(--tr)}
+.step-card:hover{border-color:var(--rim2);transform:translateY(-3px)}
+.step-num{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--gold-d),var(--gold));display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-size:1rem;font-weight:900;color:var(--m);margin:0 auto 14px;box-shadow:0 4px 16px rgba(212,175,55,.35)}
+.step-title{font-family:var(--fh);font-size:.84rem;font-weight:900;color:var(--t1);margin-bottom:7px}
+.step-desc{font-size:.76rem;color:var(--t3);line-height:1.7}
+.step-arrow{position:absolute;top:50%;left:-10px;transform:translateY(-50%);font-size:.8rem;color:var(--gold-d)}
+
+/* ── FAQ ── */
+.faq-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+.faq-item{background:linear-gradient(160deg,var(--m3),var(--m2));border:1px solid var(--rim);border-radius:var(--r2);overflow:hidden;transition:border-color var(--tr)}
+.faq-item.open{border-color:var(--rim2)}
+.faq-q{padding:16px 20px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;gap:12px}
+.faq-q-txt{font-size:.85rem;font-weight:700;color:var(--t1)}
+.faq-icon{font-size:1rem;color:var(--gold);transition:transform .3s;flex-shrink:0}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-a{padding:0 20px;max-height:0;overflow:hidden;transition:all .35s ease;font-size:.81rem;color:var(--t2);line-height:1.8}
+.faq-item.open .faq-a{padding:0 20px 16px;max-height:200px}
+
+/* ── CTA FINAL ── */
+.cta-final{max-width:800px;margin:0 auto;padding:clamp(36px,6vw,56px);background:linear-gradient(145deg,rgba(212,175,55,.1),rgba(212,175,55,.03));border:2px solid var(--rim2);border-radius:var(--r3);text-align:center;position:relative;overflow:hidden}
+.cta-final::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.cta-final-title{font-family:var(--ft);font-size:clamp(1.4rem,4vw,2.4rem);font-weight:900;margin-bottom:12px;background:linear-gradient(135deg,var(--gold-d),var(--gold),var(--gold-b));background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 3s linear infinite}
+.cta-final-desc{font-size:.9rem;color:var(--t2);margin-bottom:28px;line-height:1.85}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-gold{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:100px;font-family:var(--fh);font-size:.88rem;font-weight:700;letter-spacing:.06em;color:var(--m);background:linear-gradient(135deg,var(--gold-d),var(--gold),var(--gold-l));background-size:200% auto;border:none;cursor:pointer;box-shadow:0 6px 24px rgba(212,175,55,.35);transition:all var(--sp);text-decoration:none}
+.btn-gold:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 12px 36px rgba(212,175,55,.55);background-position:right center}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;border-radius:100px;font-family:var(--fh);font-size:.85rem;font-weight:700;letter-spacing:.06em;color:var(--gold);border:1.5px solid var(--rim2);background:transparent;cursor:pointer;transition:all var(--sp);text-decoration:none}
+.btn-outline:hover{background:var(--gg);border-color:var(--rim3);transform:translateY(-2px)}
+
+/* ── Sep ── */
+.sep{height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.18;margin:0 clamp(16px,5vw,60px)}
+
+/* ── Toast ── */
+#toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(16px);background:var(--m4);border:1px solid var(--rim2);color:var(--t1);padding:10px 22px;border-radius:100px;font-size:.82rem;font-weight:600;z-index:9999;opacity:0;pointer-events:none;transition:all .3s;white-space:nowrap}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ── Footer ── */
+footer{padding:36px clamp(16px,5vw,60px) 24px;border-top:1px solid var(--rim);text-align:center}
+.footer-links{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:16px}
+.footer-link{font-size:.78rem;color:var(--t3);padding:5px 12px;border-radius:var(--r);transition:color var(--tr)}
+.footer-link:hover{color:var(--gold)}
+.footer-copy{font-size:.72rem;color:var(--t4)}
+
+@media(max-width:600px){
+  .pkg-card.featured{transform:scale(1)}
+  .cta-btns{flex-direction:column;align-items:center}
+  .aud-stats{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+<div class="bg-v"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-mark">ST</div>
+      <div>
+        <div class="nav-logo-name">Smart Tech</div>
+        <div class="nav-logo-sub">Advertising</div>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">🏠 الرئيسية</a>
+      <a href="affiliates.html" class="nav-link">🛠️ الأدوات</a>
+      <a href="blog.html" class="nav-link">📝 المدونة</a>
+    </div>
+    <button class="nav-cta" onclick="openWA('إعلان - من صفحة الإعلانات')">💬 تواصل الآن</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-badge">🔥 مساحات إعلانية محدودة</div>
+  <h1 class="hero-title">أعلن مع Smart Tech<br><span style="font-size:.6em">وصِل لعملائك الحقيقيين</span></h1>
+  <p class="hero-sub">منصة Smart Tech تجمع أصحاب الأعمال والمهنيين والمهتمين بالتكنولوجيا في مصر — ضع إعلانك أمام الجمهور المثالي لخدماتك</p>
+  <p class="hero-note">📍 مصر والخليج · 🌍 3 لغات · 📱 90% زيارات موبايل · ⚡ تفعيل خلال 24 ساعة</p>
+
+  <!-- STATS -->
+  <div class="stats-strip">
+    <div class="stat-item">
+      <span class="stat-num">17+</span>
+      <div class="stat-lbl">أداة مجانية</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">24/7</span>
+      <div class="stat-lbl">إعلانك شغّال</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">3</span>
+      <div class="stat-lbl">لغات (AR·EN·FR)</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">100%</span>
+      <div class="stat-lbl">جمهور مستهدف</div>
+    </div>
+  </div>
+</div>
+
+<!-- WHY ADVERTISE HERE -->
+<div class="why-grid">
+  <div class="why-card">
+    <span class="why-icon">🎯</span>
+    <div class="why-title">جمهور مستهدف 100%</div>
+    <div class="why-desc">كل زائر لصفحة الأدوات صاحب عمل أو مهني يبحث عن حلول رقمية — مش زائر عشوائي</div>
+  </div>
+  <div class="why-card">
+    <span class="why-icon">⏱️</span>
+    <div class="why-title">وقت تصفح طويل</div>
+    <div class="why-desc">الأدوات المجانية تخلي الزائر يقعد في الصفحة وقت طويل = إعلانك يُرى أكتر</div>
+  </div>
+  <div class="why-card">
+    <span class="why-icon">🔄</span>
+    <div class="why-title">زيارات يومية متكررة</div>
+    <div class="why-desc">الطقس والذهب والعملات أدوات يومية — نفس الشخص بيرجع كل يوم = تعرّض متكرر لإعلانك</div>
+  </div>
+  <div class="why-card">
+    <span class="why-icon">💰</span>
+    <div class="why-title">أسعار لا تُقاوَم</div>
+    <div class="why-desc">من 100 جنيه بس — أرخص بكتير من أي منصة إعلانية أخرى مع نتائج أفضل</div>
+  </div>
+</div>
+
+<div class="sep"></div>
+
+<!-- AD SPOTS -->
+<div class="spots-section">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="sec-hdr">
+      <div class="sec-label">📍 المواضع الإعلانية</div>
+      <h2 class="sec-title">اختر <span class="g">مكانك</span></h2>
+      <p class="sec-desc">كل موضع إعلاني له جمهوره ومعدل نقره الخاص</p>
+    </div>
+    <div class="spots-grid">
+      <div class="spot-card" onclick="openWA('حجز بانر أعلى الصفحة')">
+        <div class="spot-avail"></div>
+        <span class="spot-icon">📢</span>
+        <div class="spot-title">بانر أعلى الصفحة</div>
+        <div class="spot-sub">أول ما يفتح الصفحة يشوف إعلانك — أعلى معدل مشاهدة</div>
+        <div class="spot-sizes"><span class="spot-size">728×90</span><span class="spot-size">970×90</span></div>
+        <div class="spot-badge">من 300 ج/شهر</div>
+      </div>
+      <div class="spot-card" onclick="openWA('حجز بانر وسط الصفحة')">
+        <div class="spot-avail"></div>
+        <span class="spot-icon">🎯</span>
+        <div class="spot-title">بانر وسط الأدوات</div>
+        <div class="spot-sub">يظهر بين الأدوات — الزائر في قمة تركيزه وانتباهه</div>
+        <div class="spot-sizes"><span class="spot-size">300×250</span><span class="spot-size">336×280</span></div>
+        <div class="spot-badge">من 200 ج/شهر</div>
+      </div>
+      <div class="spot-card" onclick="openWA('حجز بانر أسفل الصفحة')">
+        <div class="spot-avail"></div>
+        <span class="spot-icon">💡</span>
+        <div class="spot-title">بانر أسفل الصفحة</div>
+        <div class="spot-sub">يشوفه من يصل للنهاية — زائر مهتم ومتفاعل</div>
+        <div class="spot-sizes"><span class="spot-size">728×90</span><span class="spot-size">Mobile</span></div>
+        <div class="spot-badge">من 100 ج/شهر</div>
+      </div>
+      <div class="spot-card" onclick="openWA('حجز بطاقة أداة مميزة')">
+        <div class="spot-avail"></div>
+        <span class="spot-icon">⭐</span>
+        <div class="spot-title">بطاقة أداة مميزة</div>
+        <div class="spot-sub">إعلانك على شكل بطاقة أداة داخل الشبكة — مش إعلان تقليدي</div>
+        <div class="spot-sizes"><span class="spot-size">Native Ad</span><span class="spot-size">340×auto</span></div>
+        <div class="spot-badge">من 400 ج/شهر</div>
+      </div>
+      <div class="spot-card" onclick="openWA('حجز سبونسر حصري')">
+        <div class="spot-avail"></div>
+        <span class="spot-icon">👑</span>
+        <div class="spot-title">سبونسر حصري</div>
+        <div class="spot-sub">شعارك مع كل أداة + ذكر في نتائج الأدوات + بانر دائم</div>
+        <div class="spot-sizes"><span class="spot-size">Exclusive</span><span class="spot-size">Full Page</span></div>
+        <div class="spot-badge">من 500 ج/شهر</div>
+      </div>
+      <div class="spot-card" onclick="openWA('إعلان نشرة بريدية')">
+        <div class="spot-avail"></div>
+        <span class="spot-icon">📧</span>
+        <div class="spot-title">إعلان واتساب / تيليجرام</div>
+        <div class="spot-sub">نرسل إعلانك لقناتنا وقوائمنا على واتساب وتيليجرام</div>
+        <div class="spot-sizes"><span class="spot-size">Broadcast</span><span class="spot-size">1080×1080</span></div>
+        <div class="spot-badge">من 150 ج</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sep"></div>
+
+<!-- PACKAGES -->
+<div class="section">
+  <div class="container">
+    <div class="sec-hdr">
+      <div class="sec-label">💰 الباقات والأسعار</div>
+      <h2 class="sec-title">باقة <span class="g">تناسب ميزانيتك</span></h2>
+      <p class="sec-desc">كل الباقات تشمل تصميم الإعلان مجاناً + تقرير أسبوعي بالنتائج</p>
+    </div>
+
+    <div class="pkg-grid">
+
+      <!-- STARTER -->
+      <div class="pkg-card">
+        <div class="pkg-top-bar" style="background:linear-gradient(90deg,transparent,var(--ok),transparent)"></div>
+        <div class="pkg-badge-wrap">
+          <div class="pkg-badge starter">⭐ مبتدئ</div>
+        </div>
+        <div class="pkg-head">
+          <div class="pkg-name">باقة البداية</div>
+          <div class="pkg-price-wrap">
+            <div class="pkg-price" style="background:linear-gradient(135deg,var(--ok),#27ae60);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">100</div>
+            <div class="pkg-period">جنيه / شهر</div>
+          </div>
+          <div class="pkg-note">مثالية لتجربة الإعلان لأول مرة</div>
+        </div>
+        <div class="pkg-body">
+          <ul class="pkg-feats">
+            <li><div class="feat-yes">✓</div>بانر أسفل الصفحة</li>
+            <li><div class="feat-yes">✓</div>مدة شهر كامل</li>
+            <li><div class="feat-yes">✓</div>تصميم الإعلان مجاناً</li>
+            <li><div class="feat-yes">✓</div>رابط مباشر لموقعك أو واتساب</li>
+            <li><div class="feat-yes">✓</div>تفعيل خلال 24 ساعة</li>
+          </ul>
+          <button class="pkg-btn outline" onclick="openWA('أريد باقة البداية 100 جنيه')">ابدأ الآن ✦</button>
+        </div>
+      </div>
+
+      <!-- PRO — FEATURED -->
+      <div class="pkg-card featured">
+        <div class="pkg-ribbon">🏆 الأكثر طلباً</div>
+        <div class="pkg-top-bar"></div>
+        <div class="pkg-badge-wrap">
+          <div class="pkg-badge pro">🔥 محترف</div>
+        </div>
+        <div class="pkg-head">
+          <div class="pkg-name">الباقة الاحترافية</div>
+          <div class="pkg-price-wrap">
+            <div class="pkg-price">300</div>
+            <div class="pkg-period">جنيه / شهر</div>
+          </div>
+          <div class="pkg-note">أفضل قيمة مقابل السعر</div>
+        </div>
+        <div class="pkg-body">
+          <ul class="pkg-feats">
+            <li><div class="feat-star">★</div>بانر وسط الأدوات (أعلى تفاعل)</li>
+            <li><div class="feat-star">★</div>+ بانر أسفل الصفحة</li>
+            <li><div class="feat-yes">✓</div>مدة شهر كامل</li>
+            <li><div class="feat-yes">✓</div>تصميم احترافي مجاناً</li>
+            <li><div class="feat-yes">✓</div>تقرير أسبوعي بالنقرات</li>
+            <li><div class="feat-yes">✓</div>تعديل الإعلان مرة مجاناً</li>
+            <li><div class="feat-yes">✓</div>أولوية الظهور</li>
+          </ul>
+          <button class="pkg-btn gold" onclick="openWA('أريد الباقة الاحترافية 300 جنيه')">احجز مكانك ✦</button>
+        </div>
+      </div>
+
+      <!-- PREMIUM -->
+      <div class="pkg-card">
+        <div class="pkg-top-bar" style="background:linear-gradient(90deg,transparent,#a78bfa,transparent)"></div>
+        <div class="pkg-badge-wrap">
+          <div class="pkg-badge premium">💎 مميز</div>
+        </div>
+        <div class="pkg-head">
+          <div class="pkg-name">الباقة المميزة</div>
+          <div class="pkg-price-wrap">
+            <div class="pkg-price" style="background:linear-gradient(135deg,#8b5cf6,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">500</div>
+            <div class="pkg-period">جنيه / شهر</div>
+          </div>
+          <div class="pkg-note">للعلامات التجارية الطموحة</div>
+        </div>
+        <div class="pkg-body">
+          <ul class="pkg-feats">
+            <li><div class="feat-star">★</div>بانر أعلى الصفحة (أقصى ظهور)</li>
+            <li><div class="feat-star">★</div>بطاقة أداة مميزة Native Ad</li>
+            <li><div class="feat-star">★</div>بانر وسط + أسفل الصفحة</li>
+            <li><div class="feat-yes">✓</div>إعلان واتساب/تيليجرام broadcast</li>
+            <li><div class="feat-yes">✓</div>تقارير يومية</li>
+            <li><div class="feat-yes">✓</div>تعديلات غير محدودة</li>
+            <li><div class="feat-yes">✓</div>دعم مدير حساب مخصص</li>
+          </ul>
+          <button class="pkg-btn outline" style="border-color:rgba(139,92,246,.4);color:#a78bfa" onclick="openWA('أريد الباقة المميزة 500 جنيه')">احجز الآن ✦</button>
+        </div>
+      </div>
+
+      <!-- SPONSOR -->
+      <div class="pkg-card" style="grid-column:1/-1;max-width:500px;margin:0 auto;width:100%">
+        <div class="pkg-top-bar"></div>
+        <div class="pkg-badge-wrap">
+          <div class="pkg-badge sponsor">👑 سبونسر حصري</div>
+        </div>
+        <div class="pkg-head">
+          <div class="pkg-name">الشراكة الحصرية</div>
+          <div class="pkg-price-wrap">
+            <div class="pkg-price">حسب الاتفاق</div>
+            <div class="pkg-period">تواصل للتفاصيل</div>
+          </div>
+          <div class="pkg-note">شعارك على كل أداة + ذكر في نتائج الأدوات</div>
+        </div>
+        <div class="pkg-body">
+          <ul class="pkg-feats" style="display:grid;grid-template-columns:1fr 1fr;gap:9px">
+            <li><div class="feat-star">★</div>شعارك مع كل أداة</li>
+            <li><div class="feat-star">★</div>ذكر في نتائج الأدوات</li>
+            <li><div class="feat-star">★</div>كل المواضع الإعلانية</li>
+            <li><div class="feat-star">★</div>broadcast أسبوعي</li>
+            <li><div class="feat-yes">✓</div>تقارير مفصلة</li>
+            <li><div class="feat-yes">✓</div>حصرية في مجالك</div></li>
+          </ul>
+          <button class="pkg-btn gold" onclick="openWA('أريد الشراكة الحصرية Sponsor')" style="max-width:300px;margin:0 auto;display:block">تواصل للتفاصيل ✦</button>
+        </div>
+      </div>
+
+    </div>
+
+    <p style="text-align:center;font-size:.76rem;color:var(--t4);margin-top:20px;font-family:var(--fh)">
+      💡 جميع الأسعار قابلة للتفاوض · الدفع مقدم · تصميم الإعلان مجاناً
+    </p>
+  </div>
+</div>
+
+<div class="sep"></div>
+
+<!-- AUDIENCE -->
+<div class="audience-section">
+  <div class="audience-card">
+    <div class="audience-grid">
+      <div>
+        <h2 class="aud-title">من هو جمهورنا؟</h2>
+        <p class="aud-desc">زوار Smart Tech ليسوا زواراً عشوائيين — هم أصحاب أعمال ومهنيون يبحثون فعلاً عن حلول ومنتجات وخدمات. إعلانك أمامهم في اللحظة المثلى.</p>
+        <div class="aud-tags">
+          <div class="aud-tag">🏪 أصحاب محلات</div>
+          <div class="aud-tag">💼 رجال أعمال</div>
+          <div class="aud-tag">📱 مسوّقون</div>
+          <div class="aud-tag">💻 مطورون</div>
+          <div class="aud-tag">🎨 مصممون</div>
+          <div class="aud-tag">🧮 محاسبون</div>
+          <div class="aud-tag">🇪🇬 مصر</div>
+          <div class="aud-tag">🇸🇦🇦🇪 الخليج</div>
+        </div>
+      </div>
+      <div class="aud-stats">
+        <div class="aud-stat">
+          <span class="aud-stat-num">17</span>
+          <div class="aud-stat-lbl">أداة تجذب الزيارات</div>
+        </div>
+        <div class="aud-stat">
+          <span class="aud-stat-num">3</span>
+          <div class="aud-stat-lbl">لغات (AR·EN·FR)</div>
+        </div>
+        <div class="aud-stat">
+          <span class="aud-stat-num">∞</span>
+          <div class="aud-stat-lbl">زيارات متكررة يومياً</div>
+        </div>
+        <div class="aud-stat">
+          <span class="aud-stat-num">24/7</span>
+          <div class="aud-stat-lbl">إعلانك شغّال</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sep"></div>
+
+<!-- HOW IT WORKS -->
+<div class="section">
+  <div class="container">
+    <div class="sec-hdr">
+      <div class="sec-label">⚡ كيف يعمل</div>
+      <h2 class="sec-title">إعلانك <span class="g">في 4 خطوات</span></h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <div class="step-title">تواصل معنا</div>
+        <div class="step-desc">ابعتلنا رسالة على واتساب واختار الباقة المناسبة ليك</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <div class="step-title">نصمّم إعلانك</div>
+        <div class="step-desc">فريقنا يصمم إعلانك احترافياً بألوان وهوية نشاطك — مجاناً</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <div class="step-title">تعتمد وتدفع</div>
+        <div class="step-desc">تراجع التصميم وتوافق، ثم الدفع بأي طريقة مناسبة ليك</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">4</div>
+        <div class="step-title">يُنشر خلال 24h</div>
+        <div class="step-desc">إعلانك يظهر للزوار وتستلم تقارير أسبوعية بالنتائج</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sep"></div>
+
+<!-- FAQ -->
+<div class="section" style="padding-top:0">
+  <div class="container">
+    <div class="sec-hdr">
+      <div class="sec-label">❓ أسئلة شائعة</div>
+      <h2 class="sec-title">أجوبة <span class="g">سريعة</span></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q"><div class="faq-q-txt">هل يمكنني رؤية الإعلان قبل النشر؟</div><div class="faq-icon">+</div></div>
+        <div class="faq-a">بالطبع! نرسلك معاينة كاملة للإعلان قبل النشر وتقدر تطلب تعديلات حتى تتأكد أنه مثالي.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q"><div class="faq-q-txt">ما هي طرق الدفع المتاحة؟</div><div class="faq-icon">+</div></div>
+        <div class="faq-a">Vodafone Cash · Fawry · InstaPay · تحويل بنكي. الدفع مقدم كامل لضمان حجز مكانك.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q"><div class="faq-q-txt">هل يمكنني تغيير الإعلان خلال الشهر؟</div><div class="faq-icon">+</div></div>
+        <div class="faq-a">الباقة الاحترافية تشمل تعديلاً واحداً مجاناً. الباقة المميزة تعديلات غير محدودة.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q"><div class="faq-q-txt">كيف أعرف نتائج إعلاني؟</div><div class="faq-icon">+</div></div>
+        <div class="faq-a">نرسلك تقرير أسبوعي بعدد المشاهدات والنقرات. الباقة المميزة تقارير يومية على واتساب.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q"><div class="faq-q-txt">هل يمكن الإعلان لأكثر من شهر؟</div><div class="faq-icon">+</div></div>
+        <div class="faq-a">نعم! الإعلان لمدة 3 شهور يحصل على خصم 15%، و6 شهور خصم 25%.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sep"></div>
+
+<!-- CTA FINAL -->
+<div class="section" style="padding-top:0">
+  <div class="container">
+    <div class="cta-final">
+      <h2 class="cta-final-title">ابدأ إعلانك اليوم</h2>
+      <p class="cta-final-desc">المساحات الإعلانية محدودة — تواصل معنا الآن واحجز مكانك قبل الامتلاء<br>من 100 جنيه فقط · تصميم مجاني · تفعيل خلال 24 ساعة</p>
+      <div class="cta-btns">
+        <button class="btn-gold" onclick="openWA('أريد إعلان على Smart Tech')">💬 تواصل على واتساب الآن</button>
+        <a href="affiliates.html" class="btn-outline">🛠️ شوف الأدوات</a>
+        <a href="index.html" class="btn-outline">🏠 الموقع الرئيسي</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-links">
+    <a href="index.html" class="footer-link">🏠 الرئيسية</a>
+    <a href="affiliates.html" class="footer-link">🛠️ الأدوات المجانية</a>
+    <a href="blog.html" class="footer-link">📝 المدونة</a>
+    <a href="store.html" class="footer-link">🛒 المتجر</a>
+    <a href="smart-shop-engine.html" class="footer-link">🛍️ ديمو المتجر</a>
+    <a href="smart-bot-engine.html" class="footer-link">🤖 ديمو البوت</a>
+  </div>
+  <div class="footer-copy">
+    © <span id="fyear"></span> Smart Tech Egypt — جميع الحقوق محفوظة ✦ مصنوعة بـ ❤️ في مصر 🇪🇬
+  </div>
+</footer>
+
+<div id="toast"></div>
+
+<script>
+'use strict';
+const _wa = atob('MjAxMjI5MzE3MzEz');
+document.getElementById('fyear').textContent = new Date().getFullYear();
+
+function openWA(label) {
+  const msg = encodeURIComponent(
+    'مرحباً Smart Tech! 👋\n' +
+    'أريد الاستفسار عن الإعلان:\n' +
+    '📋 ' + (label || 'إعلان عام') + '\n\n' +
+    'ممكن تبعتلي تفاصيل الباقات والأسعار؟ 🙏'
+  );
+  window.open('https://wa.me/' + _wa + '?text=' + msg, '_blank', 'noopener,noreferrer');
+}
+
+function toggleFaq(el) {
+  const isOpen = el.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(f => f.classList.remove('open'));
+  if (!isOpen) el.classList.add('open');
+}
+
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  clearTimeout(t._t); t._t = setTimeout(() => t.classList.remove('show'), 3000);
+}
+</script>
+</body>
+</html>
